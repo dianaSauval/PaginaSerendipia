@@ -1,0 +1,22 @@
+.about{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: justify;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.img{
+    width: 400px;
+    height: 400px;
+    background-color: aqua;
+    border-radius:50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.text{
+    max-width: 500px;
+}

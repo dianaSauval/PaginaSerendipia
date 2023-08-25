@@ -1,0 +1,85 @@
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+    position: relative;
+    background-color: black;
+  }
+
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+/* .banner{
+    width: 100%;
+    height: 500px;
+    background: url("../img/foto1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+} */
+
+
+  .player-wrapper .wave{
+    position: absolute;
+    width: 100%;
+    height: 143px;
+    bottom: 0;
+    left: 0;
+    background: url("../img/wave.png");
+    animation: animate 10s linear infinite;
+}
+
+.player-wrapper .wave:before{
+    content: "";
+    width: 100%;
+    height: 143px;
+    background: url("../img/wave.png");
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0.4;
+    animation: animate-reverse 10s linear infinite;
+}
+
+.player-wrapper .wave:after{
+    content: "";
+    width: 100%;
+    height: 143px;
+    background: url("../img/wave.png");
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0.6;
+    animation-delay: -5s;
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: 1360px;
+    }
+    
+}
+@keyframes animate-reverse {
+    0%{
+        background-position: 1360px;
+    }
+    100%{
+        background-position: 0;
+    }    
+}
+
+
+
+
+/* .capaTransparente{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(130deg, #509fc9, #e83b59);
+    opacity: 0.6;
+} */
