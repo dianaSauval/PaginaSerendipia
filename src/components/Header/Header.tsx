@@ -10,8 +10,9 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import Divider from '@mui/material/Divider';
 import "./header.css";
-import { Button } from "@mui/material";
+import { Button, Fade, Grow } from "@mui/material";
 
 function Header() {
   const { t, i18n } = useTranslation(["global"]);
@@ -55,7 +56,7 @@ function Header() {
             <ListItemText primary={t("language")} />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
-          <Collapse in={open} timeout="auto" unmountOnExit>
+          <Fade  in={open} mountOnEnter unmountOnExit>
             <List component="div" disablePadding className="listOptions">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemText
@@ -72,7 +73,7 @@ function Header() {
                 />
               </ListItemButton>
             </List>
-          </Collapse>
+          </Fade>
         </List>
         <div className="networks">
           <InstagramIcon />

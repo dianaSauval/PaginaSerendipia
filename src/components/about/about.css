@@ -1,16 +1,14 @@
 .about{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: justify;
-    padding: 40px;
-    margin-top: 40px;
+    gap: 40px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    color: #08090C;
 }
 
 .img{
     width: 400px;
     height: 400px;
-    background-color: aqua;
     border-radius:50%;
     background-repeat: no-repeat;
     background-size: cover;
