@@ -1,9 +1,7 @@
 import * as React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import IconButton from "@mui/material/IconButton";
-import ReactPlayer from "react-player";
+import { Element } from "react-scroll";
 
 export default function TitlebarImageList() {
   function srcset(image: string, size: number, rows = 1, cols = 1) {
@@ -17,34 +15,36 @@ export default function TitlebarImageList() {
 
   return (
     <>
-      <h1>Fotos</h1>
-      <ImageList
-        sx={{ width: 800, height: 700 }}
-        variant="quilted"
-        cols={4}
-        rowHeight={121}
-      >
-        {itemData.map((item) => (
-          <ImageListItem
-            key={item.img}
-            cols={item.cols || 1}
-            rows={item.rows || 1}
-          >
-            <img
-              {...srcset(item.img, 121, item.rows, item.cols)}
-              alt={item.title}
-              loading="lazy"
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
+      <Element name="photos">
+        <h1>Fotos</h1>
+        <ImageList
+          sx={{ width: 800, height: 700 }}
+          variant="quilted"
+          cols={4}
+          rowHeight={121}
+        >
+          {itemData.map((item) => (
+            <ImageListItem
+              key={item.img}
+              cols={item.cols || 1}
+              rows={item.rows || 1}
+            >
+              <img
+                {...srcset(item.img, 121, item.rows, item.cols)}
+                alt={item.title}
+                loading="lazy"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </Element>
     </>
   );
 }
 
 const itemData = [
   {
-    img: "https://drive.google.com/file/d/1Xd7yAc6WSc1LQuTiDDt1DItIv6YDx9nN/view?usp=drive_link",
+    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     title: "Breakfast",
     rows: 2,
     cols: 2,

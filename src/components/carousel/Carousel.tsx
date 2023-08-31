@@ -6,6 +6,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import "./carousel.css";
 import ReactPlayer from "react-player";
+import { Element } from "react-scroll";
 
 export default function CarouselExample(props: any) {
   var items = [
@@ -27,37 +28,35 @@ export default function CarouselExample(props: any) {
   ];
 
   return (
-    <div
-      style={{
-        width: "60%",
-      }}
-    >
-      <h1>Videos</h1>
-      <Carousel
-        navButtonsAlwaysVisible={true}
-        fullHeightHover={true} // We want the nav buttons wrapper to only be as big as the button element is
-        navButtonsProps={{
-          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
-          style: {
-            backgroundColor: "#0B0C10",
-            borderRadius: "50%",
-          },
-        }}
-        navButtonsWrapperProps={{
-          // Move the buttons to the bottom. Unsetting top here to override default style.
-          style: {
-            bottom: "0",
-            top: "unset",
-          },
-        }}
-        NextIcon={<NavigateNextIcon />} // Change the "inside" of the next button to "next"
-        PrevIcon={<NavigateBeforeIcon />}
-      >
-        {items.map((item, i) => (
-          <Item key={i} item={item} />
-        ))}
-      </Carousel>
-    </div>
+    <Element name="videos" className="videoContent">
+      <div>
+        <h1>Videos</h1>
+        <Carousel
+          navButtonsAlwaysVisible={true}
+          fullHeightHover={true} // We want the nav buttons wrapper to only be as big as the button element is
+          navButtonsProps={{
+            // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+            style: {
+              backgroundColor: "#0B0C10",
+              borderRadius: "50%",
+            },
+          }}
+          navButtonsWrapperProps={{
+            // Move the buttons to the bottom. Unsetting top here to override default style.
+            style: {
+              bottom: "0",
+              top: "unset",
+            },
+          }}
+          NextIcon={<NavigateNextIcon />} // Change the "inside" of the next button to "next"
+          PrevIcon={<NavigateBeforeIcon />}
+        >
+          {items.map((item, i) => (
+            <Item key={i} item={item} />
+          ))}
+        </Carousel>
+      </div>
+    </Element>
   );
 }
 
@@ -89,8 +88,8 @@ function Item(props: any) {
         />
         <div className="dppal">
           <div className="dtexto">
-          <h2>{props.item.name}</h2>
-          <p>{props.item.description}</p>
+            <h2>{props.item.name}</h2>
+            <p>{props.item.description}</p>
           </div>
           <div className="dfondo"></div>
         </div>

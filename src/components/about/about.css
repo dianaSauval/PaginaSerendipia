@@ -1,6 +1,6 @@
 .about{
     display: flex;
-    gap: 40px;
+    gap: 80px;
     margin-top: 80px;
     margin-bottom: 80px;
     color: #08090C;
@@ -17,4 +17,6 @@
 
 .text{
     max-width: 500px;
+    text-align: justify;
+    margin-top: 20px;
 }

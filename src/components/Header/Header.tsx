@@ -10,9 +10,10 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import Divider from '@mui/material/Divider';
 import "./header.css";
 import { Button, Fade, Grow } from "@mui/material";
+import { Link, NavLink } from "react-router-dom";
+import { Link as LinkScroll } from "react-scroll";
 
 function Header() {
   const { t, i18n } = useTranslation(["global"]);
@@ -36,11 +37,21 @@ function Header() {
     <div className="header">
       <h1>Dúo Serendipia</h1>
       <div className="buttons">
-        <Button variant="outlined">{t("home")}</Button>
-        <Button variant="outlined">{t("about")}</Button>
-        <Button variant="outlined">{t("photos")}</Button>
-        <Button variant="outlined">{t("videos")}</Button>
-        <Button variant="outlined">{t("contact")}</Button>
+        <LinkScroll smooth={true} offset={-80} to="banner">
+          <Button variant="outlined">{t("home")}</Button>
+        </LinkScroll>
+        <LinkScroll smooth={true} offset={-90} to="about">
+          <Button variant="outlined">{t("about")}</Button>
+        </LinkScroll>
+        <LinkScroll smooth={true} offset={-70} to="videos">
+          <Button variant="outlined">{t("videos")}</Button>
+        </LinkScroll>
+        <LinkScroll smooth={true} offset={-70} to="photos">
+          <Button variant="outlined">{t("photos")}</Button>
+        </LinkScroll>
+        <LinkScroll smooth={true} offset={-70} to="photos">
+          <Button variant="outlined">{t("contact")}</Button>
+        </LinkScroll>
       </div>
       <div className="languageAndNetworks">
         <List
@@ -56,7 +67,7 @@ function Header() {
             <ListItemText primary={t("language")} />
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
-          <Fade  in={open} mountOnEnter unmountOnExit>
+          <Fade in={open} mountOnEnter unmountOnExit>
             <List component="div" disablePadding className="listOptions">
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemText
@@ -76,8 +87,18 @@ function Header() {
           </Fade>
         </List>
         <div className="networks">
-          <InstagramIcon />
-          <YouTubeIcon sx={{ fontSize: 30 }} />
+          <NavLink
+            to="https://www.instagram.com/un.duo.serendipia"
+            target="_blank"
+          >
+            <InstagramIcon />
+          </NavLink>
+          <NavLink
+            to="https://www.youtube.com/channel/UCp-fAGAGlR9Qfv8dfUER4Rg"
+            target="_blank"
+          >
+            <YouTubeIcon sx={{ fontSize: 30 }} />
+          </NavLink>
         </div>
       </div>
     </div>

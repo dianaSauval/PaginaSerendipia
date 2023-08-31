@@ -3,10 +3,12 @@ import Wave from "react-wavify";
 import Video from "../videos/trailer.mp4";
 import ReactPlayer from "react-player";
 import "./banner.css"
+import { Element } from "react-scroll";
 
 const Banner = () => {
   return (
     <>
+    <Element name="banner">
       <div className="player-wrapper">
         <ReactPlayer
           url={Video}
@@ -20,6 +22,7 @@ const Banner = () => {
         />
         <div className="wave"></div>
       </div>
+      </Element>
     </>
   );
 };

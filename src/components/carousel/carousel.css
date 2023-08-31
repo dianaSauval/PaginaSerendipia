@@ -1,3 +1,14 @@
+.videoContent{
+    text-align:center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.videoContent h1{
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
 .carouselImg{
     display: flex;
     flex-direction: column;
