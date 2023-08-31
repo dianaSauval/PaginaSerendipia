@@ -1,11 +1,33 @@
 {
-    "title": "Hola",
-    "home": "Inicio",
-    "about": "Nosotros",
-    "photos": "Fotos",
-    "videos": "Videos",
-    "contact": "Contacto",
-    "language": "Lenguaje",
-    "english": "Ingles",
-    "spanish": "Español"
+  "title": "Hola",
+  "home": "Inicio",
+  "about": "Nosotros",
+  "photos": "Fotos",
+  "videos": "Videos",
+  "contact": "Contacto",
+  "language": "Lenguaje",
+  "english": "Ingles",
+  "spanish": "Español",
+  "aboutSection": {
+    "title": "¿Quienes somos?",
+    "p1": "Serendipia es un dúo multidisciplinario que en su búsqueda artística desarrolla una estética de movimiento impecable. La diversidad de estilos de danza y acrobacia hacen que sea una creación no convencional que manifiesta su personalidad innovadora.",
+    "p2": "Los enlaces de cada movimiento entre las acrobacias y la danza componen imágenes impactantes y sorpresivas para el público. Los cuerpos se entrecruzan y desenvuelven, se trasladan por el suelo y el aire, se conectan y conforman el vínculo de una pareja que llena el escenario con su presencia."
+  },
+  "videoItems": {
+    "item1": {
+      "name": "Al Compás del Pivot",
+      "description": "Número de Tango y Rueda Cyr"
+    },
+    "item2": {
+      "name": "Contraparte",
+      "description": "Número de Acrobacia en dúo"
+    },
+    "item3": {
+      "name": "Bruno Mars",
+      "description": "Número de Rueda Cyr de José Figueroa"
+    }
+  },
+  "photosSection":{
+    "title":"Fotos"
+  }
 }

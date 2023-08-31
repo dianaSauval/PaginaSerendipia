@@ -2,28 +2,19 @@ import React from "react";
 import "./about.css";
 import foto from "../img/ACRODUO 31-10-22 26.jpg";
 import { Element } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation(["global"]);
+
   return (
     <Element name="about">
       <div className="about">
         <div>
-          <h1>¿Quienes somos?</h1>
+          <h1>{t("aboutSection.title")}</h1>
           <div className="text">
-            <p>
-              Serendipia es un dúo multidisciplinario que en su búsqueda
-              artística desarrolla una estética de movimiento impecable. La
-              diversidad de estilos de danza y acrobacia hacen que sea una
-              creación no convencional que manifiesta su personalidad
-              innovadora.
-            </p>
-            <p>
-              Los enlaces de cada movimiento entre las acrobacias y la danza
-              componen imágenes impactantes y sorpresivas para el público. Los
-              cuerpos se entrecruzan y desenvuelven, se trasladan por el suelo y
-              el aire, se conectan y conforman el vínculo de una pareja que
-              llena el escenario con su presencia.
-            </p>
+            <p>{t("aboutSection.p1")}</p>
+            <p>{t("aboutSection.p2")}</p>
           </div>
         </div>
         <div

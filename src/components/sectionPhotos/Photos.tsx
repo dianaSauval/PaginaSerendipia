@@ -2,8 +2,10 @@ import * as React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Element } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
-export default function TitlebarImageList() {
+export default function TitlebarImageList() {  
+  const { t } = useTranslation(["global"]);
   function srcset(image: string, size: number, rows = 1, cols = 1) {
     return {
       src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -16,7 +18,7 @@ export default function TitlebarImageList() {
   return (
     <>
       <Element name="photos">
-        <h1>Fotos</h1>
+        <h1>{t("photosSection.title")}</h1>
         <ImageList
           sx={{ width: 800, height: 700 }}
           variant="quilted"

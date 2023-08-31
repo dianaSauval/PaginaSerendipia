@@ -7,22 +7,25 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import "./carousel.css";
 import ReactPlayer from "react-player";
 import { Element } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 export default function CarouselExample(props: any) {
+  const { t } = useTranslation(["global"]);
+
   var items = [
     {
-      name: "Al Compás del Pivot",
-      description: "Número de Tango y Rueda Cyr",
+      name: `${t("videoItems.item1.name")}`,
+      description: `${t("videoItems.item1.description")}`,
       img: "https://www.youtube.com/watch?v=24RFZMiOuS4",
     },
     {
-      name: "Contraparte",
-      description: "Número de Acrobacia en dúo",
+      name: `${t("videoItems.item2.name")}`,
+      description: `${t("videoItems.item2.description")}`,
       img: "https://www.youtube.com/watch?v=x_kkKr7aw68",
     },
     {
-      name: "Bruno Mars",
-      description: "Número de Rueda Cyr de José Figueroa",
+      name: `${t("videoItems.item3.name")}`,
+      description: `${t("videoItems.item3.description")}`,
       img: "https://www.youtube.com/watch?v=vkMo_b9gA_w",
     },
   ];

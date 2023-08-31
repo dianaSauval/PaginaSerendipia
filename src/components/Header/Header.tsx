@@ -1,19 +1,18 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import "./header.css";
-import { Button, Fade, Grow } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { Button, Fade } from "@mui/material";
+import { NavLink } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 function Header() {
   const { t, i18n } = useTranslation(["global"]);

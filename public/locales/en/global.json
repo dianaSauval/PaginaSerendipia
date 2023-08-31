@@ -7,5 +7,27 @@
     "contact": "Contact",
     "language":"Language",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "aboutSection":{
+        "title":"sdfsdf",
+        "p1":"sdfsdf",
+        "p2":"sdfsd"
+    },
+    "videoItems": {
+        "item1": {
+          "name": "Al Compás del Pivot",
+          "description": "Cyr Wheel Duo and Tango Act"
+        },
+        "item2": {
+          "name": "Contraparte",
+          "description": "Duo Acrobatics Act"
+        },
+        "item3": {
+          "name": "Bruno Mars",
+          "description": "Solo Act by José Figueroa"
+        }
+      },
+      "photosSection":{
+        "title":"Photos"
+      }
 }
