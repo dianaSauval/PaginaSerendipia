@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button } from "@mui/material";
 import foto1 from "../img/ACRODUO 31-10-22 26.jpg";
@@ -8,9 +8,15 @@ import "./carousel.css";
 import ReactPlayer from "react-player";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import TransitionsModal from "../modal/videoModal";
+import { IVideoItem } from "../../@types/carousel";
 
 export default function CarouselExample(props: any) {
   const { t } = useTranslation(["global"]);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   var items = [
     {
@@ -63,7 +69,10 @@ export default function CarouselExample(props: any) {
   );
 }
 
-function Item(props: any) {
+function Item(props: IVideoItem) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <Paper
       sx={{
@@ -75,10 +84,13 @@ function Item(props: any) {
       }}
     >
       <div
+        onClick={handleOpen}
         style={{ backgroundImage: "url('" + props.item.img + "')" }}
         className="carouselImg"
       >
         <ReactPlayer
+        
+        onStart={handleOpen}
           url={props.item.img}
           width="100%"
           height="100%"
@@ -97,6 +109,7 @@ function Item(props: any) {
           <div className="dfondo"></div>
         </div>
       </div>
+      <TransitionsModal open={open} handleClose={handleClose} item={props} />
     </Paper>
   );
 }

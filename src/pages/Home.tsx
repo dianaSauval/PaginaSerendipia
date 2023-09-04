@@ -4,6 +4,7 @@ import Banner from "../components/banner/Banner";
 import About from "../components/about/About";
 import CarouselExample from "../components/carousel/Carousel";
 import TitlebarImageList from "../components/sectionPhotos/Photos";
+import ContactSection from "../components/contact/contactSection";
 
 function Home() {
   return (
@@ -19,8 +20,11 @@ function Home() {
         <section className="carousel">
         <CarouselExample/>
         </section>
-        <section id="photos">
+        <section className="photos">
         <TitlebarImageList/>
+        </section>
+        <section className="contact">
+          <ContactSection/>
         </section>
       </main>
     </div>

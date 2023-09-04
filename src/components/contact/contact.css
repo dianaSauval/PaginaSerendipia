@@ -1,0 +1,18 @@
+.contactSection{
+    color: #fff;
+}
+
+.contactSection h1{
+    font-size: 45px;
+    padding: 25px;
+}
+
+.info{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    font-size: 25px;
+    gap: 10px;
+}

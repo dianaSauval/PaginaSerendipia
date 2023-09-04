@@ -48,7 +48,7 @@ function Header() {
         <LinkScroll smooth={true} offset={-70} to="photos">
           <Button variant="outlined">{t("photos")}</Button>
         </LinkScroll>
-        <LinkScroll smooth={true} offset={-70} to="photos">
+        <LinkScroll smooth={true} offset={-60} to="contact">
           <Button variant="outlined">{t("contact")}</Button>
         </LinkScroll>
       </div>

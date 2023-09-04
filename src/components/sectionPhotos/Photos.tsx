@@ -3,6 +3,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import "./photos.css"
 
 export default function TitlebarImageList() {  
   const { t } = useTranslation(["global"]);
@@ -17,7 +18,7 @@ export default function TitlebarImageList() {
 
   return (
     <>
-      <Element name="photos">
+      <Element name="photos" className="photosSection">
         <h1>{t("photosSection.title")}</h1>
         <ImageList
           sx={{ width: 800, height: 700 }}

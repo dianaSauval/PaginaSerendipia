@@ -1,33 +1,33 @@
 {
-    "title": "hello",
-    "home": "Home",
-    "about": "About",
-    "photos": "Photos",
-    "videos": "Videos",
-    "contact": "Contact",
-    "language":"Language",
-    "english": "English",
-    "spanish": "Spanish",
-    "aboutSection":{
-        "title":"sdfsdf",
-        "p1":"sdfsdf",
-        "p2":"sdfsd"
+  "title": "hello",
+  "home": "Home",
+  "about": "About",
+  "photos": "Photos",
+  "videos": "Videos",
+  "contact": "Contact",
+  "language": "Language",
+  "english": "English",
+  "spanish": "Spanish",
+  "aboutSection": {
+    "title": "Who are we?",
+    "p1": "Serendipia is a multidisciplinary duo that, in their artistic pursuit, develops an impeccable aesthetic of movement. The diversity of dance styles and acrobatics makes it an unconventional creation that expresses their innovative personality.",
+    "p2": "The connections between each movement between acrobatics and dance create striking and surprising images for the audience. Bodies intertwine and unfold, move across the ground and through the air, connect and form the bond of a couple that fills the stage with their presence."
+  },
+  "videoItems": {
+    "item1": {
+      "name": "Al Compás del Pivot",
+      "description": "Cyr Wheel Duo and Tango Act"
     },
-    "videoItems": {
-        "item1": {
-          "name": "Al Compás del Pivot",
-          "description": "Cyr Wheel Duo and Tango Act"
-        },
-        "item2": {
-          "name": "Contraparte",
-          "description": "Duo Acrobatics Act"
-        },
-        "item3": {
-          "name": "Bruno Mars",
-          "description": "Solo Act by José Figueroa"
-        }
-      },
-      "photosSection":{
-        "title":"Photos"
-      }
+    "item2": {
+      "name": "Contraparte",
+      "description": "Duo Acrobatics Act"
+    },
+    "item3": {
+      "name": "Bruno Mars",
+      "description": "Solo Act by José Figueroa"
+    }
+  },
+  "photosSection": {
+    "title": "Photos"
+  }
 }
