@@ -66,6 +66,7 @@ const TransitionsModal: React.FC<IMyProps> = (props: IMyProps) => {
                 className="carouselImg"
                 alt={props.item.item.name}
                 loading="lazy"
+                controls={true}
               />
             </div>
           </Paper>

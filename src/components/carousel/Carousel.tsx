@@ -72,7 +72,13 @@ export default function CarouselExample(props: any) {
 function Item(props: IVideoItem) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    handlePause();
+  };
+  const handlePause = () => {
+    return false;
+  };
   return (
     <Paper
       sx={{
@@ -89,17 +95,17 @@ function Item(props: IVideoItem) {
         className="carouselImg"
       >
         <ReactPlayer
-        
-        onStart={handleOpen}
+          onPlay={handleOpen}
+          onStart={handleOpen}
           url={props.item.img}
           width="100%"
           height="100%"
-          playing={false}
-          loop
+          playing={open}          
           muted
+          loop
+          pip
           className="carouselImg"
-          alt={props.item.name}
-          loading="lazy"
+          alt={props.item.name}          
         />
         <div className="dppal">
           <div className="dtexto">
