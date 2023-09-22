@@ -1,0 +1,12 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    color: #33dbd2;
+    background-color: #1F1F1F;
+}
+
+.networks{
+    margin-right: 10px;
+}

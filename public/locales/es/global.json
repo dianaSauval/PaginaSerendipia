@@ -29,5 +29,9 @@
   },
   "photosSection":{
     "title":"Fotos"
+  },
+  "contactSection":{
+    "title":"Contacto",
+    "recruitment":"Contrataciones"
   }
 }

@@ -1,5 +1,18 @@
 .contactSection{
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.bodycontact{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 .contactSection h1{
@@ -10,9 +23,95 @@
 .info{
     padding: 25px;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     justify-content: center;
     align-items: start;
     font-size: 25px;
-    gap: 10px;
+    gap: 20px;
 }
+
+.mail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer{
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: #3b5999;
+}
+
+.networks{
+    display: flex;
+    margin-right: 255px;
+}
+.networks ul {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 88%;
+    transform: translate(-50%, -50%);
+  }
+
+  .networks ul li {
+    list-style: none;
+  }
+
+  .networks ul li a {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 77px;
+    font-size: 35px;
+    margin: 0 10px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    z-index: 1;
+  }
+
+  .networks ul li a .icon {
+    position: relative;
+    color: #262626;
+    transition: .5s;
+    z-index: 3;
+  }
+
+  .networks ul li a:hover .icon {
+    color: #fff;
+    transform: rotateY(360deg);
+  }
+
+  .networks ul li a:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f00;
+    transition: .5s;
+    z-index: 2;
+  }
+
+  .networks ul li a:hover:before {
+    top: 0;
+  }
+
+  .networks ul li:nth-child(1) a:before{
+    background: #3b5999;
+  }
+
+  .networks ul li:nth-child(2) a:before{
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+  }
+
+  .networks ul li:nth-child(3) a:before {
+    background: #FF0000;
+  }

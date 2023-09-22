@@ -5,6 +5,7 @@ import About from "../components/about/About";
 import CarouselExample from "../components/carousel/Carousel";
 import TitlebarImageList from "../components/sectionPhotos/Photos";
 import ContactSection from "../components/contact/contactSection";
+import Footer from "../components/footer/Footer";
 
 function Home() {
   return (
@@ -27,6 +28,9 @@ function Home() {
           <ContactSection/>
         </section>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 }

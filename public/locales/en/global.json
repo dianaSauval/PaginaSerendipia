@@ -29,5 +29,9 @@
   },
   "photosSection": {
     "title": "Photos"
+  },
+  "contactSection":{
+    "title":"Contact",
+    "recruitment":"Contact Us"
   }
 }
