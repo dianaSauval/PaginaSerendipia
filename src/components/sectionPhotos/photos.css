@@ -51,9 +51,10 @@
     padding: 20px;
     grid-auto-flow: dense;
   }
+
   
-  @media (min-width: 600px) {
-    .wide {
+  @media (min-width:100px) {
+    .wide {      
       grid-column: span 2;
     }
   
@@ -65,15 +66,22 @@
 
 @media (min-width:100px){
     .grid-container{
-        grid-template-columns: repeat(1, 1fr);
+        width:400px;
+        display:none;
     }
 }
 @media (min-width:520px){
+  .carouselImages{
+    display:none;
+  }
+  
     .grid-container{
+        display: grid;
+        width:750px;
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (min-width:728px){
+@media (min-width:780px){
     .grid-container{
         width:1300px;
         grid-template-columns: repeat(3, 1fr);

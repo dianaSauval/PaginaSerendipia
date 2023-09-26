@@ -1,42 +1,24 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import Carousel from "react-material-ui-carousel";
+import { IVideoItem } from "../../@types/carousel";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import "../carousel/carousel.css";
 import "./photos.css";
+import { Paper } from "@mui/material";
+import { IImages, images } from "../../data";
 
 export default function TitlebarImageList() {
-  const { t } = useTranslation(["global"]);
-  function srcset(image: string, size: number, rows = 1, cols = 1) {
-    return {
-      src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-      srcSet: `${image}?w=${size * cols}&h=${
-        size * rows
-      }&fit=crop&auto=format&dpr=2 2x`,
-    };
-  }
+  const { t } = useTranslation(["global"]);    
 
   return (
     <>
       <Element name="photos" className="photosSection">
         <h1>{t("photosSection.title")}</h1>
-        {/* <img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695418995/dianayjosebaja_11_de_33_kaik2g.jpg"/> */}
-        {/*         <div className="wrap">
-        <div className="galeria">
-            <div className="imagen elemento1"><img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695418995/dianayjosebaja_11_de_33_kaik2g.jpg" alt=""/></div>
-            <div className="imagen elemento2"><img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695420809/Joseydianabaja_20_de_35_v1ljnh.jpg" alt=""/></div>
-            <div className="imagen elemento3"><img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695421629/ACRODUO_31-10-22_31_mhoqo8.jpg" alt=""/></div>
-            <div className="imagen elemento4"><img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695435129/003_1404-NEF_DxO_DeepPRIME_hjh8mk.jpg" alt=""/></div>
-            <div className="imagen elemento5"><img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695418995/dianayjosebaja_11_de_33_kaik2g.jpg" alt=""/></div>
-            <div className="imagen elemento6"><img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695418995/dianayjosebaja_11_de_33_kaik2g.jpg" alt=""/></div>
-            <div className="imagen elemento7"><img src="https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695418995/dianayjosebaja_11_de_33_kaik2g.jpg" alt=""/></div>
-            <div className="imagen elemento8"><img src="/img/8.jpg" alt=""/></div>
-            <div className="imagen elemento9"><img src="/img/9.jpg" alt=""/></div>
-            <div className="imagen elemento10"><img src="/img/10.jpg" alt=""/></div>
-            <div className="imagen elemento11"><img src="/img/11.jpg" alt=""/></div>
-            <div className="imagen elemento12"><img src="/img/12.jpg" alt=""/></div>
-        </div>
-    </div> */}
         <div className="grid-container">
           <div
             className="grid-item tall"
@@ -144,31 +126,69 @@ export default function TitlebarImageList() {
                 "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695565377/dianayjosebaja_8_de_33_h3wt1a.jpg')",
             }}
           ></div>
-        </div>        
-     {/*    <ImageList
-          sx={{ width: 800, height: 700 }}
-          variant="quilted"
-          cols={4}
-          rowHeight={121}
+        </div> 
+        <div className="carouselImages">      
+        <Carousel
+          navButtonsAlwaysVisible={true}
+          fullHeightHover={true} // We want the nav buttons wrapper to only be as big as the button element is
+          navButtonsProps={{
+            // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+            style: {
+              backgroundColor: "#0B0C10",
+              borderRadius: "50%",
+            },
+          }}
+          navButtonsWrapperProps={{
+            // Move the buttons to the bottom. Unsetting top here to override default style.
+            style: {
+              bottom: "0",
+              top: "unset",
+            },
+          }}
+          NextIcon={<NavigateNextIcon />} // Change the "inside" of the next button to "next"
+          PrevIcon={<NavigateBeforeIcon />}
         >
-          {itemData.map((item) => (
-            <ImageListItem
-              key={item.img}
-              cols={item.cols || 1}
-              rows={item.rows || 1}
-            >
-              <img
-                {...srcset(item.img, 121, item.rows, item.cols)}
-                alt={item.title}
-                loading="lazy"
-              />
-            </ImageListItem>
+          {images.map((item, i) => (
+            <Item key={i} item={item} />
           ))}
-        </ImageList> */}
+        </Carousel>
+        </div> 
       </Element>
     </>
   );
 }
+
+
+function Item(props: IImages) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    handlePause();
+  };
+  const handlePause = () => {
+    return false;
+  };
+  return (
+    <Paper
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        onClick={handleOpen}
+        style={{ backgroundImage: "url('" + props.item.url + "')" }}
+        className="carouselImg"
+      >       
+        
+      </div>      
+    </Paper>
+      );
+    }
 
 const itemData = [
   {

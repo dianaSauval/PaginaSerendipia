@@ -59,3 +59,32 @@
     left:0;
     right:0;
  }
+
+
+ @media (min-width:100px){
+    .carouselImages{
+        width: 100%;
+    }
+
+    .carouselImg{
+        height: 350px;
+    }
+}
+@media (min-width:520px){
+  .carouselImages{
+    display:none;
+  }
+  
+    .grid-container{
+        display: grid;
+        width:750px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width:780px){
+    .grid-container{
+        width:1300px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
