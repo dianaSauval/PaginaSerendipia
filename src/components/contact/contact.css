@@ -115,3 +115,15 @@
   .networks ul li:nth-child(3) a:before {
     background: #FF0000;
   }
+
+  @media (min-width: 100px) {
+    .networks{
+      display: none;
+    }
+  }
+
+  @media (min-width: 520px) {
+    .networks{
+      display: inherit;
+    }
+  }

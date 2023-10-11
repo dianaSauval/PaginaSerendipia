@@ -74,6 +74,36 @@
     }    
 }
 
+/* @media (min-width: 100px) {
+    .header{
+      justify-content: space-between;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .header h1{
+      font-size: medium;    
+    }
+  } */
+  @media (min-width: 520px) {
+    @keyframes animate {
+        0%{
+            background-position: 0;
+        }
+        100%{
+            background-position: 1360px;
+        }
+        
+    }
+    @keyframes animate-reverse {
+        0%{
+            background-position: 1360px;
+        }
+        100%{
+            background-position: 0;
+        }    
+    }
+  }
+
 
 
 

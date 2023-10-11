@@ -1,8 +1,10 @@
 .about{
     display: flex;
+    flex-direction: column;
     gap: 80px;
     margin-top: 80px;
     margin-bottom: 80px;
+    padding: 10px;
     color: #08090C;
 }
 
@@ -16,7 +18,24 @@
 }
 
 .text{
-    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
     text-align: justify;
     margin-top: 20px;
+}
+
+@media (min-width: 100px) {
+    .text{
+    }
+}
+
+@media (min-width: 520px) {
+    .text{
+    }
+    .about{
+        flex-direction: row;
+    }
 }

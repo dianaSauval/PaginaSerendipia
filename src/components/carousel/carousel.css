@@ -74,7 +74,10 @@
   .carouselImages{
     display:none;
   }
-  
+  .carouselImg{
+    height: 600px;
+}
+
     .grid-container{
         display: grid;
         width:750px;
