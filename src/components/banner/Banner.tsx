@@ -4,6 +4,7 @@ import Video from "../videos/trailer.mp4";
 import ReactPlayer from "react-player";
 import "./banner.css"
 import { Element } from "react-scroll";
+import AnimatedWave from "../animatedWave/AnimatedWave";
 
 const Banner = () => {
   return (
@@ -20,7 +21,25 @@ const Banner = () => {
           //volume="0.4"
           className="react-player"
         />
-        <div className="wave"></div>
+        {/* <div className="wave"></div> */}
+        <div style={{ position: "relative" }}>
+        <AnimatedWave
+          color={"#fff"}
+          animationDuration="4s"
+          opacity={"0.8"}
+        />
+        <AnimatedWave
+          color={"#fff"}
+          animationDuration="12s"
+          opacity={"0.5"}
+        />
+        <AnimatedWave
+          color={"#fff"}
+          animationDirection="reverse"
+          animationDuration="10s"
+          opacity={"0.2"}
+        />
+      </div>
       </div>
       </Element>
     </>

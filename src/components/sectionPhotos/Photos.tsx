@@ -7,7 +7,7 @@ import Carousel from "react-material-ui-carousel";
 import { IVideoItem } from "../../@types/carousel";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import "../carousel/carousel.css";
+import "../carouselVideo/carousel.css";
 import "./photos.css";
 import { Paper } from "@mui/material";
 import { IImages, images } from "../../data";
@@ -177,6 +177,7 @@ function Item(props: IImages) {
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
+        width: "100%"
       }}
     >
       <div

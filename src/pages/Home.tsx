@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header/Header";
 import Banner from "../components/banner/Banner";
 import About from "../components/about/About";
-import CarouselExample from "../components/carousel/Carousel";
+import CarouselExample from "../components/carouselVideo/Carousel";
 import TitlebarImageList from "../components/sectionPhotos/Photos";
 import ContactSection from "../components/contact/contactSection";
 import Footer from "../components/footer/Footer";
