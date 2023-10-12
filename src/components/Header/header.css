@@ -98,7 +98,7 @@
   }
 }
 
-@media (min-width: 780px) {
+@media (min-width: 1080px) {
   .header{
     padding: 5px;
     justify-content: space-around;

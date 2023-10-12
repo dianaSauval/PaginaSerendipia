@@ -66,13 +66,23 @@
   
     .grid-container{
         display: grid;
-        width:750px;
+        width:100%;
+        min-width: 650px;
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (min-width:780px){
+
+@media (min-width:720px){  
     .grid-container{
-        width:1300px;
+        width:100%;
+        min-width: 700px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width:1080px){
+    .grid-container{
+        width:100%;
+        min-width: 1300px;
         grid-template-columns: repeat(3, 1fr);
     }
 }

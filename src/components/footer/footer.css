@@ -10,3 +10,9 @@
 .networks{
     margin-right: 10px;
 }
+
+@media (max-width: 520px) {
+    .footer p {
+      font-size: small;
+    }
+  }
