@@ -106,7 +106,7 @@ export default function TitlebarImageList() {
             }}
           ></div>
           <div
-            className="grid-item tall"
+            className="grid-item tall extra"
             style={{
               backgroundImage:
                 "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563480/received_432722487264929_lxksio.jpg')",

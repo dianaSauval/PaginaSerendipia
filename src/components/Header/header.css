@@ -1,15 +1,13 @@
-.header,
-.languageAndNetworks {
+.header {
   display: flex;
   justify-content: space-around;
+  width: 100%;
   text-align: center;
   align-items: center;
   background-color: #0b0c10;
   color: #3ecbc4;
   position: fixed;
   top: 0px;
-  left: 0px;
-  right: 0px;
   z-index: 999;
 }
 
@@ -58,7 +56,7 @@
 
 .buttons {
   display: none;
-  gap: 20px;
+  gap: 10px;
 }
 
 .buttons button {
@@ -76,7 +74,6 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-left: 20px;
 }
 
 .networks a:hover {
@@ -88,8 +85,12 @@
 @media (min-width: 100px) {
   .header{
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .networks{
+    display: none;
   }
 }
 @media (min-width: 520px) {
@@ -113,5 +114,12 @@
   }
   .header h1{
     font-size: xx-large;    
+  }
+
+}
+
+@media (min-width: 1400px) {
+  .networks{
+    display: flex;
   }
 }
