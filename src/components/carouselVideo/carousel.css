@@ -1,7 +1,7 @@
 .videoContent{
     text-align:center;
     width: 100%;
-    min-width: 360px;
+    min-width: 270px;
     max-width: 800px;
 }
 
@@ -71,6 +71,14 @@
         height: 350px;
     }
 }
+
+@media (min-width:375px){
+    .videoContent{
+        min-width: 350px;
+    }
+    
+}
+
 @media (min-width:520px){
   .carouselImages{
     display:none;

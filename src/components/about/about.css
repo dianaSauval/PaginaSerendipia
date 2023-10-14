@@ -11,8 +11,8 @@
 }
 
 .img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 25px;
+  padding: 10px;
   text-align: justify;
   margin-top: 20px;
 }
@@ -36,6 +36,10 @@
   .about {
     flex-direction: row;
     gap: 10px;
+  }
+  .img{
+    width: 300px;
+    height: 300px;
   }
 }
 

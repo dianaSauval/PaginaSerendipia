@@ -15,7 +15,7 @@
 
   .carouselImages{
     width: 100%;
-    min-width: 360px;
+    min-width: 250px;
   }
 
 .grid-item {
@@ -59,8 +59,7 @@
   
 
 @media (min-width:100px){
-    .grid-container{
-        
+    .grid-container{        
         display:none;
     }
 }

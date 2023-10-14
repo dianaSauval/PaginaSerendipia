@@ -11,8 +11,14 @@
     margin-right: 10px;
 }
 
-@media (max-width: 520px) {
+@media (min-width: 100px) {
+  .footer p {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 520px) {
     .footer p {
-      font-size: small;
+      font-size: 13px;
     }
   }

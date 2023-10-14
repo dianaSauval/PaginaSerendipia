@@ -36,7 +36,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  font-size: 25px;
+  font-size: 15px;
   gap: 20px;
 }
 
@@ -145,6 +145,9 @@
 @media (min-width: 720px) {
   .networks {
     display: none;
+  }
+  .info{
+    font-size: 25px;
   }
 }
 
