@@ -31,6 +31,21 @@
 
 @media (min-width: 520px) {
   .text {
+    padding: 20px;
+    max-width: 500px;
+  }
+  .about {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .img{
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 760px) {
+  .text {
     max-width: 500px;
   }
   .about {
