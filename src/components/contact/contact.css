@@ -56,7 +56,6 @@
 
 .networks {
   display: flex;
-  margin-right: 255px;
 }
 .networks ul {
   display: flex;
@@ -134,17 +133,32 @@
 }
 
 @media (min-width: 100px) {
-  .networks {
-    display: none;
+  .networks ul{
+    top: 230px;
+    left: 50%;
   }
+  .networks ul li a {
+    width: 50px;
+    height: 50px;
+    line-height: 80px;
+    font-size: 8px;
+  }
+
   .info {
     padding: 10px;
   }
 }
 
 @media (min-width: 720px) {
-  .networks {
-    display: none;
+  .networks ul{
+    top: 50%;
+    left: 85%;
+  }
+  .networks ul li a {
+    width: 60px;
+    height: 60px;
+    line-height: 68px;
+    font-size: 35px;
   }
   .info{
     font-size: 25px;
@@ -160,6 +174,46 @@
   }
   .networks {
     display: flex;
+  }
+
+  .networks ul li a:hover .icon {
+    color: #fff;
+    transform: rotateY(360deg);
+  }
+  
+  .networks ul li a:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f00;
+    transition: 0.5s;
+    z-index: 2;
+  }
+  
+  .networks ul li a:hover:before {
+    top: 0;
+  }
+  
+  .networks ul li:nth-child(1) a:before {
+    background: #3b5999;
+  }
+  
+  .networks ul li:nth-child(2) a:before {
+    background: radial-gradient(
+      circle at 33% 100%,
+      #fed373 4%,
+      #f15245 30%,
+      #d92e7f 62%,
+      #9b36b7 85%,
+      #515ecf
+    );
+  }
+  
+  .networks ul li:nth-child(3) a:before {
+    background: #ff0000;
   }
 }
 
