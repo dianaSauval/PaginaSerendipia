@@ -64,8 +64,8 @@ function Header() {
           id="listLanguage"
         >
           <ListItemButton className="divLanguage" onClick={handleClick}>
-            <ListItemIcon className="iconLanguage">
-              <LanguageOutlinedIcon />
+            <ListItemIcon>
+              <LanguageOutlinedIcon id="iconLanguage"/>
             </ListItemIcon>
             <ListItemText primary={t("language")} />
             {open ? <ExpandLess /> : <ExpandMore />}

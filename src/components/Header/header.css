@@ -33,6 +33,10 @@
   border-style: inset !important;
 }
 
+#iconLanguage {
+  color: #3ECBC4;
+}
+
 .listOptions {
   position: absolute !important;
   top: 60px;
