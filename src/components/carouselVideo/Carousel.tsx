@@ -34,6 +34,11 @@ export default function CarouselExample(props: any) {
       description: `${t("videoItems.item3.description")}`,
       img: "https://www.youtube.com/watch?v=vkMo_b9gA_w",
     },
+    {
+      name: `${t("videoItems.item4.name")}`,
+      description: `${t("videoItems.item4.description")}`,
+      img: "https://www.youtube.com/watch?v=XVg7_Y_QAic",
+    }
   ];
 
   return (

@@ -28,6 +28,10 @@
     "item3": {
       "name": "Bruno Mars",
       "description": "Número de Rueda Cyr de José Figueroa"
+    },
+    "item4": {
+      "name": "Alma Oscura",
+      "description": "Número de Rueda Cyr de Diana Sauval"
     }
   },
   "photosSection":{
