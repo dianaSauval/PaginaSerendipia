@@ -92,6 +92,12 @@
   z-index: 3;
 }
 
+#tiktok:hover{
+  fill: #fff;
+  transform: rotateY(360deg);
+  transition: 0.05s;
+  z-index: 3;
+}
 .networks ul li a:hover .icon {
   color: #fff;
   transform: rotateY(360deg);
@@ -114,7 +120,7 @@
 }
 
 .networks ul li:nth-child(1) a:before {
-  background: #3b5999;
+  background: #0000;
 }
 
 .networks ul li:nth-child(2) a:before {
@@ -198,7 +204,7 @@
   }
   
   .networks ul li:nth-child(1) a:before {
-    background: #3b5999;
+    background: black;
   }
   
   .networks ul li:nth-child(2) a:before {
