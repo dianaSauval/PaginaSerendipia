@@ -1,6 +1,0 @@
-# Activar el motor de reescritura
-RewriteEngine On
-
-# Permitir todo el acceso
-Order allow,deny
-Allow from all
