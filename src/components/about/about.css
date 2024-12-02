@@ -120,9 +120,10 @@
   }
 
   .img {
-    margin-top: 20px; /* Añade un espacio superior para la imagen */
-    width: 80%; /* Ajusta el tamaño de la imagen en móvil */
-    height: auto; /* Ajusta la altura proporcionalmente */
+    width: 70vw; /* Usa el 70% del ancho de la pantalla para la imagen */
+    height: 70vw; /* Mantiene la proporción de la imagen circular */
+    border-radius: 50%; /* Mantiene la imagen circular */
+    margin-bottom: 30px;
   }
 
   h1 {
@@ -130,6 +131,10 @@
   }
 
   .text {
-    margin-bottom: 20px; /* Añade espacio debajo del texto */
+    margin-bottom: 10px; /* Añade un espacio debajo del texto */
   }
+
+
 }
+
+
