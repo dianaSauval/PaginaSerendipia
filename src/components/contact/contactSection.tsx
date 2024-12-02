@@ -30,7 +30,7 @@ export default function ContactSection() {
           <ul>
             <li>
               <NavLink
-                to="https://www.facebook.com/diana.sauval/"
+                to="https://www.tiktok.com/@duo.serendipia"
                 target="_blank"
               >
                 <div className="icon">

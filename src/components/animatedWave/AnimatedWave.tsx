@@ -7,8 +7,9 @@ type Props = {
   animationDuration: CSSProperties["animationDuration"];
   animationDirection?: CSSProperties["animationDirection"];
   opacity: CSSProperties["opacity"];
+  style?: CSSProperties;
 };
-const AnimatedWave: React.FC<Props> = ({ color, ...props }) => {
+const AnimatedWave: React.FC<Props> = ({ color, opacity, animationDuration, animationDirection, style }) => {
   //  Step 2. create a svg wave, i created this using figma
   const wave = (
     <svg viewBox="0 0 1000 126" xmlns="http://www.w3.org/2000/svg">
@@ -35,9 +36,10 @@ const AnimatedWave: React.FC<Props> = ({ color, ...props }) => {
         height: 126,
         backgroundSize: "1000px 126px",
         // animation-name is wave, we'll create this in the next step
-        animation: `wave ${props.animationDuration} linear infinite`,
-        animationDirection: props.animationDirection,
-        opacity: props.opacity,
+        animation: `wave ${animationDuration} linear infinite`,
+        animationDirection: animationDirection,
+        opacity: opacity,
+        ...style,
       }}
     ></div>
   );
