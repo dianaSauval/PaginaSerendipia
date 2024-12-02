@@ -14,6 +14,7 @@ const Banner = () => {
           width="100%"
           height="100%"
           playing={true}
+          playsinline={true}
           loop
           muted
           className="react-player"
