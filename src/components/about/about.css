@@ -29,6 +29,24 @@
   margin-top: 20px;
 }
 
+.cv-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #45A29E; /* Cambia por los colores del dúo */
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.btn:hover {
+  background-color: #397F7B; /* Efecto hover */
+}
+
 @media (min-width: 520px) {
   .text {
     padding: 20px;

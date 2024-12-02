@@ -18,6 +18,15 @@ const About = () => {
             <p>{t("aboutSection.p3")}</p>
             <p>{t("aboutSection.p4")}</p>
             <p>{t("aboutSection.p5")}</p>
+            <div className="cv-buttons">
+              <a
+                href="https://drive.google.com/drive/folders/1inHvbaiao-JCvJhO-OHuYVR7Yht_xsY-?usp=sharing"
+                target="_blank"
+                className="btn"
+              >
+                {t("aboutSection.p6")}
+              </a>
+            </div>
           </div>
         </div>
         <div
