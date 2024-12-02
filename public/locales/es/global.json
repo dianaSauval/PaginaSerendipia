@@ -9,13 +9,18 @@
   "english": "Ingles",
   "spanish": "Español",
   "aboutSection": {
-    "title": "¿Quienes somos?",
-    "p1": "Serendipia es un dúo multidisciplinario que en su búsqueda artística desarrolla una estética de movimiento propio. La diversidad de estilos de danza y acrobacia hacen que sea una creación no convencional que manifiesta su personalidad innovadora.",
-    "p2": "Se creó en el 2020, uniendo las distintas trayectorias de Diana Sauval y José Figueroa. Desde entonces han presentado innumerables veces en diversos lugares de la Argentina.",
-    "p3": "Han trabajado en el “Circo del Anima” de Flavio Mendoza y actuado en distintos espectáculos de Runa Asociación Civil, presentados para diversos municipios de Buenos Aires: Malvinas Argentinas, Sierra de la Ventana, Pringles, Morón, 3 de Febrero y Pilar.",
-    "p4": "Fueron contratados en los shows de la Compañia Phaway realizados para las Fiestas Provinciales de Jujuy, La Rioja, Neuquén y Santa Fe.",
-    "p5": "Ademas han sido convocados para presentar sus números en la Variete del MICA (Mercado de Industrias Culturales Argentinas) y en los festivales “Circo el Andén 2023” de Zapala, en Neuquén y el Festival Payasadas 2023 de Rosario, Buenos Aires.",
-    "p6": "Ver nuestros CV"
+    "title": "¿Quiénes somos?",
+    "p1": "Serendipia es un dúo multidisciplinario que fusiona danza y acrobacia para crear un estilo artístico único e innovador.",
+    "p2": "Formado en 2020 por Diana Sauval y José Figueroa, han llevado su arte a escenarios de Argentina y Turquía.",
+    "p3": "Destacados:",
+    "p4": "Temporada de seis meses en Antalya, Turquía (2024), con Innovacirco, presentando actos de acrobacia en dúo y rueda Cyr, bajo la organización de CINO Goldstar Organizasyon.",
+    "p5": "Presentaciones en Circo del Ánima de Flavio Mendoza, y participación en espectáculos de Runa Asociación Civil y Compañía Phaway.",
+    "p6": "Invitados a importantes festivales como Circo el Andén 2023 (Neuquén) y Festival Payasadas 2023 (Buenos Aires).",
+    "p7": "Actuaciones destacadas:",
+    "p8": "MICA (Mercado de Industrias Culturales Argentinas).",
+    "p9": "Festivales provinciales en Jujuy, La Rioja, Neuquén y Santa Fe.",
+    "p10": "Municipios: Malvinas Argentinas, Sierra de la Ventana, entre otros.",
+    "cvButton": "Ver nuestros CVs"
   },
   "videoItems": {
     "item1": {

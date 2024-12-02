@@ -10,12 +10,17 @@
   "spanish": "Spanish",
   "aboutSection": {
     "title": "Who are we?",
-    "p1": "Serendipia is a multidisciplinary duo that, in their artistic pursuit, develops a unique movement aesthetic. The diversity of dance styles and acrobatics involved results in an unconventional creation that expresses their innovative personality.",
-    "p2": "It was created in 2020, combining the different paths of Diana Sauval and José Figueroa. Since then, they have performed numerous times in various locations across Argentina.",
-    "p3": "They have worked at Flavio Mendoza's “Circo del Anima” and performed in various shows for the Runa Asociación Civil, and have been featured in different municipalities in Buenos Aires: Malvinas Argentinas, Sierra de la Ventana, Pringles, Morón, 3 de Febrero, and Pilar.",
-    "p4": "They were hired for the shows of the Phaway Company held for the Provincial Festivals of Jujuy, La Rioja, Neuquén, and Santa Fe.",
-    "p5": "Additionally, they have been invited to present their acts at the Variety Show of MICA (Argentine Cultural Industries Market) and at the 'Circo el Andén 2023' festival in Zapala, Neuquén, and the 'Festival Payasadas 2023' in Rosario, Buenos Aires.",
-    "p6": "View our CVs"
+    "p1": "Serendipia is a multidisciplinary duo that combines dance and acrobatics to create a unique and innovative artistic style.",
+    "p2": "Founded in 2020 by Diana Sauval and José Figueroa, they have brought their art to stages in Argentina and Turkey.",
+    "p3": "Highlights:",
+    "p4": "- A six-month season in Antalya, Turkey (2024), with Innovacirco, performing duo acrobatics and Cyr wheel acts, under the organization of CINO Goldstar Organizasyon.",
+    "p5": "- Performances at Flavio Mendoza's Circo del Ánima, and participation in shows by Runa Asociación Civil and the Phaway Company.",
+    "p6": "- Invited to major festivals such as Circo el Andén 2023 (Neuquén) and Festival Payasadas 2023 (Buenos Aires).",
+    "p7": "Notable performances:",
+    "p8": "- MICA (Argentine Cultural Industries Market).",
+    "p9": "- Provincial festivals in Jujuy, La Rioja, Neuquén, and Santa Fe.",
+    "p10": "- Municipalities: Malvinas Argentinas, Sierra de la Ventana, among others.",
+    "cvButton": "View our CVs"
   },
   "videoItems": {
     "item1": {

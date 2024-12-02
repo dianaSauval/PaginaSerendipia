@@ -15,16 +15,25 @@ const About = () => {
           <div className="text">
             <p>{t("aboutSection.p1")}</p>
             <p>{t("aboutSection.p2")}</p>
-            <p>{t("aboutSection.p3")}</p>
-            <p>{t("aboutSection.p4")}</p>
-            <p>{t("aboutSection.p5")}</p>
+            <h2>{t("aboutSection.p3")}</h2>
+            <ul>
+              <li>{t("aboutSection.p4")}</li>
+              <li>{t("aboutSection.p5")}</li>
+              <li>{t("aboutSection.p6")}</li>
+            </ul>
+            <h2>{t("aboutSection.p7")}</h2>
+            <ul>
+              <li>{t("aboutSection.p8")}</li>
+              <li>{t("aboutSection.p9")}</li>
+              <li>{t("aboutSection.p10")}</li>
+            </ul>
             <div className="cv-buttons">
               <a
                 href="https://drive.google.com/drive/folders/1inHvbaiao-JCvJhO-OHuYVR7Yht_xsY-?usp=sharing"
                 target="_blank"
                 className="btn"
               >
-                {t("aboutSection.p6")}
+                {t("aboutSection.cvButton")}
               </a>
             </div>
           </div>
