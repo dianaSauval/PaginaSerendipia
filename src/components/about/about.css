@@ -51,7 +51,7 @@
 }
 
 .text li::before {
-  content: "★"; /* Símbolo personalizado */
+  content: "\2605"; /* Símbolo personalizado */
   position: absolute;
   left: 0;
   color: #45A29E; /* Color del símbolo */

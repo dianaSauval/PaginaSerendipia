@@ -92,12 +92,13 @@
   z-index: 3;
 }
 
-#tiktok:hover{
+#tiktok:hover {
   fill: #fff;
   transform: rotateY(360deg);
   transition: 0.05s;
   z-index: 3;
 }
+
 .networks ul li a:hover .icon {
   color: #fff;
   transform: rotateY(360deg);
@@ -138,35 +139,48 @@
   background: #ff0000;
 }
 
-@media (min-width: 100px) {
-  .networks ul{
+/* Mobile Optimization: Disable transitions and show icons normally */
+@media (max-width: 720px) {
+  .networks ul {
     top: 230px;
     left: 50%;
   }
+
   .networks ul li a {
     width: 50px;
     height: 50px;
-    line-height: 80px;
-    font-size: 8px;
+    line-height: 50px; /* Adjusted for better mobile view */
+    font-size: 30px; /* Adjusted font size */
+  }
+
+  .networks ul li a:hover .icon {
+    transform: none; /* Disable rotation on hover */
+    color: inherit;  /* Keep the default color */
+  }
+
+  .networks ul li a:before {
+    display: none; /* Hide the background effect */
   }
 
   .info {
-    padding: 10px;
+    font-size: 20px; /* Adjusted font size */
   }
 }
 
 @media (min-width: 720px) {
-  .networks ul{
+  .networks ul {
     top: 50%;
     left: 85%;
   }
+
   .networks ul li a {
     width: 60px;
     height: 60px;
     line-height: 68px;
     font-size: 35px;
   }
-  .info{
+
+  .info {
     font-size: 25px;
   }
 }
@@ -175,9 +189,9 @@
   .contact {
     width: 100%;
     height: 660px;
-
     background-attachment: fixed;
   }
+
   .networks {
     display: flex;
   }
@@ -186,7 +200,7 @@
     color: #fff;
     transform: rotateY(360deg);
   }
-  
+
   .networks ul li a:before {
     content: "";
     position: absolute;
@@ -198,15 +212,15 @@
     transition: 0.5s;
     z-index: 2;
   }
-  
+
   .networks ul li a:hover:before {
     top: 0;
   }
-  
+
   .networks ul li:nth-child(1) a:before {
     background: black;
   }
-  
+
   .networks ul li:nth-child(2) a:before {
     background: radial-gradient(
       circle at 33% 100%,
@@ -217,7 +231,7 @@
       #515ecf
     );
   }
-  
+
   .networks ul li:nth-child(3) a:before {
     background: #ff0000;
   }
