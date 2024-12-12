@@ -156,11 +156,11 @@
 
   .networks ul li a:hover .icon {
     transform: none; /* Disable rotation on hover */
-    color: inherit;  /* Keep the default color */
+    color: #262626;  /* Keep the default color */
   }
 
   .networks ul li a:hover .tiktok-icon {
-    fill: #1DA1F2; /* Color personalizado solo para TikTok */
+    fill: #262626 !important; /* Color personalizado solo para TikTok */
   }
 
 
