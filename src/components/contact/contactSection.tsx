@@ -35,6 +35,7 @@ export default function ContactSection() {
               >
                 <div className="icon">
                   <svg
+                  className="tiktok-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     width="100%"
                     height="100%"

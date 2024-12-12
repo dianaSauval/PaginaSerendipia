@@ -54,6 +54,7 @@
   background-color: #3b5999;
 }
 
+
 .networks {
   display: flex;
 }
@@ -158,6 +159,12 @@
     color: inherit;  /* Keep the default color */
   }
 
+  .networks ul li a:hover .tiktok-icon {
+    fill: #1DA1F2; /* Color personalizado solo para TikTok */
+  }
+
+
+
   .networks ul li a:before {
     display: none; /* Hide the background effect */
   }
@@ -240,5 +247,12 @@
 @media (min-width: 2500px) {
   .contact {
     background-attachment: fixed;
+  }
+
+  #tiktok:hover {
+    fill: #1D1D1D;
+    transform: rotateY(360deg);
+    transition: 0.05s;
+    z-index: 3;
   }
 }
