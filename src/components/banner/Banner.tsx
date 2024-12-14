@@ -3,45 +3,41 @@ import ReactPlayer from "react-player";
 import { Element } from "react-scroll";
 import AnimatedWave from "../animatedWave/AnimatedWave";
 import Video from "../videos/trailer.mp4";
-import VideoWebm from "../videos/trailer.mp4"; // Video en formato webm
 import "./banner.css";
 
+const VideoWebm = "/path/to/videos/trailer_compressed.webm";
+
 const Banner = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [videoUrl, setVideoUrl] = useState("");
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Asumimos que 768px es el límite para dispositivos móviles
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    const isMobile = window.innerWidth <= 768; // Detecta si es móvil
+    const video = isMobile ? VideoWebm : Video; // Selección de formato según dispositivo
+    setVideoUrl(video); // Asigna la URL del video correspondiente
   }, []);
 
   return (
     <Element name="banner">
       <div className="player-wrapper">
-        <ReactPlayer
-          url={isMobile ? VideoWebm : Video} // Usar el video webm para móviles si está disponible
-          width="100%"
-          height="100%"
-          playing={true}
-          playsinline={true}
-          loop
-          muted
-          className="react-player"
-          config={{
-            file: {
-              attributes: {
-                preload: 'auto', // Cargar el video de inmediato
+        {videoUrl && (
+          <ReactPlayer
+            url={videoUrl}
+            width="100%"
+            height="100%"
+            playing={true}
+            playsinline={true}
+            loop
+            muted
+            className="react-player"
+            config={{
+              file: {
+                attributes: {
+                  preload: "auto", // Pre-carga automática para mayor rendimiento
+                },
               },
-            },
-          }}
-        />
+            }}
+          />
+        )}
         <div className="wave">
           <AnimatedWave
             color={"#fff"}
