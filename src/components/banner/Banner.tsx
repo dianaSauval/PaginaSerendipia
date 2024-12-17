@@ -5,7 +5,8 @@ import AnimatedWave from "../animatedWave/AnimatedWave";
 import Video from "../videos/trailer.mp4";
 import "./banner.css";
 
-const VideoWebm = "/path/to/videos/trailer_compressed.webm";
+const VideoWebm = process.env.PUBLIC_URL + "/videos/trailer_compressed.webm";
+
 
 const Banner = () => {
   const [videoUrl, setVideoUrl] = useState("");
@@ -26,6 +27,7 @@ const Banner = () => {
             height="100%"
             playing={true}
             playsinline={true}
+            webkit-playsinline={true}
             loop
             muted
             className="react-player"
