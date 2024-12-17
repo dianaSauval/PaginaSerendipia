@@ -4,8 +4,8 @@ import { Element } from "react-scroll";
 import AnimatedWave from "../animatedWave/AnimatedWave";
 import Video from "../videos/trailer.mp4";
 import "./banner.css";
+import VideoWebm from "../videos/trailer_compressed.webm"; // Ajusta la ruta relativa
 
-const VideoWebm = process.env.PUBLIC_URL + "/videos/trailer_compressed.webm";
 
 
 const Banner = () => {
