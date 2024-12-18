@@ -7,6 +7,7 @@ import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { NavLink } from "react-router-dom";
 
 export default function ContactSection() {
@@ -21,10 +22,17 @@ export default function ContactSection() {
             <MailOutlineIcon sx={{ fontSize: 40 }} />
             <p>dianasauval@hotmail.com</p>
           </div>
-          <div className="mail">
-            <PhoneIphoneIcon sx={{ fontSize: 40 }} />
-            <p>+54 9 11 5939-2983</p>
-          </div>
+          <div className="mail whatsapp">
+  <NavLink
+    to="https://wa.me/5491159392983"
+    target="_blank"
+    className="whatsapp-link"
+  >
+    <WhatsAppIcon sx={{ fontSize: 40 }} className="whatsapp-icon" />
+    <p className="whatsapp-number">+54 9 11 5939-2983</p>
+  </NavLink>
+</div>
+
         </div>
         <div className="networks">
           <ul>

@@ -47,6 +47,57 @@
   gap: 15px;
 }
 
+/* WhatsApp Button */
+/* WhatsApp Container */
+.whatsapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Link Style */
+.whatsapp-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff; /* Número blanco */
+  transition: color 0.3s ease; /* Transición suave */
+}
+
+.whatsapp-number {
+  font-size: 20px; /* Tamaño adecuado para el número */
+  font-weight: 500; /* Destaca el número */
+}
+
+/* Icon Style */
+.whatsapp-icon {
+  color: #fff; /* Ícono blanco por defecto */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect */
+.whatsapp-link:hover .whatsapp-icon {
+  color: #25D366; /* Verde típico de WhatsApp */
+  transform: scale(1.1); /* Efecto de agrandamiento sutil */
+}
+
+/* Mobile Styles */
+@media (max-width: 720px) {
+  .whatsapp-number {
+    font-size: 18px; /* Ajustar tamaño para pantallas pequeñas */
+  }
+
+  .whatsapp-icon {
+    color: #25D366; /* Ícono verde por defecto en mobile */
+  }
+
+  .whatsapp-link:hover .whatsapp-icon {
+    transform: none; /* Sin efecto de hover en mobile */
+  }
+}
+
+
 .footer {
   display: flex;
   position: sticky;
