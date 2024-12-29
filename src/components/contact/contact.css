@@ -40,15 +40,7 @@
   gap: 20px;
 }
 
-.mail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-/* WhatsApp Button */
-/* WhatsApp Container */
+.mail,
 .whatsapp {
   display: flex;
   justify-content: center;
@@ -56,56 +48,68 @@
   gap: 15px;
 }
 
-/* Link Style */
+/* Unified Link Styles */
+.mail-link,
 .whatsapp-link {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #fff; /* Número blanco */
-  transition: color 0.3s ease; /* Transición suave */
+  color: #fff; /* Default color */
+  font-size: 18px; /* Unified font size */
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-weight: 500;
+}
+/* Mail Icon Hover Effect */
+.mail:hover .mail-icon {
+  color: #4AB3F4; /* Cambia a azul celeste */
+  transform: scale(1.1); /* Efecto de agrandamiento sutil */
 }
 
-.whatsapp-number {
-  font-size: 20px; /* Tamaño adecuado para el número */
-  font-weight: 500; /* Destaca el número */
+.whatsapp-number{
+  font-size: 20px;
 }
 
-/* Icon Style */
-.whatsapp-icon {
-  color: #fff; /* Ícono blanco por defecto */
+.whatsapp-link:hover .whatsapp-icon {
+  color: #25D366; /* WhatsApp hover color */
+  transform: scale(1.1); /* Subtle zoom */
+}
+
+.mail-link:hover .mail-icon {
+  transform: scale(1.1);
+}
+
+/* Icon Styles */
+.whatsapp-icon,
+.mail-icon {
+  color: #fff; /* Default icon color */
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover Effect */
-.whatsapp-link:hover .whatsapp-icon {
-  color: #25D366; /* Verde típico de WhatsApp */
-  transform: scale(1.1); /* Efecto de agrandamiento sutil */
+.whatsapp-icon{
+  margin-right: 15px;
 }
 
 /* Mobile Styles */
 @media (max-width: 720px) {
-  .whatsapp-number {
-    font-size: 18px; /* Ajustar tamaño para pantallas pequeñas */
+  .whatsapp-link,
+  .mail-link {
+    font-size: 16px;
   }
 
-  .whatsapp-icon {
-    color: #25D366; /* Ícono verde por defecto en mobile */
-  }
-
-  .whatsapp-link:hover .whatsapp-icon {
-    transform: none; /* Sin efecto de hover en mobile */
+  .whatsapp-icon,
+  .mail-icon {
+    transform: none; /* Disable transform on mobile */
   }
 }
 
-
-.footer {
-  display: flex;
-  position: sticky;
-  top: 0;
-  background-color: #3b5999;
+@media (min-width: 1080px) {
+  .contact {
+    height: 660px;
+    background-attachment: fixed;
+  }
 }
 
-
+/* Networks Section - No changes */
 .networks {
   display: flex;
 }
