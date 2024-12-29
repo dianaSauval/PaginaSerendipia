@@ -226,6 +226,10 @@
 
   .info {
     font-size: 20px; /* Adjusted font size */
+    background-color: rgba(27, 27, 27, 0.5);
+    width: 100%;
+    padding-bottom: 15px;
+    margin-left: 15px;
   }
 }
 
@@ -243,7 +247,7 @@
   }
 
   .info {
-    font-size: 25px;
+    font-size: 25px;    
   }
 }
 
