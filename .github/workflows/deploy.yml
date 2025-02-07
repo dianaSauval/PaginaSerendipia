@@ -26,7 +26,8 @@ jobs:
         run: npm run build
 
       - name: 🚀 Subir SOLO el contenido de "build/" a la carpeta correcta en el servidor
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
