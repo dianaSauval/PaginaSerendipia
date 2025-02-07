@@ -20,144 +20,46 @@ export default function TitlebarImageList() {
       <Element name="photos" className="photosSection">
         <h1>{t("photosSection.title")}</h1>
         <div className="grid-container">
-          <div
-            className="grid-item tall"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695421629/ACRODUO_31-10-22_31_mhoqo8.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695418995/dianayjosebaja_11_de_33_kaik2g.jpg')",
-            }}
-          ></div>
-
-          <div
-            className="grid-item wide"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695420809/Joseydianabaja_20_de_35_v1ljnh.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563522/006_8389-dng_DxO_DeepPRIME_fic9vs.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695435129/003_1404-NEF_DxO_DeepPRIME_hjh8mk.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563570/003_1540-NEF_DxO_DeepPRIME_ysownn.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563569/003_1433-NEF_DxO_DeepPRIME_zfnyd0.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item tall"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563413/received_347491989384500_zyhb0n.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item tall wide"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563523/006_8422-dng_DxO_DeepPRIME_hicrlw.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563569/003_1474-NEF_DxO_DeepPRIME_lddhbb.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695564299/003_1580-NEF_DxO_DeepPRIME_wk7vhh.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563571/003_1476-NEF_DxO_DeepPRIME_uq1ukm.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item tall extra"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695563480/received_432722487264929_lxksio.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item tall"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695565377/dianayjosebaja_13_de_33_b5sb0x.jpg')",
-            }}
-          ></div>
-          <div
-            className="grid-item tall"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695565377/dianayjosebaja_8_de_33_h3wt1a.jpg')",
-            }}
-          ></div>
-        </div> 
-        <div className="carouselImages">      
-        <Carousel
-          navButtonsAlwaysVisible={true}
-          fullHeightHover={true} // We want the nav buttons wrapper to only be as big as the button element is
-          navButtonsProps={{
-            // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
-            style: {
-              backgroundColor: "#0B0C10",
-              borderRadius: "50%",
-            },
-          }}
-          navButtonsWrapperProps={{
-            // Move the buttons to the bottom. Unsetting top here to override default style.
-            style: {
-              bottom: "0",
-              top: "unset",
-            },
-          }}
-          NextIcon={<NavigateNextIcon />} // Change the "inside" of the next button to "next"
-          PrevIcon={<NavigateBeforeIcon />}
-        >
-          {images.map((item, i) => (
-            <Item key={i} item={item} />
+          {images.map((item) => (
+            <div
+              key={item.id}
+              className={`grid-item ${item.size || ""}`}
+              style={{ backgroundImage: `url(${item.url})` }}
+              title={`Image ${item.id}`}
+            >
+              
+            </div>
           ))}
-        </Carousel>
+        </div> 
+
+        <div className="carouselImages">      
+          <Carousel
+            navButtonsAlwaysVisible={true}
+            fullHeightHover={true}
+            navButtonsProps={{
+              style: {
+                backgroundColor: "#0B0C10",
+                borderRadius: "50%",
+              },
+            }}
+            navButtonsWrapperProps={{
+              style: {
+                bottom: "0",
+                top: "unset",
+              },
+            }}
+            NextIcon={<NavigateNextIcon />}
+            PrevIcon={<NavigateBeforeIcon />}
+          >
+            {images.map((item, i) => (
+              <Item key={i} item={item} />
+            ))}
+          </Carousel>
         </div> 
       </Element>
     </>
   );
 }
-
 
 function Item(props: IImages) {
   const [open, setOpen] = useState(false);
@@ -166,9 +68,8 @@ function Item(props: IImages) {
     setOpen(false);
     handlePause();
   };
-  const handlePause = () => {
-    return false;
-  };
+  const handlePause = () => false;
+
   return (
     <Paper
       sx={{
@@ -182,14 +83,16 @@ function Item(props: IImages) {
     >
       <div
         onClick={handleOpen}
-        style={{ backgroundImage: "url('" + props.item.url + "')" }}
+        style={{ backgroundImage: `url(${props.item.url})` }}
         className="carouselImg"
-      >       
-        
+        title={`Image ${props.item.id}`}
+      >
+        <span className="sr-only">Photo {props.item.id}</span>
       </div>      
     </Paper>
-      );
-    }
+  );
+}
+
 
 const itemData = [
   {

@@ -1,0 +1,35 @@
+name: 🚀 Deploy React App to LatinCloud (ElServer)
+
+on:
+  push:
+    branches:
+      - main  # Se ejecutará cuando subas cambios a la rama main
+
+jobs:
+  deploy:
+    name: Build and Upload to FTP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Descargar el código del repositorio
+        uses: actions/checkout@v3
+
+      - name: 🏗️ Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Usa la versión de Node.js que estés usando
+
+      - name: 📦 Instalar dependencias
+        run: npm install
+
+      - name: 🏗️ Construir la aplicación (React con Vite)
+        run: npm run build
+
+      - name: 🚀 Subir SOLO el contenido de "build/" a la carpeta correcta en el servidor
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: "./build/"  # Solo el contenido de build
+          server-dir: "/duoserendipia.com.ar/public/"  # Ruta exacta en tu hosting
