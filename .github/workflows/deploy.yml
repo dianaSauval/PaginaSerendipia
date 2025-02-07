@@ -22,15 +22,14 @@ jobs:
       - name: 📦 Instalar dependencias
         run: npm install
 
-      - name: 🏗️ Construir la aplicación (React con Vite)
+      - name: 🏗️ Construir la aplicación (React con Create React App)
         run: npm run build
 
-      - name: 🚀 Subir SOLO el contenido de "build/" a la carpeta correcta en el servidor
+      - name: 🚀 Subir SOLO el contenido de "build/" al servidor FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "./build/"  # Solo el contenido de build
-          server-dir: "/duoserendipia.com.ar/public/"  # Ruta exacta en tu hosting
+          local-dir: "./build/"  # Solo sube la carpeta build
+          server-dir: "/duoserendipia.com.ar/public/"  # Ajusta según tu servidor
