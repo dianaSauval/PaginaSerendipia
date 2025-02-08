@@ -4,36 +4,45 @@
   background-size: cover;
   border-radius: 50%; /* Hace que la imagen sea un círculo */
   overflow: hidden; /* Asegura que no haya desbordes */
+  width: 80vw; /* Ajuste responsivo */
+  height: 80vw;
+  max-width: 400px;
+  max-height: 400px;
 }
 
+/* Contenedor principal */
 .about {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 20px;
   padding-top: 50px;
   margin-top: 0;
 }
 
+/* Título */
 .about h1 {
   font-family: "Lovers Quarrel", cursive;
   font-size: 42px;
   font-weight: 400;
   color: black;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-
+/* Texto */
 .text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   text-align: justify;
-  margin-top: 20px;
   line-height: 1.6;
   font-size: 16px;
   color: #333;
+  max-width: 90%;
 }
 
 .text h2 {
@@ -41,34 +50,35 @@
   color: #45A29E;
   margin: 15px 0;
   text-align: center;
+  font-weight: 700;
 }
 
 .text ul {
-  list-style-type: none; /* Elimina el estilo de puntos predeterminado */
+  list-style-type: none;
   padding-left: 0;
   margin: 10px 0;
 }
 
+/* Ítems de lista con estrellitas */
 .text li {
   margin-bottom: 10px;
   position: relative;
   display: flex;
-  align-items: flex-start; /* Alinea los ítems desde la parte superior */
-  padding-left: 25px; /* Espacio para el marcador */
-  line-height: 1.4; /* Asegura que el texto tenga suficiente espacio */
+  align-items: flex-start;
+  padding-left: 30px; /* Espacio para la estrella */
+  line-height: 1.4;
 }
 
 .text li::before {
-  content: "\2605"; /* Símbolo personalizado */
+  content: "★";
   position: absolute;
   left: 0;
-  color: #45A29E; /* Color del símbolo */
-  font-size: 20px; /* Tamaño del símbolo */
-  top: 0; /* Coloca el marcador al principio */
-  transform: translateY(-4px); /* Ajusta el marcador hacia el centro de la primera línea */
+  color: #45A29E;
+  font-size: 20px;
+  top: -0.1em; /* 🔹 Asegura que la estrella esté alineada con la primera línea */
 }
 
-/* Botones */
+/* Botón de CV */
 .cv-buttons {
   display: flex;
   gap: 10px;
@@ -124,24 +134,24 @@
 /* Ajustes para pantallas móviles */
 @media (max-width: 520px) {
   .about {
-    flex-direction: column; /* Coloca los elementos en columna */
-    align-items: center; /* Centra los elementos */
+    flex-direction: column;
+    align-items: center;
   }
 
   .img {
-    width: 70vw; /* Usa el 70% del ancho de la pantalla para la imagen */
-    height: 70vw; /* Mantiene la proporción de la imagen circular */
-    border-radius: 50%; /* Mantiene la imagen circular */
+    width: 70vw;
+    height: 70vw;
+    border-radius: 50%;
     margin-bottom: 30px;
   }
 
   h1 {
-    margin-bottom: 10px; /* Añade espacio debajo del título */
+    font-size: 36px;
+    margin-bottom: 10px;
   }
 
   .text {
-    margin-bottom: 10px; /* Añade un espacio debajo del texto */
+    font-size: 14px;
+    margin-bottom: 10px;
   }
-
-
 }
