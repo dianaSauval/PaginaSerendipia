@@ -1,13 +1,38 @@
-body {
+/* --- Reset Global Básico (ya normalizado por CssBaseline) --- */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* --- Estilos Globales --- */
+html, body {
+  width: 100%;
+  min-height: 100vh; /* 🔹 Cambio de height: 100% a min-height */
+  font-size: 16px;
+  background-color: #fdfdfd;
+  overflow-x: hidden; /* 🔹 Cambio de overflow-x: auto a hidden */
+}
+
+/* --- Contenedor principal para asegurarse de que App ocupe todo --- */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Scroll suave --- */
+body {
+  scroll-behavior: smooth; /* 🔹 Movemos esto a body en lugar de html */
+}
+
+/* --- Selección de texto personalizada (opcional) --- */
+::selection {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+/* --- Evitar doble tap en móviles (para botones y enlaces) --- */
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }

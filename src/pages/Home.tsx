@@ -15,13 +15,13 @@ function Home() {
         <Banner/>
       </header>
       <main className="body">
-        <section>
+        <section id="about">
         <About/>
         </section>
-        <section className="carousel">
+        <section className="carousel" id="videos">
         <CarouselExample/>
         </section>
-        <section className="photos">
+        <section className="photos" id="photos">
         <TitlebarImageList/>
         </section>
         <section className="contact">

@@ -15,7 +15,7 @@ export default function ContactSection() {
   return (
     <Element name="contact" className="contactSection">
       <h1>{t("contactSection.title")}</h1>
-      <div className="bodycontact">
+      <div className="bodycontact" id="contact">
         <div className="info">
           <h2>{t("contactSection.recruitment")}</h2>
           <div className="mail">

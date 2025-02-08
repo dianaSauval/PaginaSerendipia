@@ -18,7 +18,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <Element name="banner">
+    <Element name="banner" id="banner">
       <div className="player-wrapper">
         {videoUrl && (
           <ReactPlayer
