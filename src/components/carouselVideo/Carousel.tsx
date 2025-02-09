@@ -69,24 +69,24 @@ const Carousel: React.FC = () => {
 
   return (
     <Box className="carousel-container" sx={{ width: isMobile ? "100vw" : isTablet ? "85vw" : "70vw", maxWidth: "1200px", margin: "auto", position: "relative", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-      <Typography variant="h2" align="center">Videos</Typography>
-      <IconButton className="arrow" onClick={handlePrev} sx={{ position: "absolute", left: isMobile ? "5px" : "10px", top: "50%", transform: "translateY(-50%)", transition: "0.3s", '&:hover': { color: "#00FAF1", transform: "scale(1.2)" } }}>
+      <Typography variant="h2" align="center">{t("videos")}</Typography>
+      <IconButton className="arrow" onClick={handlePrev} sx={{ position: "absolute", left: "5%", top: "60%", transform: "translateY(-50%)", transition: "0.3s", zIndex: 2, color: "white", backgroundColor: "rgba(0,0,0,0.5)", '&:hover': { backgroundColor: "rgba(69, 162, 158, 0.8)"} }}>
         <ArrowBackIos />
       </IconButton>
 
-      <Paper className="carousel-slide" sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", width: isMobile ?"100%" : "90%", position: "relative" }}>
+      <Paper className="carousel-slide" sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", width: "100%", position: "relative" }}>
         <Box className="carousel-image" sx={{ backgroundImage: `url(${items[currentIndex].item.img})`, width: "100%", height: isMobile ? "50vh" : "70vh", backgroundSize: "cover", backgroundPosition: "center", position: "relative" }}>
           <Box className="overlay" onClick={() => handleOpenModal(items[currentIndex].item.url)} sx={{ cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%" }}>
             <YouTubeIcon className="youtube-icon" sx={{ fontSize: isMobile ? 70 : 100, color: "#00FAF1" }} />
           </Box>
           <Box className="text-container" sx={{ position: "absolute", bottom: "0", left: "0", width: "100%", backgroundColor: "rgba(69, 162, 158, 0.8)", padding: 2, textAlign: "center" }}>
             <Typography variant={isMobile ? "h5" : "h3"} color="black">{items[currentIndex].item.name}</Typography>
-            <Typography variant="body1" sx={{color:"black", fontWeight:600}}>{items[currentIndex].item.description}</Typography>
+            <Typography variant="body1" sx={{ color: "black", fontWeight: 600 }}>{items[currentIndex].item.description}</Typography>
           </Box>
         </Box>
       </Paper>
 
-      <IconButton className="arrow" onClick={handleNext} sx={{ position: "absolute", right: isMobile ? "5px" : "10px", top: "50%", transform: "translateY(-50%)", transition: "0.3s", '&:hover': { color: "#00FAF1", transform: "scale(1.2)" } }}>
+      <IconButton className="arrow" onClick={handleNext} sx={{ position: "absolute", right: "5%", top: "60%", transform: "translateY(-50%)", transition: "0.3s", zIndex: 2, color: "white", backgroundColor: "rgba(0,0,0,0.5)", '&:hover': { backgroundColor: "rgba(69, 162, 158, 0.8)" } }}>
         <ArrowForwardIos />
       </IconButton>
 

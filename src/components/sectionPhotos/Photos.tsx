@@ -9,7 +9,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import "../carouselVideo/carousel.css";
 import "./photos.css";
-import { Paper } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 import { IImages, images } from "../../data";
 
 export default function TitlebarImageList() {
@@ -18,7 +18,7 @@ export default function TitlebarImageList() {
   return (
     <>
       <Element name="photos" className="photosSection">
-        <h1>{t("photosSection.title")}</h1>
+      <Typography variant="h2" align="center">{t("photosSection.title")}</Typography>
         <div className="grid-container">
           {images.map((item) => (
             <div
@@ -33,29 +33,25 @@ export default function TitlebarImageList() {
         </div> 
 
         <div className="carouselImages">      
-          <Carousel
-            navButtonsAlwaysVisible={true}
-            fullHeightHover={true}
-            navButtonsProps={{
-              style: {
-                backgroundColor: "#0B0C10",
-                borderRadius: "50%",
-              },
-            }}
-            navButtonsWrapperProps={{
-              style: {
-                bottom: "0",
-                top: "unset",
-              },
-            }}
-            NextIcon={<NavigateNextIcon />}
-            PrevIcon={<NavigateBeforeIcon />}
-          >
-            {images.map((item, i) => (
-              <Item key={i} item={item} />
-            ))}
-          </Carousel>
-        </div> 
+        <Carousel
+  navButtonsAlwaysVisible={true}
+  fullHeightHover={false} 
+  autoPlay={true}  
+  indicators={true}  // <-- Activa los indicadores
+  swipe={true}  
+  animation="slide"
+  duration={500}
+  NextIcon={<NavigateNextIcon />}
+  PrevIcon={<NavigateBeforeIcon />}
+>
+  {images.map((item, i) => (
+    <div key={i} className="carouselImg" style={{ backgroundImage: `url(${item.url})` }}>
+      {/* Aquí puedes agregar contenido adicional si lo necesitas */}
+    </div>
+  ))}
+</Carousel>
+
+</div> 
       </Element>
     </>
   );
@@ -87,7 +83,7 @@ function Item(props: IImages) {
         className="carouselImg"
         title={`Image ${props.item.id}`}
       >
-        <span className="sr-only">Photo {props.item.id}</span>
+        {/* <span className="sr-only">Photo {props.item.id}</span> */}
       </div>      
     </Paper>
   );
