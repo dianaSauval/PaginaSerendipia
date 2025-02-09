@@ -31,6 +31,14 @@
   margin-bottom: 20px;
 }
 
+.about h2{
+  font-weight: 400;
+  font-family: "'Lovers Quarrel', cursive";
+  font-size: "4rem";
+  font-weight: 400;
+  color: "#00faf1";
+}
+
 /* Texto */
 .text {
   display: flex;

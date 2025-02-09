@@ -7,19 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { IVideoItem } from "../../@types/carousel";
 import ReactPlayer from "react-player";
-import { Paper } from "@mui/material";
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "80%",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+import { Paper, useMediaQuery } from "@mui/material";
 
 interface IMyProps {
   open: boolean;
@@ -28,6 +16,9 @@ interface IMyProps {
 }
 
 const TransitionsModal: React.FC<IMyProps> = (props: IMyProps) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(max-width: 1024px)");
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -43,32 +34,38 @@ const TransitionsModal: React.FC<IMyProps> = (props: IMyProps) => {
       }}
     >
       <Fade in={props.open}>
-        <Box sx={style}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: isMobile ? "95%" : isTablet ? "85%" : "80%",
+            maxWidth: "1200px",
+            bgcolor: "background.paper",
+            border: "2px solid #000",
+            boxShadow: 24,
+            p: 2,
+          }}
+        >
           <Paper
             sx={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              alignContent: "center",
               alignItems: "center",
+              width: "100%",
+              height: isMobile ? "45vh" : "85vh",
             }}
           >
-            <div
-              style={{ backgroundImage: "url('" + props.item.item.img + "')" }}
-              className="carouselImg"
-            >
-              <ReactPlayer
-                url={props.item.item.img}
-                width="100%"
-                height="100%"
-                playing={true}
-                loop
-                className="carouselImg"
-                alt={props.item.item.name}
-                loading="lazy"
-                controls={true}
-              />
-            </div>
+            <ReactPlayer
+              url={props.item.item.url}
+              width="100%"
+              height="100%"
+              playing={true}
+              loop
+              controls={true}
+            />
           </Paper>
         </Box>
       </Fade>

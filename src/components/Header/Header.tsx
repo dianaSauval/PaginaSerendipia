@@ -73,7 +73,7 @@ export default function Header() {
             <LinkScroll to="about" smooth={true} offset={-90} duration={500}>
               <Button component="span" variant="outlined">{t("about")}</Button>
             </LinkScroll>
-            <LinkScroll to="videos" smooth={true} offset={-90} duration={500}>
+            <LinkScroll to="videos" smooth={true} offset={-65} duration={500}>
               <Button component="span" variant="outlined">{t("videos")}</Button>
             </LinkScroll>
             <LinkScroll to="photos" smooth={true} offset={-70} duration={500}>

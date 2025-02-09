@@ -26,6 +26,24 @@ const theme = createTheme({
       fontWeight: 400, // Regular (el que te gustó)
       color: "#00faf1",
     },
+    h2: {
+      fontFamily: "'Lovers Quarrel', cursive", // Solo para títulos
+      fontSize: "5rem",
+      fontWeight: 400, // Regular (el que te gustó)
+      color: "black",
+    },
+    h3: {
+      fontFamily: "'Lovers Quarrel', cursive", // Solo para títulos
+      fontSize: "4rem",
+      fontWeight: 400, // Regular (el que te gustó)
+      color: "black",
+    },
+    h5: {
+      fontFamily: "'Lovers Quarrel', cursive", // Solo para títulos
+      fontWeight: 400, // Regular (el que te gustó)
+      fontSize: "2rem",
+      color: "black",
+    },
     button: {
       fontFamily: "'Montserrat', sans-serif", // Nueva fuente para los botones
       textTransform: "uppercase",
@@ -34,7 +52,7 @@ const theme = createTheme({
       letterSpacing: "1px",
     },
     body1: {
-      color: "#333", // 🔹 Se mantiene el color del texto original
+      color: "black", // 🔹 Se mantiene el color del texto original
     },
   },
   components: {
