@@ -46,7 +46,8 @@
 /* Ajustes en pantallas pequeñas (iPad mini y menores) */
 @media (max-width: 767px) {
   .player-wrapper {
-    padding-top: 56.25%; /* Mantiene la proporción del video */
+    margin-top: 40px;
+    padding-top: 68.25%; /* Mantiene la proporción del video */
   }
 
   .react-player {

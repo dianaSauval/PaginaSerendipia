@@ -45,7 +45,7 @@ export default function Header() {
         position: "fixed",
         top: 0,
         zIndex: 999,
-        padding: isDesktop ? "8px 40px" : "8px 20px",
+        padding: isDesktop ? "8px 40px" : "4px 20px",
       }}
     >
       {/* Título a la izquierda */}
