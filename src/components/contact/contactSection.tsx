@@ -9,15 +9,16 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { NavLink } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 export default function ContactSection() {
   const { t, i18n } = useTranslation(["global"]);
   return (
     <Element name="contact" className="contactSection">
-      <h1>{t("contactSection.title")}</h1>
+      <Typography variant="h2" sx={{alignItems:"center", color:"white"}}>{t("contactSection.title")}</Typography>
       <div className="bodycontact" id="contact">
         <div className="info">
-          <h2>{t("contactSection.recruitment")}</h2>
+        <Typography variant="h3" sx={{alignItems:"center", color:"white"}}>{t("contactSection.recruitment")}</Typography>
           <div className="mail">
             <MailOutlineIcon sx={{ fontSize: 40 }} className="mail-icon" />
             <a href="mailto:dianasauval@hotmail.com" className="email-link">
