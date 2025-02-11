@@ -91,6 +91,9 @@
 
 /* Mobile Styles */
 @media (max-width: 720px) {
+  .networks ul{
+    margin-top:40px ;
+  }
   .whatsapp-link,
   .mail-link {
     font-size: 16px;
@@ -197,6 +200,7 @@
 
 /* Mobile Optimization: Disable transitions and show icons normally */
 @media (max-width: 720px) {
+
   .networks ul {
     top: 230px;
     left: 50%;
