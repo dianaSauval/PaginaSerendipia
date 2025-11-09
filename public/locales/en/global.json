@@ -20,6 +20,8 @@
     "p8": "MICA (Argentine Cultural Industries Market).",
     "p9": "Provincial festivals in Jujuy, La Rioja, Neuquén, and Santa Fe.",
     "p10": "Municipalities: Malvinas Argentinas, Sierra de la Ventana, among others.",
+    "p11": "Season from May to October 2025 in Mallorca, performing circus shows with the company Romantic Corporate in hotels across different areas of the island.",
+    "p12": "Currently working with Romantic Corporate in Lanzarote, Canary Islands (2025–2026), presenting circus performances as part of the annual season.",
     "cvButton": "View our CVs"
   },
   "videoItems": {
@@ -43,8 +45,8 @@
   "photosSection": {
     "title": "Photos"
   },
-  "contactSection":{
-    "title":"Contact",
-    "recruitment":"Contact Us"
+  "contactSection": {
+    "title": "Contact",
+    "recruitment": "Contact Us"
   }
 }

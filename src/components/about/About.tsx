@@ -17,6 +17,8 @@ const About = () => {
             <p>{t("aboutSection.p2")}</p>
             <h2>{t("aboutSection.p3")}</h2>
             <ul>
+              <li>{t("aboutSection.p12")}</li>
+              <li>{t("aboutSection.p11")}</li>
               <li>{t("aboutSection.p4")}</li>
               <li>{t("aboutSection.p5")}</li>
               <li>{t("aboutSection.p6")}</li>
