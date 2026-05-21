@@ -42,11 +42,52 @@
       "description": "Número de Rueda Cyr de Diana Sauval"
     }
   },
-  "photosSection":{
-    "title":"Fotos"
+  "photosSection": {
+    "title": "Fotos"
   },
-  "contactSection":{
-    "title":"Contacto",
-    "recruitment":"Contrataciones"
+  "contactSection": {
+    "title": "Contacto",
+    "recruitment": "Contrataciones"
+  },
+  "showSpinology": {
+    "kicker": "Después del show",
+    "heroTitle1": "Si el show",
+    "heroTitle2": "te emocionó",
+
+    "heroText": "Tus aplausos ya llegaron hasta nosotros. Si quieres apoyar a los artistas, puedes dejarnos una propina y ayudar a que esta rueda siga girando.",
+
+    "tipButton": "Dejar propina",
+    "bookButton": "Contactanos",
+
+    "supportKicker": "Apoyo rápido",
+    "supportTitle": "Un pequeño gesto, un impacto real.",
+
+    "supportText": "Las propinas nos ayudan a seguir entrenando, creando, viajando y llevando circo a lugares inesperados.",
+
+    "option1": "Apoyar artistas",
+    "option2": "Seguir nuestro trabajo",
+    "option3": "Invitarnos a actuar",
+
+    "galleryKicker": "Spinology",
+    "galleryTitle": "Equilibrio, confianza y movimiento circular.",
+
+    "hostedBy": "Presentado por",
+    "duoTitle": "Dúo Serendipia",
+
+    "duoP1": "Somos Diana y José, un dúo de circo que crea experiencias visuales a través de rueda Cyr, acrobacia dúo, danza y movimiento poético.",
+
+    "duoP2": "Nuestro trabajo está pensado para viajar: escenarios, hoteles, festivales, eventos privados y públicos de distintos idiomas y culturas.",
+
+    "website": "Página web",
+    "instagram": "Instagram",
+
+    "bookingKicker": "Eventos · Hoteles · Festivales",
+    "bookingTitle": "¿Quieres esta energía en tu evento?",
+
+    "bookingText": "Disponibles para colaboraciones artísticas, hoteles, festivales, eventos privados, shows corporativos y producciones especiales.",
+
+    "contactButton": "Contactarnos",
+
+    "scroll": "scroll"
   }
 }

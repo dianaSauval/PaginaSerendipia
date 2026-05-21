@@ -48,5 +48,44 @@
   "contactSection": {
     "title": "Contact",
     "recruitment": "Contact Us"
+  },
+  "showSpinology": {
+    "kicker": "After the show",
+    "heroTitle1": "If the show",
+    "heroTitle2": "moved you",
+    "heroText": "Your applause already reached us. If you would like to support the artists, leave a tip and help this circle keep spinning.",
+
+    "tipButton": "Leave a tip",
+    "bookButton": "Contact Us",
+
+    "supportKicker": "Quick support",
+    "supportTitle": "A small gesture, a real impact.",
+    "supportText": "Tips help us continue training, creating, travelling and bringing circus to unexpected places.",
+
+    "option1": "Tip the artists",
+    "option2": "Follow our work",
+    "option3": "Invite us to perform",
+
+    "galleryKicker": "Spinology",
+    "galleryTitle": "Balance, trust and circular motion.",
+
+    "hostedBy": "Hosted by",
+    "duoTitle": "Dúo Serendipia",
+
+    "duoP1": "We are Diana and José, a circus duo creating visual performances through Cyr wheel, partner acrobatics, dance and poetic movement.",
+
+    "duoP2": "Our work is made to travel: across stages, hotels, festivals, private events and audiences from different languages and cultures.",
+
+    "website": "Website",
+    "instagram": "Instagram",
+
+    "bookingKicker": "Events · Hotels · Festivals",
+    "bookingTitle": "Do you want this energy at your event?",
+
+    "bookingText": "Available for artistic collaborations, hotels, festivals, private events, corporate shows and special productions.",
+
+    "contactButton": "Contact us",
+
+    "scroll": "scroll"
   }
 }
