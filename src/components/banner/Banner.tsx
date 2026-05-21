@@ -19,6 +19,7 @@ const Banner = () => {
 
   return (
     <Element name="banner" id="banner">
+      <div className="banner-overlay" />
       <div className="player-wrapper">
         {videoUrl && (
           <ReactPlayer

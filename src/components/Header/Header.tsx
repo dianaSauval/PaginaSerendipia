@@ -1,22 +1,32 @@
 import React, { useState } from "react";
-import { Button, Popover, List, ListItemButton, ListItemText, Typography, useMediaQuery } from "@mui/material";
+import {
+  Button,
+  Popover,
+  List,
+  ListItemButton,
+  ListItemText,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+
 import { NavLink } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 import { useTranslation } from "react-i18next";
+
 import MenuDrawer from "../menu/MenuBurger";
-import { useTheme } from "@mui/material/styles";
+
+import "./header.css";
 
 export default function Header() {
   const { t, i18n } = useTranslation(["global"]);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Detecta si es pantalla grande (>1080px)
+  const isDesktop = useMediaQuery("(min-width: 960px)");
 
-  // Estado para el menú de idiomas
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -33,78 +43,47 @@ export default function Header() {
     handleClose();
   };
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: "100%",
-        backgroundColor: "#0b0c10",
-        color: "#3ecbc4",
-        position: "fixed",
-        top: 0,
-        zIndex: 999,
-        padding: isDesktop ? "8px 40px" : "4px 20px",
-      }}
-    >
-      {/* Título a la izquierda */}
-      <Typography
-        variant="h1"
-        sx={{
-          color: "#00faf1",
-          fontSize: isDesktop ? "4rem" : "2.5rem",
-        }}
-      >
-        Dúo Serendipia
-      </Typography>
+  const navItems = [
+    { label: t("home"), target: "banner", offset: -80 },
+    { label: t("about"), target: "about", offset: -90 },
+    { label: t("videos"), target: "videos", offset: -70 },
+    { label: t("photos"), target: "photos", offset: -80 },
+    { label: t("contact"), target: "contact", offset: -80 },
+  ];
 
-      {/* Menú hamburguesa (solo en pantallas pequeñas, a la derecha) */}
+  return (
+    <header className="site-header">
+      <div className="header-brand">
+        <p className="brand-kicker">Contemporary Circus Duo</p>
+
+        <p className="brand-title">Dúo Serendipia</p>
+      </div>
+
       {!isDesktop && <MenuDrawer />}
 
-      {/* Contenido visible SOLO en pantallas grandes */}
       {isDesktop && (
         <>
-          {/* Navegación centrada con desplazamiento suave */}
-          <div style={{ display: "flex", gap: "10px", position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
-            <LinkScroll to="banner" smooth={true} offset={-80} duration={500}>
-              <Button component="span" variant="outlined">{t("home")}</Button>
-            </LinkScroll>
-            <LinkScroll to="about" smooth={true} offset={-90} duration={500}>
-              <Button component="span" variant="outlined">{t("about")}</Button>
-            </LinkScroll>
-            <LinkScroll to="videos" smooth={true} offset={-65} duration={500}>
-              <Button component="span" variant="outlined">{t("videos")}</Button>
-            </LinkScroll>
-            <LinkScroll to="photos" smooth={true} offset={-80} duration={500}>
-              <Button component="span" variant="outlined">{t("photos")}</Button>
-            </LinkScroll>
-            <LinkScroll to="contact" smooth={true} offset={-80} duration={500}>
-              <Button component="span" variant="outlined">{t("contact")}</Button>
-            </LinkScroll>
-          </div>
+          <nav className="header-nav">
+            {navItems.map((item) => (
+              <LinkScroll
+                key={item.target}
+                to={item.target}
+                smooth
+                offset={item.offset}
+                duration={500}
+              >
+                <button className="nav-link">{item.label}</button>
+              </LinkScroll>
+            ))}
+          </nav>
 
-          {/* Selector de idioma y redes sociales alineados a la derecha */}
-          <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-            {/* Selector de idioma */}
-            <Button
-              onClick={handleClick}
-              sx={{
-                color: "#3ecbc4",
-                textTransform: "none",
-                fontSize: "1rem",
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-                padding: "5px",
-                minWidth: "auto",
-              }}
-            >
+          <div className="header-actions">
+            <Button onClick={handleClick} className="language-button">
               <LanguageOutlinedIcon />
-              {t("language")} {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              {i18n.language === "es" ? "ES" : "EN"}
+              {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </Button>
 
-            {/* Menú de idiomas con Popover */}
             <Popover
               open={open}
               anchorEl={anchorEl}
@@ -117,57 +96,45 @@ export default function Header() {
                 vertical: "top",
                 horizontal: "left",
               }}
-              sx={{ mt: 1 }} // Para separar un poco el menú del botón
+              className="language-popover"
             >
-          
-              <List component="nav" sx={{ bgcolor: "background.paper" , width:"145px"}}>
+              <List component="nav">
                 <ListItemButton onClick={() => changeLanguage("en")}>
-                  <ListItemText primary={t("english")} />
+                  <ListItemText primary="English" />
                 </ListItemButton>
+
                 <ListItemButton onClick={() => changeLanguage("es")}>
-                  <ListItemText primary={t("spanish")} />
+                  <ListItemText primary="Español" />
                 </ListItemButton>
               </List>
             </Popover>
 
-            {/* Redes Sociales */}
-            <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
+            <div className="social-links">
               <NavLink
                 to="https://www.instagram.com/un.duo.serendipia"
                 target="_blank"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textDecoration: "none",
-                  transition: "color 0.3s ease, transform 0.3s ease",
-                  color: "#3ecbc4",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#00faf1")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#3ecbc4")}
+                rel="noopener noreferrer"
+                className="social-link"
               >
-                <InstagramIcon sx={{ fontSize: 30 }} />
+                <InstagramIcon />
               </NavLink>
+
               <NavLink
                 to="https://www.youtube.com/channel/UCp-fAGAGlR9Qfv8dfUER4Rg"
                 target="_blank"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textDecoration: "none",
-                  transition: "color 0.3s ease, transform 0.3s ease",
-                  color: "#3ecbc4",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#00faf1")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#3ecbc4")}
+                rel="noopener noreferrer"
+                className="social-link"
               >
-                <YouTubeIcon sx={{ fontSize: 30 }} />
+                <YouTubeIcon />
               </NavLink>
             </div>
+
+            <LinkScroll to="contact" smooth offset={-80} duration={500}>
+              <button className="booking-button">Book us</button>
+            </LinkScroll>
           </div>
         </>
       )}
-    </div>
+    </header>
   );
 }

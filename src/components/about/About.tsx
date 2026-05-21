@@ -31,7 +31,7 @@ const About = () => {
             </ul>
             <div className="cv-buttons">
               <a
-                href="https://drive.google.com/file/d/1IxsuyEK5grVgvbFLA3yuInri2KN5njJi/view?usp=sharing, https://drive.google.com/file/d/1lPBKcBm17NQJNiTLCZPlMSFK_A5fOxiV/view?usp=sharing"
+                href="https://drive.google.com/drive/folders/1TkPvzXSefRSt8GfsWwOkqrcu3hknaKMp?usp=sharing"
                 target="_blank"
                 className="btn"
               >

@@ -1,10 +1,373 @@
-@media (min-width: 1080px) {
-  .MenuDrawer {
-    visibility: hidden;
+.site-header {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px 30px;
+
+  position: fixed;
+  top: 0;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(
+    90deg,
+    rgba(5, 8, 12, 0.96),
+    rgba(8, 11, 17, 0.9)
+  );
+
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(0, 250, 241, 0.14);
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  min-width: 420px;
+  margin-right: 48px;
+}
+
+.brand-kicker {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 0.58rem !important;
+  letter-spacing: 0.34em !important;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.82) !important;
+
+  margin-bottom: 10px !important;
+
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
+}
+
+.brand-title {
+  font-family: "Lovers Quarrel", cursive !important;
+
+  font-size: clamp(2.8rem, 3.5vw, 3rem) !important;
+
+  font-weight: 400 !important;
+
+  color: #56fff8 !important;
+
+  letter-spacing: 0.01em !important;
+
+  line-height: 0.72;
+
+  text-shadow:
+    0 0 2px rgba(86, 255, 248, 0.95),
+    0 0 10px rgba(86, 255, 248, 0.6),
+    0 0 22px rgba(0, 250, 241, 0.22);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.header-nav {
+  position: absolute;
+  left: 52%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  position: relative;
+
+  border: none;
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  padding: 8px 2px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 1px;
+
+  background: #56fff8;
+
+  transition: width 0.28s ease;
+
+  box-shadow: 0 0 10px rgba(86, 255, 248, 0.6);
+}
+
+.nav-link:hover {
+  color: #56fff8;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* =========================
+   LANGUAGE BUTTON
+========================= */
+
+.language-button {
+  height: 44px !important;
+
+  color: #56fff8 !important;
+  background: rgba(0, 250, 241, 0.04) !important;
+  border: 1px solid rgba(86, 255, 248, 0.22) !important;
+
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+
+  min-width: auto !important;
+  padding: 0 15px !important;
+  border-radius: 999px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+
+  transition: all 0.25s ease !important;
+}
+
+.language-button:hover {
+  background: rgba(86, 255, 248, 0.08) !important;
+  border-color: rgba(86, 255, 248, 0.5) !important;
+
+  box-shadow: 0 0 18px rgba(86, 255, 248, 0.16);
+}
+
+.language-button svg {
+  font-size: 1.08rem !important;
+  margin: 0 !important;
+}
+
+/* =========================
+   LANGUAGE POPOVER
+========================= */
+
+.language-popover .MuiPaper-root {
+  margin-top: 8px;
+
+  background: rgba(8, 10, 14, 0.96);
+  border: 1px solid rgba(0, 250, 241, 0.16);
+  border-radius: 18px;
+  overflow: hidden;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+}
+
+.language-popover .MuiList-root {
+  padding: 6px;
+}
+
+.language-popover .MuiListItemButton-root {
+  border-radius: 12px;
+}
+
+.language-popover .MuiListItemButton-root:hover {
+  background: rgba(86, 255, 248, 0.08);
+}
+
+.language-popover .MuiListItemText-primary {
+  color: #56fff8;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-link {
+  color: rgba(86, 255, 248, 0.82);
+
+  display: flex;
+  align-items: center;
+
+  transition: all 0.25s ease;
+}
+
+.social-link svg {
+  font-size: 1.6rem;
+}
+
+.social-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   BOOK BUTTON
+========================= */
+
+.booking-button {
+  border: 1px solid rgba(86, 255, 248, 0.5);
+  background: transparent;
+
+  color: #ffffff;
+
+  padding: 13px 24px;
+  border-radius: 999px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.booking-button:hover {
+  color: #56fff8;
+  border-color: #56fff8;
+
+  box-shadow: 0 0 18px rgba(86, 255, 248, 0.22);
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1400px) {
+  .header-brand {
+    min-width: 360px;
+    margin-right: 38px;
+  }
+
+  .header-nav {
+    left: 51%;
+    gap: 22px;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
   }
 }
-@media (min-width: 1400px) {
-  .networks {
-    display: flex;
+
+@media (max-width: 1280px) {
+  .site-header {
+    padding: 12px 24px;
+  }
+
+  .header-brand {
+    min-width: 320px;
+    margin-right: 30px;
+  }
+
+  .brand-title {
+    font-size: 4.6rem !important;
+  }
+
+  .header-nav {
+    left: 50.5%;
+    gap: 18px;
+  }
+
+  .nav-link {
+    font-size: 0.76rem;
+    letter-spacing: 0.13em;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .booking-button {
+    padding: 11px 18px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 959px) {
+  .site-header {
+    min-height: 76px;
+    padding: 10px 18px;
+  }
+
+  .header-brand {
+    min-width: auto;
+    margin-right: 0;
+  }
+
+  .brand-kicker {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  .brand-title {
+    font-size: 3.7rem !important;
+  }
+
+  .header-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .MenuDrawer {
+    display: block;
+  }
+}
+
+@media (min-width: 960px) {
+  .MenuDrawer {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-kicker {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 3.2rem !important;
   }
 }
