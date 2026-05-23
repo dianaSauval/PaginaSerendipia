@@ -6,8 +6,8 @@ i18next
   .use(Backend)
   .use(initReactI18next)
   .init({
-    lng: "es",
-    fallbackLng: "es", // Idioma predeterminado
+    lng: "en",
+    fallbackLng: "en", // Idioma predeterminado
     supportedLngs: ["en", "es"], // Idiomas soportados
     backend: {
       // Ruta relativa donde están los archivos de traducción

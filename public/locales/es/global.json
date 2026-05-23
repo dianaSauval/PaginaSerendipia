@@ -51,40 +51,41 @@
   },
   "showSpinology": {
     "kicker": "Después del show",
-    "heroTitle1": "Si el show",
-    "heroTitle2": "te emocionó",
 
-    "heroText": "Tus aplausos ya llegaron hasta nosotros. Si quieres apoyar a los artistas, puedes dejarnos una propina y ayudar a que esta rueda siga girando.",
+    "heroTitle1": "Si el show",
+    "heroTitle2": "te hizo sentir algo",
+
+    "heroText": "Gracias por compartir este momento con nosotros. Somos Diana y José, Dúo Serendipia, y actualmente formamos parte de Spinology, un show de Romantic. Si quieres apoyar directamente nuestro trabajo artístico, puedes dejarnos una propina y ayudarnos a seguir creando y llevando nuestro arte a nuevos lugares.",
 
     "tipButton": "Dejar propina",
     "bookButton": "Contactanos",
 
-    "supportKicker": "Apoyo rápido",
-    "supportTitle": "Un pequeño gesto, un impacto real.",
+    "supportKicker": "Apoyo directo",
+    "supportTitle": "Cada aporte ayuda a que el movimiento continúe.",
 
-    "supportText": "Las propinas nos ayudan a seguir entrenando, creando, viajando y llevando circo a lugares inesperados.",
+    "supportText": "Tu apoyo nos ayuda a seguir entrenando, creando nuevos proyectos y compartiendo nuestro trabajo en distintos escenarios y países.",
 
-    "option1": "Apoyar artistas",
+    "option1": "Apoyar al dúo",
     "option2": "Seguir nuestro trabajo",
     "option3": "Invitarnos a actuar",
 
     "galleryKicker": "Spinology",
-    "galleryTitle": "Equilibrio, confianza y movimiento circular.",
+    "galleryTitle": "Movimiento, confianza y conexión.",
 
-    "hostedBy": "Presentado por",
+    "hostedBy": "Conoce al dúo",
     "duoTitle": "Dúo Serendipia",
 
-    "duoP1": "Somos Diana y José, un dúo de circo que crea experiencias visuales a través de rueda Cyr, acrobacia dúo, danza y movimiento poético.",
+    "duoP1": "Somos Diana y José, un dúo de circo contemporáneo que combina rueda Cyr, acrobacia dúo, danza y lenguaje visual para crear experiencias poéticas y físicas.",
 
-    "duoP2": "Nuestro trabajo está pensado para viajar: escenarios, hoteles, festivales, eventos privados y públicos de distintos idiomas y culturas.",
+    "duoP2": "Además de formar parte de distintos espectáculos internacionales, también desarrollamos nuestros propios shows y propuestas para hoteles, festivales, teatros y eventos especiales.",
 
     "website": "Página web",
     "instagram": "Instagram",
 
     "bookingKicker": "Eventos · Hoteles · Festivales",
-    "bookingTitle": "¿Quieres esta energía en tu evento?",
+    "bookingTitle": "¿Quieres trabajar con nosotros?",
 
-    "bookingText": "Disponibles para colaboraciones artísticas, hoteles, festivales, eventos privados, shows corporativos y producciones especiales.",
+    "bookingText": "Disponibles para festivales, hoteles, eventos privados, producciones especiales y colaboraciones artísticas en distintos formatos.",
 
     "contactButton": "Contactarnos",
 

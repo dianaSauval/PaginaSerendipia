@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "./ShowSpinology.css";
 
@@ -21,6 +21,25 @@ function ShowSpinology() {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
+
+  useEffect(() => {
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="spinology-page">
@@ -58,13 +77,11 @@ function ShowSpinology() {
             <span>{t("showSpinology.heroTitle2")}</span>
           </h1>
 
-          <p className="spinology-intro">
-            {t("showSpinology.heroText")}
-          </p>
+          <p className="spinology-intro">{t("showSpinology.heroText")}</p>
 
           <div className="spinology-actions">
             <a
-              href="TU_LINK_DE_PROPINA"
+              href="https://buy.stripe.com/dRm9AScCl8bpcM6bfP1ck00"
               target="_blank"
               rel="noreferrer"
               className="spinology-btn primary"
@@ -78,12 +95,10 @@ function ShowSpinology() {
           </div>
         </div>
 
-        <div className="spinology-scroll">
-          {t("showSpinology.scroll")}
-        </div>
+        <div className="spinology-scroll">{t("showSpinology.scroll")}</div>
       </section>
 
-      <section className="spinology-tip-section">
+      <section className="spinology-tip-section reveal">
         <div className="tip-panel">
           <p className="spinology-kicker">
             {t("showSpinology.supportKicker")}
@@ -96,7 +111,7 @@ function ShowSpinology() {
 
         <div className="tip-options">
           <a
-            href="TU_LINK_DE_PROPINA"
+            href="https://buy.stripe.com/dRm9AScCl8bpcM6bfP1ck00"
             target="_blank"
             rel="noreferrer"
           >
@@ -120,7 +135,7 @@ function ShowSpinology() {
         </div>
       </section>
 
-      <section className="spinology-gallery">
+      <section className="spinology-gallery reveal">
         <div className="gallery-heading">
           <p className="spinology-kicker">
             {t("showSpinology.galleryKicker")}
@@ -130,29 +145,27 @@ function ShowSpinology() {
         </div>
 
         <div className="spinology-grid">
-          <div className="grid-img tall">
+          <div className="grid-img tall reveal delay-1">
             <img src={IMAGES.one} alt="Circus performance" />
           </div>
 
-          <div className="grid-img">
+          <div className="grid-img reveal delay-2">
             <img src={IMAGES.seven} alt="Cyr wheel performance" />
           </div>
 
-          <div className="grid-img">
+          <div className="grid-img reveal delay-3">
             <img src={IMAGES.three} alt="Acrobatic duo" />
           </div>
 
-          <div className="grid-img wide">
+          <div className="grid-img wide reveal delay-4">
             <img src={IMAGES.six} alt="Dúo Serendipia show" />
           </div>
         </div>
       </section>
 
-      <section className="serendipia-section">
+      <section className="serendipia-section reveal">
         <div className="serendipia-copy">
-          <p className="spinology-kicker">
-            {t("showSpinology.hostedBy")}
-          </p>
+          <p className="spinology-kicker">{t("showSpinology.hostedBy")}</p>
 
           <h2>{t("showSpinology.duoTitle")}</h2>
 
@@ -184,7 +197,7 @@ function ShowSpinology() {
         </div>
       </section>
 
-      <section id="booking" className="booking-spinology">
+      <section id="booking" className="booking-spinology reveal">
         <p className="spinology-kicker">
           {t("showSpinology.bookingKicker")}
         </p>
