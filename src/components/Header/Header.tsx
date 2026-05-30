@@ -78,7 +78,30 @@ export default function Header() {
           </nav>
 
           <div className="header-actions">
-            <Button onClick={handleClick} className="language-button">
+            <div className="social-links">
+              <NavLink
+                to="https://www.instagram.com/un.duo.serendipia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <InstagramIcon />
+              </NavLink>
+
+              <NavLink
+                to="https://www.youtube.com/channel/UCp-fAGAGlR9Qfv8dfUER4Rg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <YouTubeIcon />
+              </NavLink>
+            </div>
+
+            <LinkScroll to="contact" smooth offset={-80} duration={500}>
+              <button className="booking-button">Book us</button>
+            </LinkScroll>
+             <Button onClick={handleClick} className="language-button">
               <LanguageOutlinedIcon />
               {i18n.language === "es" ? "ES" : "EN"}
               {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -108,30 +131,6 @@ export default function Header() {
                 </ListItemButton>
               </List>
             </Popover>
-
-            <div className="social-links">
-              <NavLink
-                to="https://www.instagram.com/un.duo.serendipia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-              >
-                <InstagramIcon />
-              </NavLink>
-
-              <NavLink
-                to="https://www.youtube.com/channel/UCp-fAGAGlR9Qfv8dfUER4Rg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-              >
-                <YouTubeIcon />
-              </NavLink>
-            </div>
-
-            <LinkScroll to="contact" smooth offset={-80} duration={500}>
-              <button className="booking-button">Book us</button>
-            </LinkScroll>
           </div>
         </>
       )}
