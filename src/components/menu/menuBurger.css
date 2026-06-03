@@ -1,0 +1,432 @@
+/* ==========================================
+   MOBILE MENU - DÚO SERENDIPIA
+========================================== */
+
+.mobile-menu-button {
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(221, 184, 115, 0.42);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle, rgba(18, 214, 208, 0.12), transparent 68%),
+    rgba(0, 0, 0, 0.35);
+
+  color: var(--color-turquoise);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  box-shadow: 0 0 18px rgba(18, 214, 208, 0.12);
+  transition: all 0.25s ease;
+}
+
+.mobile-menu-button:hover {
+  color: var(--color-gold-light);
+  border-color: rgba(18, 214, 208, 0.7);
+  transform: scale(1.04);
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(5px);
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+
+  width: min(86vw, 340px);
+  height: 100vh;
+
+  padding: 24px 20px;
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(221, 184, 115, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 35%,
+      rgba(18, 214, 208, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(180deg, #050505 0%, #101010 48%, #050505 100%);
+
+  border-left: 1px solid rgba(221, 184, 115, 0.22);
+
+  box-shadow:
+    -22px 0 60px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(18, 214, 208, 0.08);
+
+  transform: translateX(110%);
+  transition: transform 0.35s ease;
+
+  overflow-y: auto;
+}
+
+.mobile-drawer.is-open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-glow {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+
+  width: 260px;
+  height: 180px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(221, 184, 115, 0.16),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+.mobile-drawer-header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 34px;
+}
+
+.drawer-eyebrow {
+  display: block;
+
+  color: var(--color-turquoise);
+
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+
+  margin-bottom: 4px;
+}
+
+.mobile-drawer-header h3 {
+  margin: 0;
+
+  font-family: "Cinzel Decorative", "Cinzel", serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+
+  background: linear-gradient(
+    180deg,
+    #fff4cb 0%,
+    #e7c27a 45%,
+    #a66c2d 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mobile-close-button {
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(221, 184, 115, 0.34);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-gold-light);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.mobile-close-button:hover {
+  color: var(--color-turquoise);
+  border-color: rgba(18, 214, 208, 0.6);
+}
+
+.mobile-nav {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-nav-link,
+.mobile-language-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 15px;
+
+  border: 1px solid rgba(221, 184, 115, 0.13);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--color-text-secondary);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-language-button:hover {
+  transform: translateX(-4px);
+
+  color: var(--color-gold-light);
+  border-color: rgba(221, 184, 115, 0.42);
+
+  background: linear-gradient(
+    135deg,
+    rgba(221, 184, 115, 0.1),
+    rgba(18, 214, 208, 0.06)
+  );
+
+  box-shadow: 0 0 18px rgba(221, 184, 115, 0.1);
+}
+
+.mobile-nav-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: var(--color-turquoise);
+  background: rgba(18, 214, 208, 0.08);
+  border: 1px solid rgba(18, 214, 208, 0.16);
+
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.mobile-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 22px 0;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(221, 184, 115, 0.45),
+    rgba(18, 214, 208, 0.35),
+    transparent
+  );
+}
+
+.mobile-language {
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-language-button {
+  justify-content: flex-start;
+  border: none;
+}
+
+.mobile-language-button strong {
+  margin-left: auto;
+
+  color: var(--color-turquoise);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.mobile-language-options {
+  margin-top: 10px;
+  padding: 8px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(221, 184, 115, 0.15);
+
+  background: rgba(0, 0, 0, 0.28);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-language-options button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 11px 13px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: transparent;
+  color: var(--color-text-secondary);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.mobile-language-options button:hover {
+  background: rgba(221, 184, 115, 0.1);
+  color: var(--color-gold-light);
+}
+
+.mobile-language-options img {
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 1px solid rgba(245, 232, 201, 0.4);
+}
+
+.mobile-booking-button {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 24px;
+  padding: 15px 20px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-gold),
+    var(--color-gold-light),
+    var(--color-gold-dark)
+  );
+
+  color: #050505;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  box-shadow: 0 0 22px rgba(221, 184, 115, 0.2);
+
+  transition: all 0.25s ease;
+}
+
+.mobile-booking-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(221, 184, 115, 0.32);
+}
+
+.mobile-socials {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  margin-top: 26px;
+}
+
+.mobile-socials a {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: var(--color-gold-light);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(221, 184, 115, 0.22);
+
+  font-size: 1.25rem;
+
+  transition: all 0.25s ease;
+}
+
+.mobile-socials a:hover {
+  color: var(--color-turquoise);
+  border-color: rgba(18, 214, 208, 0.55);
+  transform: translateY(-3px);
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 420px) {
+  .mobile-drawer {
+    width: 88vw;
+    padding: 22px 16px;
+  }
+
+  .mobile-nav-link,
+  .mobile-language-button {
+    padding: 13px 13px;
+    font-size: 0.78rem;
+  }
+
+  .mobile-drawer-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .mobile-menu-button {
+    width: 44px;
+    height: 44px;
+    font-size: 1.65rem;
+  }
+}

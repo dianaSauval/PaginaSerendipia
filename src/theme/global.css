@@ -1,0 +1,265 @@
+/* ==========================================
+   DÚO SERENDIPIA - GLOBAL THEME
+========================================== */
+
+:root {
+  /* Colores principales */
+
+  --color-bg: #030303;
+
+  --color-surface: #0a0a0a;
+
+  --color-surface-light: #111111;
+
+  --color-gold: #ddb873;
+
+  --color-gold-light: #f2d7a1;
+
+  --color-gold-dark: #b88a42;
+
+  --color-turquoise: #12d6d0;
+
+  --color-turquoise-dark: #0b8f95;
+
+  --color-text: #f5e8c9;
+
+  --color-text-secondary: #d6c9a7;
+
+  --color-border: rgba(221, 184, 115, 0.25);
+
+  /* Sombras */
+
+  --shadow-gold: 0 0 25px rgba(221, 184, 115, 0.25);
+
+  --shadow-turquoise: 0 0 25px rgba(18, 214, 208, 0.25);
+
+  /* Layout */
+
+  --container-width: 1400px;
+
+  --section-padding: 120px;
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+
+  font-family: "Montserrat", sans-serif;
+
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--color-gold),
+    var(--color-turquoise)
+  );
+
+  border-radius: 50px;
+}
+
+/* ==========================================
+   TIPOGRAFÍA
+========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cinzel", serif;
+
+  color: var(--color-gold);
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 7rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+p {
+  line-height: 1.8;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1.05rem;
+}
+
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+/* ==========================================
+   SECCIONES
+========================================== */
+
+section {
+  position: relative;
+}
+
+.container {
+  width: min(90%, var(--container-width));
+
+  margin: 0 auto;
+}
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 34px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-gold),
+    var(--color-gold-light)
+  );
+
+  color: #000;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 34px;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--color-turquoise);
+
+  color: var(--color-turquoise);
+
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(18, 214, 208, 0.1);
+
+  box-shadow: var(--shadow-turquoise);
+}
+
+/* ==========================================
+   TARJETAS
+========================================== */
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 24px;
+
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--color-gold);
+
+  box-shadow: var(--shadow-gold);
+}
+
+/* ==========================================
+   DETALLES DECORATIVOS
+========================================== */
+
+.gold-text {
+  color: var(--color-gold);
+}
+
+.turquoise-text {
+  color: var(--color-turquoise);
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold),
+    var(--color-turquoise)
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================
+   SEPARADOR
+========================================== */
+
+.divider {
+  width: 150px;
+  height: 2px;
+
+  margin: 30px auto;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold),
+    var(--color-turquoise),
+    transparent
+  );
+}

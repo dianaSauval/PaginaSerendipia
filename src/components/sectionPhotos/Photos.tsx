@@ -1,152 +1,200 @@
 import React, { useEffect, useState } from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
-import Carousel from "react-material-ui-carousel";
-import { IVideoItem } from "../../@types/carousel";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import "../carouselVideo/carousel.css";
+import { images, type PhotoItem } from "../../data/imagenes";
 import "./photos.css";
-import { Paper, Typography } from "@mui/material";
-import { IImages, images } from "../../data";
 
-export default function TitlebarImageList() {
-  const { t } = useTranslation(["global"]);    
+export default function Photos() {
+  const { t } = useTranslation(["global"]);
 
-  return (
-    <>
-      <Element name="photos" className="photosSection">
-      <Typography variant="h2" align="center">{t("photosSection.title")}</Typography>
-        <div className="grid-container">
-          {images.map((item) => (
-            <div
-              key={item.id}
-              className={`grid-item ${item.size || ""}`}
-              style={{ backgroundImage: `url(${item.url})` }}
-              title={`Image ${item.id}`}
-            >
-              
-            </div>
-          ))}
-        </div> 
-
-        <div className="carouselImages">      
-        <Carousel
-  navButtonsAlwaysVisible={true}
-  fullHeightHover={false} 
-  autoPlay={true}  
-  indicators={true}  // <-- Activa los indicadores
-  swipe={true}  
-  animation="slide"
-  duration={500}
-  NextIcon={<NavigateNextIcon />}
-  PrevIcon={<NavigateBeforeIcon />}
->
-  {images.map((item, i) => (
-    <div key={i} className="carouselImg" style={{ backgroundImage: `url(${item.url})` }}>
-      {/* Aquí puedes agregar contenido adicional si lo necesitas */}
-    </div>
-  ))}
-</Carousel>
-
-</div> 
-      </Element>
-    </>
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
   );
-}
 
-function Item(props: IImages) {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => {
-    setOpen(false);
-    handlePause();
+  const selectedImage =
+    selectedImageIndex !== null ? images[selectedImageIndex] : null;
+
+  const handlePrev = (): void => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
-  const handlePause = () => false;
+
+  const handleNext = (): void => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleModalPrev = (): void => {
+    setSelectedImageIndex((prev) => {
+      if (prev === null) return null;
+      return prev === 0 ? images.length - 1 : prev - 1;
+    });
+  };
+
+  const handleModalNext = (): void => {
+    setSelectedImageIndex((prev) => {
+      if (prev === null) return null;
+      return prev === images.length - 1 ? 0 : prev + 1;
+    });
+  };
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 3500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") {
+        setSelectedImageIndex(null);
+      }
+
+      if (selectedImageIndex !== null && event.key === "ArrowLeft") {
+        handleModalPrev();
+      }
+
+      if (selectedImageIndex !== null && event.key === "ArrowRight") {
+        handleModalNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedImageIndex]);
 
   return (
-    <Paper
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignContent: "center",
-        alignItems: "center",
-        width: "100%"
-      }}
-    >
-      <div
-        onClick={handleOpen}
-        style={{ backgroundImage: `url(${props.item.url})` }}
-        className="carouselImg"
-        title={`Image ${props.item.id}`}
-      >
-        {/* <span className="sr-only">Photo {props.item.id}</span> */}
-      </div>      
-    </Paper>
+    <Element name="photos" className="photos-section">
+      <div className="photos-bg-glow" />
+
+      <div className="photos-container">
+        <div className="photos-heading">
+          <span className="photos-kicker">Gallery</span>
+          <h2>{t("photosSection.title")}</h2>
+          <div className="divider" />
+        </div>
+
+        {/* DESKTOP */}
+        <div className="photos-grid">
+          {images.map((item: PhotoItem, index: number) => (
+            <button
+              key={item.id}
+              type="button"
+              className={`photo-card photo-card--${item.layout || "medium"}`}
+              style={
+                {
+                  backgroundImage: `url(${item.url})`,
+                  backgroundPosition: item.position || "center",
+                  "--photo-delay": `${index * 0.08}s`,
+                } as React.CSSProperties
+              }
+              onClick={() => setSelectedImageIndex(index)}
+              aria-label={`Open photo ${item.id}`}
+            >
+              <span className="photo-card-overlay" />
+              <span className="photo-card-glow" />
+            </button>
+          ))}
+        </div>
+
+        {/* MOBILE */}
+        <div className="photos-mobile-carousel">
+          <button
+            type="button"
+            className="photos-mobile-arrow photos-mobile-arrow--left"
+            onClick={handlePrev}
+            aria-label="Previous photo"
+          >
+            ‹
+          </button>
+
+          <div
+            className="photos-mobile-image"
+            style={{
+              backgroundImage: `url(${images[currentIndex].url})`,
+              backgroundPosition: images[currentIndex].position || "center",
+            }}
+            onClick={() => setSelectedImageIndex(currentIndex)}
+          >
+            <span className="photos-mobile-overlay" />
+          </div>
+
+          <button
+            type="button"
+            className="photos-mobile-arrow photos-mobile-arrow--right"
+            onClick={handleNext}
+            aria-label="Next photo"
+          >
+            ›
+          </button>
+
+          <div className="photos-mobile-dots">
+            {images.map((item, index) => (
+              <button
+                key={item.id}
+                type="button"
+                className={`photos-mobile-dot ${
+                  index === currentIndex ? "photos-mobile-dot--active" : ""
+                }`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to photo ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* MODAL / LIGHTBOX */}
+      {selectedImage && (
+        <div
+          className="photo-modal"
+          onClick={() => setSelectedImageIndex(null)}
+        >
+          <button
+            type="button"
+            className="photo-modal-close"
+            onClick={() => setSelectedImageIndex(null)}
+            aria-label="Close image"
+          >
+            ×
+          </button>
+
+          <button
+            type="button"
+            className="photo-modal-arrow photo-modal-arrow--left"
+            onClick={(event) => {
+              event.stopPropagation();
+              handleModalPrev();
+            }}
+            aria-label="Previous image"
+          >
+            ‹
+          </button>
+
+          <img
+            src={selectedImage.url}
+            alt={`Dúo Serendipia photo ${selectedImage.id}`}
+            className="photo-modal-img"
+            onClick={(event) => event.stopPropagation()}
+          />
+
+          <button
+            type="button"
+            className="photo-modal-arrow photo-modal-arrow--right"
+            onClick={(event) => {
+              event.stopPropagation();
+              handleModalNext();
+            }}
+            aria-label="Next image"
+          >
+            ›
+          </button>
+        </div>
+      )}
+    </Element>
   );
 }
-
-
-const itemData = [
-  {
-    img: "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695418995/dianayjosebaja_11_de_33_kaik2g.jpg",
-    title: "Breakfast",
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: "https://res.cloudinary.com/dkdhdy9e5/image/upload/v1695420809/Joseydianabaja_20_de_35_v1ljnh.jpg",
-    title: "Burger",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Camera",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Coffee",
-    cols: 2,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-    title: "Hats",
-    cols: 2,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-    title: "Honey",
-    author: "@arwinneil",
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-    title: "Basketball",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-    title: "Fern",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-    title: "Mushrooms",
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-    title: "Tomato basil",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-    title: "Sea star",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-    title: "Bike",
-    cols: 2,
-  },
-];

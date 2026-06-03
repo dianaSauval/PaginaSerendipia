@@ -1,13 +1,22 @@
 {
-  "title": "Hola",
-  "home": "Inicio",
-  "about": "Nosotros",
-  "photos": "Fotos",
-  "videos": "Videos",
-  "contact": "Contacto",
-  "language": "Lenguaje",
-  "english": "Ingles",
-  "spanish": "Español",
+  "header": {
+    "brandAlt": "Logo Dúo Serendipia",
+    "nav": {
+      "home": "Inicio",
+      "about": "Nosotros",
+      "videos": "Videos",
+      "photos": "Fotos",
+      "contact": "Contacto"
+    },
+    "actions": {
+      "bookUs": "Booking"
+    },
+    "language": {
+      "label": "Idioma",
+      "english": "English",
+      "spanish": "Español"
+    }
+  },
   "aboutSection": {
     "title": "¿Quiénes somos?",
     "p1": "Serendipia es un dúo multidisciplinario que fusiona danza y acrobacia para crear un estilo artístico único e innovador.",
@@ -23,6 +32,17 @@
     "p11": "Temporada de mayo a octubre de 2025 en Mallorca, con la compañía Romantic Corporate, realizando funciones de circo en hoteles en distintas localidades de la isla.",
     "p12": "Actualmente trabajando con Romantic Corporate en Lanzarote, Islas Canarias (2025–2026), presentando espectáculos circenses como parte de la temporada anual.",
     "cvButton": "Ver nuestros CVs"
+  },
+  "videosSection": {
+    "kicker": "Dúo Serendipia",
+    "title": "Videos",
+    "subtitle": "Una selección de nuestros números de rueda Cyr, mano a mano y tango acrobático.",
+    "aria": {
+      "previous": "Video anterior",
+      "next": "Video siguiente",
+      "play": "Reproducir",
+      "goTo": "Ir al video"
+    }
   },
   "videoItems": {
     "item1": {
@@ -46,8 +66,20 @@
     "title": "Fotos"
   },
   "contactSection": {
+    "eyebrow": "Contrataciones y eventos",
     "title": "Contacto",
-    "recruitment": "Contrataciones"
+    "subtitle": "Disponible para eventos corporativos, festivales, teatros, galas y producciones especiales.",
+    "recruitment": "Contrataciones",
+    "description": "Escribinos para contrataciones, eventos, festivales o propuestas artísticas.",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "socialTitle": "Seguinos",
+    "socialDescription": "Mirá nuestros números, reels y material artístico."
+  },
+  "footer": {
+    "tagline": "Rueda Cyr • Mano a Mano • Acro Dance • Tango",
+    "copyright": "Dúo Serendipia",
+    "developer": "Diseño y desarrollo por Diana Sauval"
   },
   "showSpinology": {
     "kicker": "Después del show",

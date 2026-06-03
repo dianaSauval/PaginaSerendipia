@@ -10,26 +10,21 @@ a{
   display: inline-block;
 }
 
-.body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #fff;
+.body {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
 }
 
 .carousel{
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #45A29E;
-  padding: 20px;
 }
 
 .photos{
   width: 100%;
-  margin: 30px 0 30px 0;
 }
 
 

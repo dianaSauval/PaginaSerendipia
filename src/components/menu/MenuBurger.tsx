@@ -1,105 +1,188 @@
-import React, { useState } from "react";
-import { Box, SwipeableDrawer, Button, List, Divider, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
-import HomeIcon from "@mui/icons-material/Home";
-import PersonIcon from "@mui/icons-material/Person";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link as LinkScroll } from "react-scroll";
 
-type Anchor = "right";
+import {
+  FiMenu,
+  FiX,
+  FiHome,
+  FiUser,
+  FiVideo,
+  FiCamera,
+  FiMail,
+  FiGlobe,
+  FiChevronDown,
+  FiChevronUp,
+  FiInstagram,
+  FiYoutube,
+} from "react-icons/fi";
+
+import "./menuBurger.css";
+
+type Language = "es" | "en";
 
 export default function MenuDrawer() {
   const { t, i18n } = useTranslation(["global"]);
-  const [state, setState] = useState({ right: false });
-  const [languageMenuOpen, setLanguageMenuOpen] = useState(false); // Estado para mostrar/ocultar idiomas
 
-  const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-    if (event && event.type === "keydown" && ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")) {
-      return;
-    }
-    setState({ ...state, [anchor]: open });
+  const [isOpen, setIsOpen] = useState(false);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+
+  const currentLang: Language = i18n.language === "es" ? "es" : "en";
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    setLanguageMenuOpen(false);
   };
 
-  const changeLanguage = (lang: string) => {
+  const changeLanguage = (lang: Language) => {
     i18n.changeLanguage(lang);
+    setLanguageMenuOpen(false);
   };
 
-  const list = (anchor: Anchor) => (
-    <Box
-      sx={{ width: 250 }} // 🔹 Hacemos el menú un poco más ancho para mejor visualización
-      role="presentation"
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      {/* Secciones de navegación */}
-      <List>
-        {[{ id: "banner", icon: <HomeIcon />, text: t("home") },
-          { id: "about", icon: <PersonIcon />, text: t("about") },
-          { id: "videos", icon: <PlayCircleOutlineIcon />, text: t("videos") },
-          { id: "photos", icon: <CameraAltIcon />, text: t("photos") },
-          { id: "contact", icon: <MailIcon />, text: t("contact") }].map(({ id, icon, text }) => (
-          <ListItem key={id} disablePadding>
-            <LinkScroll smooth={true} offset={-80} to={id}>
-            <ListItemButton sx={{ width: "100%", color: "#3ecbc4" }}> 
-  <ListItemIcon sx={{ color: "#3ecbc4" }}> {icon} </ListItemIcon>
-  <ListItemText primary={text} sx={{ color: "#3ecbc4" }} /> 
-</ListItemButton>
-
-            </LinkScroll>
-          </ListItem>
-        ))}
-      </List>
-
-      {/* Línea divisoria */}
-      <Divider sx={{ my: 1, borderColor: "#3ecbc4" }} />
-
-      {/* Botón para mostrar idiomas */}
-      <ListItem disablePadding onClick={() => setLanguageMenuOpen(!languageMenuOpen)}>
-        <ListItemButton sx={{ width: "100%" }}>
-          <ListItemIcon sx={{ color: "#3ecbc4" }}>
-            <LanguageOutlinedIcon />
-          </ListItemIcon >
-          <ListItemText primary={t("language")} />
-          {languageMenuOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </ListItemButton>
-      </ListItem>
-
-      {/* Lista de idiomas (se despliega solo si está abierto) */}
-      {languageMenuOpen && (
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => changeLanguage("en")}>
-              <ListItemText primary={t("english")} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => changeLanguage("es")}>
-              <ListItemText primary={t("spanish")} />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      )}
-    </Box>
-  );
+  const navItems = [
+    {
+      id: "banner",
+      icon: <FiHome />,
+      text: t("header.nav.home"),
+      offset: -80,
+    },
+    {
+      id: "about",
+      icon: <FiUser />,
+      text: t("header.nav.about"),
+      offset: -90,
+    },
+    {
+      id: "videos",
+      icon: <FiVideo />,
+      text: t("header.nav.videos"),
+      offset: -70,
+    },
+    {
+      id: "photos",
+      icon: <FiCamera />,
+      text: t("header.nav.photos"),
+      offset: -80,
+    },
+    {
+      id: "contact",
+      icon: <FiMail />,
+      text: t("header.nav.contact"),
+      offset: -80,
+    },
+  ];
 
   return (
-    <div>
-      <Button onClick={toggleDrawer("right", true)}>
-        <MenuIcon sx={{ color: "#33dbd2", fontSize: "40px" }} />
-      </Button>
-      <SwipeableDrawer
-        anchor="right"
-        open={state.right}
-        onClose={toggleDrawer("right", false)}
-        onOpen={toggleDrawer("right", true)}
+    <>
+      <button
+        className="mobile-menu-button"
+        onClick={() => setIsOpen(true)}
+        aria-label="Open menu"
       >
-        {list("right")}
-      </SwipeableDrawer>
-    </div>
+        <FiMenu />
+      </button>
+
+      {isOpen && <div className="mobile-menu-backdrop" onClick={closeMenu} />}
+
+      <aside className={`mobile-drawer ${isOpen ? "is-open" : ""}`}>
+        <div className="mobile-drawer-glow" />
+
+        <div className="mobile-drawer-header">
+          <div>
+            <span className="drawer-eyebrow">Dúo</span>
+            <h3>Serendipia</h3>
+          </div>
+
+          <button
+            className="mobile-close-button"
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
+            <FiX />
+          </button>
+        </div>
+
+        <nav className="mobile-nav">
+          {navItems.map(({ id, icon, text, offset }) => (
+            <LinkScroll
+              key={id}
+              smooth
+              offset={offset}
+              to={id}
+              duration={500}
+              onClick={closeMenu}
+              className="mobile-nav-link"
+            >
+              <span className="mobile-nav-icon">{icon}</span>
+              <span>{text}</span>
+            </LinkScroll>
+          ))}
+        </nav>
+
+        <div className="mobile-divider" />
+
+        <div className="mobile-language">
+          <button
+            className="mobile-language-button"
+            onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+          >
+            <span className="mobile-nav-icon">
+              <FiGlobe />
+            </span>
+
+            <span>{t("header.language.label")}</span>
+
+            <strong>{currentLang.toUpperCase()}</strong>
+
+            {languageMenuOpen ? <FiChevronUp /> : <FiChevronDown />}
+          </button>
+
+          {languageMenuOpen && (
+            <div className="mobile-language-options">
+              <button onClick={() => changeLanguage("en")}>
+                <img src="/flags/en.png" alt={t("header.language.english")} />
+                {t("header.language.english")}
+              </button>
+
+              <button onClick={() => changeLanguage("es")}>
+                <img src="/flags/es.png" alt={t("header.language.spanish")} />
+                {t("header.language.spanish")}
+              </button>
+            </div>
+          )}
+        </div>
+
+        <LinkScroll
+          to="contact"
+          smooth
+          offset={-80}
+          duration={500}
+          onClick={closeMenu}
+          className="mobile-booking-button"
+        >
+          {t("header.actions.bookUs")}
+        </LinkScroll>
+
+        <div className="mobile-socials">
+          <a
+            href="https://www.instagram.com/un.duo.serendipia"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
+            <FiInstagram />
+          </a>
+
+          <a
+            href="https://www.youtube.com/channel/UCp-fAGAGlR9Qfv8dfUER4Rg"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="YouTube"
+          >
+            <FiYoutube />
+          </a>
+        </div>
+      </aside>
+    </>
   );
 }

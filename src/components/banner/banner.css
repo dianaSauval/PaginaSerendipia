@@ -1,17 +1,29 @@
 /* =========================
+   BANNER SECTION
+========================= */
+
+.banner-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+
+  /* pisa el padding global de section */
+  padding: 0;
+}
+
+/* =========================
    PLAYER WRAPPER
 ========================= */
 
 .player-wrapper {
   position: relative;
-
   width: 100%;
-
   overflow: hidden;
-
   background: #000;
 
-  padding-top: 56.25%;
+  /* antes 56.25%, esto lo hace más bajo */
+  padding-top: 42%;
 
   margin-top: 68px;
 }
@@ -22,10 +34,7 @@
 
 .react-player {
   position: absolute;
-
-  top: 0;
-  left: 0;
-
+  inset: 0;
   width: 100%;
   height: 100%;
 }
@@ -36,35 +45,30 @@
 
 .banner-overlay {
   position: absolute;
-
   inset: 0;
-
-  z-index: 1;
-
+  z-index: 2;
   background:
     linear-gradient(
       to bottom,
-      rgba(4, 7, 12, 0.42) 0%,
-      rgba(4, 7, 12, 0.08) 18%,
-      rgba(0, 0, 0, 0) 40%
+      rgba(4, 7, 12, 0.62) 0%,
+      rgba(4, 7, 12, 0.14) 24%,
+      rgba(0, 0, 0, 0) 48%
+    ),
+    linear-gradient(
+      to top,
+      rgba(3, 3, 3, 0.75) 0%,
+      rgba(3, 3, 3, 0.15) 28%,
+      rgba(0, 0, 0, 0) 55%
     );
-
   pointer-events: none;
 }
 
 /* =========================
-   WAVES
+   WAVES EN BANNER
 ========================= */
 
-.wave {
-  position: absolute;
-
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-
-  z-index: 2;
+.player-wrapper .animated-waves {
+  z-index: 4;
 }
 
 /* =========================
@@ -78,28 +82,13 @@
 }
 
 /* =========================
-   DESKTOP
-========================= */
-
-@media (min-width: 1025px) {
-  .wave .animated-wave:first-child {
-    bottom: -1px;
-  }
-}
-
-/* =========================
    TABLETS
 ========================= */
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .player-wrapper {
     margin-top: 64px;
-
     padding-top: 58%;
-  }
-
-  .wave {
-    bottom: 0;
   }
 }
 
@@ -110,7 +99,6 @@
 @media (max-width: 767px) {
   .player-wrapper {
     margin-top: 58px;
-
     padding-top: 72%;
   }
 
@@ -122,13 +110,44 @@
     background:
       linear-gradient(
         to bottom,
-        rgba(4, 7, 12, 0.5) 0%,
-        rgba(4, 7, 12, 0.12) 24%,
-        rgba(0, 0, 0, 0) 42%
+        rgba(4, 7, 12, 0.58) 0%,
+        rgba(4, 7, 12, 0.16) 24%,
+        rgba(0, 0, 0, 0) 48%
+      ),
+      linear-gradient(
+        to top,
+        rgba(3, 3, 3, 0.78) 0%,
+        rgba(3, 3, 3, 0.18) 30%,
+        rgba(0, 0, 0, 0) 56%
       );
   }
 
-  .wave {
-    display: none;
+  .player-wrapper .animated-waves {
+    height: 95px;
+  }
+
+  .player-wrapper .wave {
+    height: 95px;
+    background-size: 1000px 95px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .player-wrapper {
+    padding-top: 40%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .player-wrapper {
+    margin-top: 64px;
+    padding-top: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .player-wrapper {
+    margin-top: 58px;
+    padding-top: 65%;
   }
 }

@@ -1,189 +1,309 @@
-.contact {
-  width: 100%;
-  min-height: 100%;
-  height: 400px;
-  background: url("../../components/img/cyrwheelduoentera.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: 25%;
-  opacity: 0.9;
-}
+/* ==========================================
+   CONTACT SECTION - DÚO SERENDIPIA
+========================================== */
 
 .contactSection {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.bodycontact {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
   position: relative;
+  width: 100%;
+  min-height: 720px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 3, 3, 0.92) 0%,
+      rgba(3, 3, 3, 0.62) 45%,
+      rgba(3, 3, 3, 0.96) 100%
+    ),
+    radial-gradient(
+      circle at 80% 45%,
+      rgba(18, 214, 208, 0.16),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(221, 184, 115, 0.18),
+      transparent 30%
+    ),
+    url("../../components/img/cyrwheelduoentera.jpg");
+
+  background-size: cover;
+  background-position: center 28%;
+  background-repeat: no-repeat;
+  color: var(--color-text);
 }
 
-.contactSection h1 {
-  font-size: 45px;
-  padding: 25px;
+.contactOverlay {
+  width: 100%;
+  min-height: 720px;
+  padding: var(--section-padding) 0;
+  display: flex;
+  align-items: center;
 }
 
-.info {
-  padding: 25px;
+.contactContainer {
+  width: min(90%, var(--container-width));
+  margin: 0 auto;
+}
+
+.contactHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.contactEyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+
+  font-size: 0.78rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-turquoise);
+}
+
+.contactHeader h2 {
+  color: var(--color-gold);
+  text-shadow: 0 0 22px rgba(221, 184, 115, 0.22);
+}
+
+
+
+.contactContent {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.contactCard,
+.socialCard {
+  position: relative;
+  padding: 42px;
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.contactCard::before,
+.socialCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgba(221, 184, 115, 0.18),
+    transparent 35%,
+    rgba(18, 214, 208, 0.12)
+  );
+}
+
+.contactCard h3,
+.socialCard h3 {
+  position: relative;
+  margin-bottom: 16px;
+  color: var(--color-gold-light);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+}
+
+.contactText {
+  position: relative;
+  max-width: 620px;
+  margin-bottom: 30px;
+  color: var(--color-text-secondary);
+}
+
+.contactLinks {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 18px 20px;
+  border-radius: 20px;
+
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid rgba(221, 184, 115, 0.18);
+
+  color: var(--color-text);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.contactLink:hover {
+  transform: translateY(-4px);
+  background: rgba(0, 0, 0, 0.48);
+  border-color: rgba(221, 184, 115, 0.52);
+  box-shadow: var(--shadow-gold);
+}
+
+.contactIcon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  color: var(--color-gold-light);
+
+  background: radial-gradient(
+    circle,
+    rgba(221, 184, 115, 0.2),
+    rgba(221, 184, 115, 0.06)
+  );
+
+  border: 1px solid rgba(221, 184, 115, 0.32);
+}
+
+.contactIcon svg {
+  font-size: 30px;
+}
+
+.whatsappIcon {
+  color: #25d366;
+  background: radial-gradient(
+    circle,
+    rgba(37, 211, 102, 0.18),
+    rgba(37, 211, 102, 0.05)
+  );
+  border-color: rgba(37, 211, 102, 0.28);
+}
+
+.contactLink span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  font-size: clamp(0.92rem, 1.5vw, 1.08rem);
+  word-break: break-word;
+}
+
+.contactLink small {
+  color: var(--color-turquoise);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   SOCIAL NETWORKS INSIDE CONTACT
+========================================== */
+
+.socialCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
-  font-size: 15px;
-  gap: 20px;
 }
 
-.mail,
-.whatsapp {
+.socialCard .networks {
+  position: relative;
+  z-index: 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
 }
 
-/* Unified Link Styles */
-.mail-link,
-.whatsapp-link {
+.socialCard .networks ul {
+  position: static;
+  transform: none;
+
   display: flex;
   align-items: center;
-  text-decoration: none;
-  color: #fff; /* Default color */
-  font-size: 18px; /* Unified font size */
-  transition: color 0.3s ease, transform 0.3s ease;
-  font-weight: 500;
-}
-/* Mail Icon Hover Effect */
-.mail:hover .mail-icon {
-  color: #4AB3F4; /* Cambia a azul celeste */
-  transform: scale(1.1); /* Efecto de agrandamiento sutil */
+  justify-content: flex-start;
+  gap: 16px;
+
+  margin: 0;
+  padding: 0;
 }
 
-.whatsapp-number{
-  font-size: 20px;
-}
-
-.whatsapp-link:hover .whatsapp-icon {
-  color: #25D366; /* WhatsApp hover color */
-  transform: scale(1.1); /* Subtle zoom */
-}
-
-.mail-link:hover .mail-icon {
-  transform: scale(1.1);
-}
-
-/* Icon Styles */
-.whatsapp-icon,
-.mail-icon {
-  color: #fff; /* Default icon color */
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.whatsapp-icon{
-  margin-right: 15px;
-}
-
-/* Mobile Styles */
-@media (max-width: 720px) {
-  .networks ul{
-    margin-top:40px ;
-  }
-  .whatsapp-link,
-  .mail-link {
-    font-size: 16px;
-  }
-
-  .whatsapp-icon,
-  .mail-icon {
-    transform: none; /* Disable transform on mobile */
-  }
-}
-
-@media (min-width: 1080px) {
-  .contact {
-    height: 660px;
-    background-attachment: fixed;
-  }
-}
-
-/* Networks Section - No changes */
-.networks {
-  display: flex;
-}
-.networks ul {
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 88%;
-  transform: translate(-50%, -50%);
-}
-
-.networks ul li {
+.socialCard .networks ul li {
   list-style: none;
 }
 
-.networks ul li a {
-  width: 70px;
-  height: 70px;
-  background-color: #fff;
-  text-align: center;
-  line-height: 77px;
-  font-size: 35px;
-  margin: 0 10px;
-  display: block;
+.socialCard .networks ul li a {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
   border-radius: 50%;
-  position: relative;
+
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(221, 184, 115, 0.28);
+
+  font-size: 32px;
+  line-height: 1;
   overflow: hidden;
-  border: 3px solid #fff;
-  z-index: 1;
-}
-
-.networks ul li a .icon {
   position: relative;
-  color: #262626;
-  transition: 0.5s;
-  z-index: 3;
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
 }
 
-#tiktok:hover {
-  fill: #fff;
-  transform: rotateY(360deg);
-  transition: 0.05s;
-  z-index: 3;
+.socialCard .networks ul li a:hover {
+  transform: translateY(-5px) scale(1.04);
+  border-color: rgba(221, 184, 115, 0.7);
+  box-shadow: var(--shadow-gold);
 }
 
-.networks ul li a:hover .icon {
+.socialCard .networks ul li a .icon {
+  position: relative;
+  z-index: 2;
+  color: var(--color-gold-light);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialCard .networks ul li a:hover .icon {
   color: #fff;
   transform: rotateY(360deg);
 }
 
-.networks ul li a:before {
+.socialCard .networks ul li a::before {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
+  inset: auto 0 0 0;
+  height: 0;
+  z-index: 1;
+  transition: height 0.35s ease;
+}
+
+.socialCard .networks ul li a:hover::before {
   height: 100%;
-  background: #f00;
-  transition: 0.5s;
-  z-index: 2;
 }
 
-.networks ul li a:hover:before {
-  top: 0;
+.socialCard .networks ul li:nth-child(1) a::before {
+  background: #000;
 }
 
-.networks ul li:nth-child(1) a:before {
-  background: #0000;
-}
-
-.networks ul li:nth-child(2) a:before {
+.socialCard .networks ul li:nth-child(2) a::before {
   background: radial-gradient(
     circle at 33% 100%,
     #fed373 4%,
@@ -194,128 +314,89 @@
   );
 }
 
-.networks ul li:nth-child(3) a:before {
+.socialCard .networks ul li:nth-child(3) a::before {
   background: #ff0000;
 }
 
-/* Mobile Optimization: Disable transitions and show icons normally */
-@media (max-width: 720px) {
-
-  .networks ul {
-    top: 230px;
-    left: 50%;
-  }
-
-  .networks ul li a {
-    width: 50px;
-    height: 50px;
-    line-height: 50px; /* Adjusted for better mobile view */
-    font-size: 30px; /* Adjusted font size */
-  }
-
-  .networks ul li a:hover .icon {
-    transform: none; /* Disable rotation on hover */
-    color: #262626;  /* Keep the default color */
-  }
-
-  .networks ul li a:hover .tiktok-icon {
-    fill: #262626 !important; /* Color personalizado solo para TikTok */
-  }
-
-
-
-  .networks ul li a:before {
-    display: none; /* Hide the background effect */
-  }
-
-  .info {
-    font-size: 20px; /* Adjusted font size */
-    background-color: rgba(27, 27, 27, 0.5);
-    width: 100%;
-    padding-bottom: 15px;
-    margin-left: 15px;
-  }
+.socialCard #tiktok:hover {
+  fill: #fff;
 }
 
-@media (min-width: 720px) {
-  .networks ul {
-    top: 50%;
-    left: 85%;
-  }
-
-  .networks ul li a {
-    width: 60px;
-    height: 60px;
-    line-height: 68px;
-    font-size: 35px;
-  }
-
-  .info {
-    font-size: 25px;    
-  }
-}
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
 @media (min-width: 1080px) {
-  .contact {
-    width: 100%;
-    height: 660px;
+  .contactSection {
     background-attachment: fixed;
-  }
-
-  .networks {
-    display: flex;
-  }
-
-  .networks ul li a:hover .icon {
-    color: #fff;
-    transform: rotateY(360deg);
-  }
-
-  .networks ul li a:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #f00;
-    transition: 0.5s;
-    z-index: 2;
-  }
-
-  .networks ul li a:hover:before {
-    top: 0;
-  }
-
-  .networks ul li:nth-child(1) a:before {
-    background: black;
-  }
-
-  .networks ul li:nth-child(2) a:before {
-    background: radial-gradient(
-      circle at 33% 100%,
-      #fed373 4%,
-      #f15245 30%,
-      #d92e7f 62%,
-      #9b36b7 85%,
-      #515ecf
-    );
-  }
-
-  .networks ul li:nth-child(3) a:before {
-    background: #ff0000;
   }
 }
 
-@media (min-width: 2500px) {
-  .contact {
-    background-attachment: fixed;
+@media (max-width: 900px) {
+  .contactSection,
+  .contactOverlay {
+    min-height: auto;
   }
 
-  #tiktok:hover {
-    fill: #1D1D1D;
-    transform: rotateY(360deg);
-    transition: 0.05s;
-    z-index: 3;
+  .contactOverlay {
+    padding: 90px 0;
+  }
+
+  .contactHeader {
+    margin-bottom: 42px;
+  }
+
+  .contactContent {
+    grid-template-columns: 1fr;
+  }
+
+  .contactCard,
+  .socialCard {
+    padding: 32px 26px;
+  }
+
+  .socialCard .networks ul {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .contactOverlay {
+    padding: 76px 0;
+  }
+
+  .contactHeader {
+    margin-bottom: 34px;
+  }
+
+  .contactCard,
+  .socialCard {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .contactLink {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .contactIcon {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  .contactIcon svg {
+    font-size: 26px;
+  }
+
+  .socialCard .networks ul {
+    gap: 12px;
+  }
+
+  .socialCard .networks ul li a {
+    width: 54px;
+    height: 54px;
+    font-size: 28px;
   }
 }

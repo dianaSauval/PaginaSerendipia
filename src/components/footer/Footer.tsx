@@ -1,16 +1,37 @@
 import { useTranslation } from "react-i18next";
 import "./footer.css";
-import { NavLink } from "react-router-dom";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 
 export default function Footer() {
-  const { t, i18n } = useTranslation(["global"]);
+  const { t } = useTranslation(["global"]);
+
   return (
-    <>
-      <div className="footer">
-        <p>© 2023 Duo Serendipia | Sitio Web desarrollado por Diana Sauval</p>
+    <footer className="footer">
+      <div className="footerGlow" />
+
+      <div className="footerContent">
+        <div className="footerBrand">
+          <h3>Dúo Serendipia</h3>
+
+          <p>
+            {t("footer.tagline")}
+          </p>
+        </div>
+
+        <div className="footerBottom">
+          <p>
+            © {new Date().getFullYear()} {t("footer.copyright")}
+          </p>
+
+          <a
+            href="https://dianasauvaldigital.com.ar/"
+            target="_blank"
+            rel="noreferrer"
+            className="developerLink"
+          >
+            {t("footer.developer")}
+          </a>
+        </div>
       </div>
-    </>
+    </footer>
   );
 }
