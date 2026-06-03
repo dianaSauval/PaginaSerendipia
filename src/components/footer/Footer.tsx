@@ -10,11 +10,14 @@ export default function Footer() {
 
       <div className="footerContent">
         <div className="footerBrand">
-          <h3>Dúo Serendipia</h3>
+          <img
+            src="/logo-fondo-transparente.png"
+            alt="Dúo Serendipia"
+            className="footerLogo"
+          />
+           <div className="divider" />
 
-          <p>
-            {t("footer.tagline")}
-          </p>
+          <p>{t("footer.tagline")}</p>
         </div>
 
         <div className="footerBottom">

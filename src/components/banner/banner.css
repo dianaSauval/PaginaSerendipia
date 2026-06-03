@@ -7,8 +7,6 @@
   width: 100%;
   overflow: hidden;
   background: var(--color-bg);
-
-  /* pisa el padding global de section */
   padding: 0;
 }
 
@@ -21,10 +19,7 @@
   width: 100%;
   overflow: hidden;
   background: #000;
-
-  /* antes 56.25%, esto lo hace más bajo */
   padding-top: 42%;
-
   margin-top: 68px;
 }
 
@@ -77,7 +72,7 @@
 
 @media (min-width: 1600px) {
   .player-wrapper {
-    padding-top: 52%;
+    padding-top: 40%;
   }
 }
 
@@ -88,7 +83,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .player-wrapper {
     margin-top: 64px;
-    padding-top: 58%;
+    padding-top: 50%;
   }
 }
 
@@ -99,7 +94,7 @@
 @media (max-width: 767px) {
   .player-wrapper {
     margin-top: 58px;
-    padding-top: 72%;
+    padding-top: 65%;
   }
 
   .react-player {
@@ -110,44 +105,37 @@
     background:
       linear-gradient(
         to bottom,
-        rgba(4, 7, 12, 0.58) 0%,
-        rgba(4, 7, 12, 0.16) 24%,
-        rgba(0, 0, 0, 0) 48%
+        rgba(4, 7, 12, 0.5) 0%,
+        rgba(4, 7, 12, 0.12) 26%,
+        rgba(0, 0, 0, 0) 50%
       ),
       linear-gradient(
         to top,
-        rgba(3, 3, 3, 0.78) 0%,
-        rgba(3, 3, 3, 0.18) 30%,
-        rgba(0, 0, 0, 0) 56%
+        rgba(3, 3, 3, 0.52) 0%,
+        rgba(3, 3, 3, 0.12) 30%,
+        rgba(0, 0, 0, 0) 58%
       );
   }
 
   .player-wrapper .animated-waves {
-    height: 95px;
+    height: 42px;
+    opacity: 0.55;
   }
 
   .player-wrapper .wave {
-    height: 95px;
-    background-size: 1000px 95px;
+    height: 42px;
+    background-size: 650px 42px;
   }
-}
 
-@media (min-width: 1600px) {
-  .player-wrapper {
-    padding-top: 40%;
+  .player-wrapper .wave-3 {
+    opacity: 0.72;
   }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .player-wrapper {
-    margin-top: 64px;
-    padding-top: 50%;
+  .player-wrapper .wave-2 {
+    opacity: 0.12;
   }
-}
 
-@media (max-width: 767px) {
-  .player-wrapper {
-    margin-top: 58px;
-    padding-top: 65%;
+  .player-wrapper .wave-1 {
+    opacity: 0.08;
   }
 }

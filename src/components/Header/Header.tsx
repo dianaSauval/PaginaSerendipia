@@ -38,7 +38,13 @@ export default function Header() {
     <header className="site-header">
       <div className="header-bg-logo" />
 
-      <div className="header-brand">
+      <LinkScroll
+        to="banner"
+        smooth
+        offset={-80}
+        duration={500}
+        className="header-brand"
+      >
         <img
           src="/logo-fondo-transparente.png"
           alt={t("header.brandAlt")}
@@ -54,7 +60,7 @@ export default function Header() {
 
           <h1>SERENDIPIA</h1>
         </div>
-      </div>
+      </LinkScroll>
 
       <nav className="header-nav">
         {navItems.map((item) => (
