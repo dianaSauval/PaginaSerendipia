@@ -9,18 +9,14 @@
 
   background:
     radial-gradient(
-      circle at 50% 18%,
-      rgba(18, 214, 208, 0.08),
-      transparent 22%
+      circle at 50% 32%,
+      rgba(18, 214, 208, 0.065) 0%,
+      rgba(18, 214, 208, 0.035) 18%,
+      transparent 34%
     ),
-    radial-gradient(
-      circle at 50% 10%,
-      rgba(221, 184, 115, 0.1),
-      transparent 28%
-    ),
-    #050505;
+    linear-gradient(180deg, #030303 0%, #050505 50%, #030303 100%);
 
-  border-top: 1px solid rgba(221, 184, 115, 0.15);
+  border-top: 1px solid rgba(221, 184, 115, 0.12);
 }
 
 .footer::before {
@@ -42,11 +38,27 @@
     transparent
   );
 
+  opacity: 0.65;
   z-index: 1;
 }
 
 .footerGlow {
-  display: none;
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(18, 214, 208, 0.11) 0%,
+      rgba(18, 214, 208, 0.045) 34%,
+      transparent 66%
+    );
+
+  pointer-events: none;
 }
 
 .footerContent {
@@ -69,24 +81,176 @@
   margin-bottom: 40px;
 }
 
-.footerLogo {
+/* LOGO + SPARKS */
+
+.footerLogoWrap {
+  position: relative;
+
   width: 230px;
   max-width: 80vw;
+  aspect-ratio: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  isolation: isolate;
+}
+
+.footerLogoWrap::before {
+  content: "";
+
+  position: absolute;
+  inset: -48px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(18, 214, 208, 0.2) 0%,
+      rgba(18, 214, 208, 0.1) 28%,
+      rgba(18, 214, 208, 0.035) 52%,
+      transparent 72%
+    );
+
+  filter: blur(3px);
+  animation: footerAura 4.5s ease-in-out infinite;
+
+  z-index: 0;
+}
+
+.footerLogoWrap::after {
+  content: "";
+
+  position: absolute;
+  width: 42%;
+  height: 42%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(18, 214, 208, 0.24) 18%,
+      rgba(18, 214, 208, 0.075) 45%,
+      transparent 72%
+    );
+
+  filter: blur(10px);
+  opacity: 0.6;
+
+  animation: innerPulse 3.4s ease-in-out infinite;
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+.footerLogo {
+  width: 100%;
+  max-width: 100%;
 
   display: block;
 
-  margin: 0 auto 22px;
+  position: relative;
+  z-index: 3;
 
   filter:
-    drop-shadow(0 0 16px rgba(18, 214, 208, 0.22))
-    drop-shadow(0 0 22px rgba(221, 184, 115, 0.16));
+    drop-shadow(0 0 18px rgba(18, 214, 208, 0.26))
+    drop-shadow(0 0 16px rgba(221, 184, 115, 0.18));
 
-  transition: transform 0.35s ease;
+  animation: footerLogoFloat 5s ease-in-out infinite;
 }
 
 .footerLogo:hover {
-  transform: scale(1.03);
+  transform: none;
 }
+
+.footerSparksLayer {
+  position: absolute;
+  inset: -46px;
+
+  z-index: 4;
+  pointer-events: none;
+}
+
+.footerSpark {
+  position: absolute;
+
+  border-radius: 50%;
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(0.2);
+
+  animation: footerSparkSoft 1.8s ease-out forwards;
+
+  color: var(--color-turquoise);
+}
+
+.footerSpark::before {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.95) 0%,
+      currentColor 24%,
+      rgba(255, 255, 255, 0.22) 44%,
+      transparent 72%
+    );
+
+  transform: translate(-50%, -50%);
+
+  box-shadow:
+    0 0 6px currentColor,
+    0 0 14px currentColor,
+    0 0 24px rgba(18, 214, 208, 0.32);
+}
+
+.footerSpark::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 280%;
+  height: 280%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      currentColor 0%,
+      rgba(255, 255, 255, 0.16) 24%,
+      transparent 64%
+    );
+
+  transform: translate(-50%, -50%);
+  opacity: 0.26;
+  filter: blur(3px);
+}
+
+.footerSpark.turquoise {
+  color: var(--color-turquoise);
+}
+
+.footerSpark.gold {
+  color: var(--color-gold);
+}
+
+/* RESTO */
 
 .footerBrand .divider {
   margin: 18px auto 26px;
@@ -127,13 +291,85 @@
   text-shadow: 0 0 12px rgba(221, 184, 115, 0.5);
 }
 
+/* ANIMATIONS */
+
+@keyframes footerLogoFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@keyframes footerAura {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes innerPulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 0.78;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes footerSparkSoft {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+    filter: blur(1px);
+  }
+
+  18% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+
+  55% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        calc(-50% + var(--drift-x)),
+        calc(-50% + var(--drift-y))
+      )
+      scale(0.35);
+    filter: blur(1px);
+  }
+}
+
 @media (max-width: 768px) {
   .footerContent {
     padding: 55px 0 25px;
   }
 
-  .footerLogo {
+  .footerLogoWrap {
     width: 190px;
+  }
+
+  .footerSparksLayer {
+    inset: -38px;
   }
 
   .footerBottom {
