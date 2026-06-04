@@ -656,6 +656,8 @@
   transition-delay: 0.32s;
 }
 
+
+
 /* Accesibilidad: reduce movimiento si el usuario lo tiene activado */
 
 @media (prefers-reduced-motion: reduce) {
@@ -671,5 +673,440 @@
     opacity: 1;
     transform: none;
     filter: none;
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.spinology-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 7vw 3rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      rgba(0, 250, 241, 0.065) 0%,
+      rgba(0, 250, 241, 0.035) 18%,
+      transparent 34%
+    ),
+    linear-gradient(180deg, #020303 0%, #030505 48%, #020303 100%);
+
+  border-top: 1px solid rgba(0, 250, 241, 0.08);
+}
+
+.spinology-footer-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: 50%;
+  top: 0.8rem;
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 250, 241, 0.11) 0%,
+      rgba(0, 250, 241, 0.045) 34%,
+      transparent 66%
+    );
+
+  pointer-events: none;
+}
+
+.spinology-footer-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  text-align: center;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.spinology-footer-logo-wrap {
+  position: relative;
+
+  width: clamp(150px, 18vw, 210px);
+  height: clamp(150px, 18vw, 210px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  isolation: isolate;
+}
+
+.spinology-footer-logo-wrap::before {
+  content: "";
+
+  position: absolute;
+  inset: -48px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 250, 241, 0.22) 0%,
+      rgba(0, 250, 241, 0.12) 28%,
+      rgba(0, 250, 241, 0.04) 52%,
+      transparent 72%
+    );
+
+  filter: blur(3px);
+
+  animation: footerAura 4.5s ease-in-out infinite;
+
+  z-index: 0;
+}
+
+.spinology-footer-logo-wrap::after {
+  content: "";
+
+  position: absolute;
+  width: 42%;
+  height: 42%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(0, 250, 241, 0.28) 18%,
+      rgba(0, 250, 241, 0.08) 45%,
+      transparent 72%
+    );
+
+  filter: blur(10px);
+  opacity: 0.65;
+
+  animation: innerPulse 3.4s ease-in-out infinite;
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+.spinology-footer-logo {
+  width: 100%;
+  height: auto;
+
+  position: relative;
+  z-index: 3;
+
+  filter:
+    drop-shadow(0 0 22px rgba(0, 250, 241, 0.28))
+    drop-shadow(0 0 14px rgba(244, 210, 122, 0.18));
+
+  animation: logoFloat 5s ease-in-out infinite;
+}
+
+.spinology-sparks-layer {
+  position: absolute;
+  inset: -60px;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+.dynamic-spark {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(0.2);
+
+  animation: dynamicSparkSoft 1.8s ease-out forwards;
+
+  color: #00faf1;
+}
+
+.dynamic-spark::before {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.95) 0%,
+      currentColor 24%,
+      rgba(255, 255, 255, 0.22) 44%,
+      transparent 72%
+    );
+
+  transform: translate(-50%, -50%);
+
+  box-shadow:
+    0 0 6px currentColor,
+    0 0 14px currentColor,
+    0 0 24px rgba(0, 250, 241, 0.35);
+}
+
+.dynamic-spark::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 280%;
+  height: 280%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      currentColor 0%,
+      rgba(255, 255, 255, 0.18) 24%,
+      transparent 64%
+    );
+
+  transform: translate(-50%, -50%);
+  opacity: 0.28;
+  filter: blur(3px);
+}
+
+.dynamic-spark.turquoise {
+  color: #00faf1;
+}
+
+.dynamic-spark.gold {
+  color: #f4d27a;
+}
+
+/* =========================
+   LINEA LUMINOSA
+========================= */
+
+.spinology-footer-line {
+  position: relative;
+
+  width: min(420px, 70vw);
+  height: 1px;
+
+  margin-top: 0.4rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 250, 241, 0.2),
+      #00faf1,
+      rgba(244, 210, 122, 0.45),
+      #00faf1,
+      rgba(0, 250, 241, 0.2),
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px rgba(0, 250, 241, 0.45),
+    0 0 24px rgba(0, 250, 241, 0.18);
+
+  animation: lineGlow 4s ease-in-out infinite;
+}
+
+.spinology-footer-line::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      white 0%,
+      #00faf1 22%,
+      rgba(0, 250, 241, 0.25) 52%,
+      transparent 72%
+    );
+
+  transform: translate(-50%, -50%);
+  filter: blur(0.2px);
+
+  box-shadow:
+    0 0 16px rgba(0, 250, 241, 0.8),
+    0 0 34px rgba(0, 250, 241, 0.35);
+
+  animation: centerStar 3.2s ease-in-out infinite;
+}
+
+/* =========================
+   TEXTOS
+========================= */
+
+.spinology-footer-text {
+  margin: 0;
+
+  color: rgba(245, 255, 255, 0.72);
+
+  font-size: 0.95rem;
+}
+
+.spinology-developer-link {
+  text-decoration: none;
+
+  color: #00faf1;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  transition: 0.3s ease;
+}
+
+.spinology-developer-link:hover {
+  color: white;
+
+  text-shadow:
+    0 0 12px rgba(0, 250, 241, 0.5),
+    0 0 26px rgba(0, 250, 241, 0.25);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@keyframes footerAura {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes innerPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes dynamicSparkSoft {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+    filter: blur(1px);
+  }
+
+  18% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+
+  55% {
+    opacity: 0.65;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        calc(-50% + var(--drift-x)),
+        calc(-50% + var(--drift-y))
+      )
+      scale(0.35);
+    filter: blur(1px);
+  }
+}
+
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.42;
+    transform: scaleX(0.88);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes centerStar {
+  0%, 100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 620px) {
+  .spinology-footer {
+    padding: 3rem 1rem;
+  }
+
+  .spinology-footer-logo-wrap {
+    width: 145px;
+    height: 145px;
+  }
+
+  .spinology-sparks-layer {
+    inset: -46px;
+  }
+
+  .spinology-footer-line {
+    width: 80%;
+  }
+
+  .spinology-developer-link {
+    font-size: 0.7rem;
+    line-height: 1.5;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./ShowSpinology.css";
 
@@ -17,6 +17,7 @@ const IMAGES = {
 
 function ShowSpinology() {
   const { t, i18n } = useTranslation();
+  const [footerSparks, setFooterSparks] = useState([]);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -33,12 +34,47 @@ function ShowSpinology() {
           }
         });
       },
-      { threshold: 0.16 }
+      { threshold: 0.16 },
     );
 
     revealElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const angle = Math.random() * Math.PI * 2;
+
+      const startRadius = 34;
+      const distance = 22 + Math.random() * 32;
+
+      const startX = 50 + Math.cos(angle) * startRadius;
+      const startY = 50 + Math.sin(angle) * startRadius;
+
+      const driftX = Math.cos(angle) * distance;
+      const driftY = Math.sin(angle) * distance;
+
+      const newSpark = {
+        id: Date.now() + Math.random(),
+        x: startX,
+        y: startY,
+        size: 2.5 + Math.random() * 3.5,
+        driftX,
+        driftY,
+        color: Math.random() > 0.45 ? "turquoise" : "gold",
+      };
+
+      setFooterSparks((prev) => [...prev.slice(-12), newSpark]);
+
+      setTimeout(() => {
+        setFooterSparks((prev) =>
+          prev.filter((spark) => spark.id !== newSpark.id),
+        );
+      }, 1800);
+    }, 420);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -100,9 +136,7 @@ function ShowSpinology() {
 
       <section className="spinology-tip-section reveal">
         <div className="tip-panel">
-          <p className="spinology-kicker">
-            {t("showSpinology.supportKicker")}
-          </p>
+          <p className="spinology-kicker">{t("showSpinology.supportKicker")}</p>
 
           <h2>{t("showSpinology.supportTitle")}</h2>
 
@@ -137,9 +171,7 @@ function ShowSpinology() {
 
       <section className="spinology-gallery reveal">
         <div className="gallery-heading">
-          <p className="spinology-kicker">
-            {t("showSpinology.galleryKicker")}
-          </p>
+          <p className="spinology-kicker">{t("showSpinology.galleryKicker")}</p>
 
           <h2>{t("showSpinology.galleryTitle")}</h2>
         </div>
@@ -198,9 +230,7 @@ function ShowSpinology() {
       </section>
 
       <section id="booking" className="booking-spinology reveal">
-        <p className="spinology-kicker">
-          {t("showSpinology.bookingKicker")}
-        </p>
+        <p className="spinology-kicker">{t("showSpinology.bookingKicker")}</p>
 
         <h2>{t("showSpinology.bookingTitle")}</h2>
 
@@ -213,6 +243,51 @@ function ShowSpinology() {
           {t("showSpinology.contactButton")}
         </a>
       </section>
+      <footer className="spinology-footer">
+        <div className="spinology-footer-glow" />
+
+        <div className="spinology-footer-content">
+          <div className="spinology-footer-logo-wrap">
+            <img
+              src="/logo-fondo-transparente.png"
+              alt="Dúo Serendipia"
+              className="spinology-footer-logo"
+            />
+
+            <div className="spinology-sparks-layer">
+              {footerSparks.map((spark) => (
+                <span
+                  key={spark.id}
+                  className={`dynamic-spark ${spark.color}`}
+                  style={{
+                    left: `${spark.x}%`,
+                    top: `${spark.y}%`,
+                    width: `${spark.size}px`,
+                    height: `${spark.size}px`,
+                    "--drift-x": `${spark.driftX}px`,
+                    "--drift-y": `${spark.driftY}px`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="spinology-footer-line" />
+
+          <p className="spinology-footer-text">
+            © {new Date().getFullYear()} Dúo Serendipia
+          </p>
+
+          <a
+            href="https://dianasauvaldigital.com.ar/"
+            target="_blank"
+            rel="noreferrer"
+            className="spinology-developer-link"
+          >
+            Designed & Developed by Diana Sauval
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }
