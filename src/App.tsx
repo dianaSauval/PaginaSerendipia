@@ -9,6 +9,7 @@ import CircularIndeterminate from "./components/spinner/Spinner";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme/theme";
 import ShowSpinology from "./pages/ShowSpinology";
+import CV from "./pages/CV";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/show-spinology" element={<ShowSpinology />} />
+              <Route path="/cv" element={<CV />} />
             </Routes>
           </BrowserRouter>
         </div>
