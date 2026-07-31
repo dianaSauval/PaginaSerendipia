@@ -61,7 +61,7 @@ const About = () => {
 
               <div className="about-buttons">
                 <a
-                  href="https://drive.google.com/drive/folders/1TkPvzXSefRSt8GfsWwOkqrcu3hknaKMp?usp=sharing"
+                  href="/cv"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="about-btn"
