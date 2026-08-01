@@ -1,24 +1,17 @@
-/* =========================================================
-   DÚO SERENDIPIA
-   Artistic CV
-=========================================================*/
-
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 .cv-screen {
   --black: #050505;
   --surface: #0b0b0b;
-
   --gold: #ddb873;
   --gold2: #f1d7a1;
-
   --turquoise: #12d6d0;
-
   --text: #f4ede1;
   --muted: #bdb3a5;
 
   width: 100%;
   min-height: 100vh;
+  padding: 70px 20px;
 
   background:
     radial-gradient(
@@ -33,164 +26,32 @@
     ),
     linear-gradient(145deg, #101515, #050505 45%, #0f1111);
 
-  padding: 70px 20px;
-
-  font-family: "Montserrat", sans-serif;
-
   color: var(--text);
+  font-family: "Montserrat", sans-serif;
 }
 
 .cv-document {
   display: flex;
   flex-direction: column;
-
   align-items: center;
-
   gap: 42px;
 }
 
-/*=========================================================*/
-
-.cv-page {
-  position: relative;
-
+.cv-page-preview {
   width: 210mm;
   height: 297mm;
-
-  overflow: hidden;
-
-  background: linear-gradient(145deg, #090909, #020202 50%, #090909);
-
-  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
-
-  padding: 12mm 13mm 11mm;
+  flex-shrink: 0;
 }
 
-/*=========================================================*/
-
-.cv-page::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 6mm;
-
-  border: 0.22mm solid rgba(221, 184, 115, 0.15);
-}
-
-/*=========================================================*/
-
-.cv-page::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.018),
-    transparent
-  );
-
-  pointer-events: none;
-}
-
-/*=========================================================*/
-
-.cv-paper-texture {
-  position: absolute;
-
-  inset: 0;
-
-  opacity: 0.17;
-
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.02) 1px,
-
-    transparent 1px,
-
-    transparent 4px
-  );
-}
-
-/*=========================================================*/
-
-.cv-page-corner {
-  position: absolute;
-
-  width: 105mm;
-  height: 105mm;
-
-  pointer-events: none;
-}
-
-.cv-page-corner span {
-  position: absolute;
-
-  inset: 0;
-
-  border-radius: 50%;
-
-  border: 0.22mm solid rgba(221, 184, 115, 0.1);
-}
-
-.cv-page-corner span:nth-child(2) {
-  inset: 5mm;
-  border-color: rgba(221, 184, 115, 0.06);
-}
-
-.cv-page-corner span:nth-child(3) {
-  inset: 10mm;
-
-  border-color: rgba(18, 214, 208, 0.1);
-}
-
-/*=========================================================*/
-
-.cv-page-corner--top-right {
-  top: -62mm;
-  right: -45mm;
-}
-
-.cv-page-corner--bottom-left {
-  left: -50mm;
-  bottom: -62mm;
-}
-
-/*=========================================================*/
-
-.cv-page h1,
-.cv-page h2,
-.cv-page h3 {
-  font-family: "Cormorant Garamond", serif;
-}
-
-.cv-page p {
-  color: var(--text);
-}
-
-.cv-page ul {
-  padding-left: 18px;
-}
-
-.cv-page li {
-  line-height: 1.45;
-}
-
-/*=========================================================*/
-
-.cv-print-button {
+.cv-download-control {
   position: fixed;
-
   top: 26px;
   right: 26px;
+  z-index: 100;
 
   width: 86px;
   height: 86px;
+  padding: 0;
 
   display: flex;
   flex-direction: column;
@@ -198,9 +59,8 @@
   align-items: center;
   gap: 10px;
 
-  border-radius: 22px;
-
   border: 1px solid rgba(221, 184, 115, 0.45);
+  border-radius: 22px;
 
   background: linear-gradient(
     145deg,
@@ -209,21 +69,27 @@
   );
 
   color: #f7f2e9;
-
+  font: inherit;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
 
   box-shadow:
     0 12px 35px rgba(0, 0, 0, 0.45),
     inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 
-  transition: 0.28s;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    opacity 0.28s ease;
 
   backdrop-filter: blur(10px);
 }
 
-.cv-print-button:hover {
+.cv-download-control:hover {
   transform: translateY(-3px) scale(1.04);
-
   border-color: var(--gold);
 
   box-shadow:
@@ -231,1331 +97,76 @@
     0 0 20px rgba(221, 184, 115, 0.12);
 }
 
-/*=========================================================*/
-
-@media print {
-  @page {
-    size: A4;
-
-    margin: 0;
-  }
-
-  html,
-  body,
-  #root {
-    margin: 0;
-    padding: 0;
-  }
-
-  .cv-print-button {
-    display: none;
-  }
-
-  .cv-screen {
-    padding: 0;
-
-    background: black;
-  }
-
-  .cv-document {
-    gap: 0;
-  }
-
-  .cv-page {
-    box-shadow: none;
-
-    break-after: page;
-  }
-}
-/* =========================================================
-   PARTE 2
-   HERO · CONTACTO · TÍTULOS · PERFIL
-   ========================================================= */
-
-/* =========================================================
-   HERO DE LA PRIMERA PÁGINA
-   ========================================================= */
-
-.cv-hero {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
-  align-items: stretch;
-  gap: 8mm;
-
-  min-height: 82mm;
-}
-
-/* =========================================================
-   COLUMNA DE LA FOTO
-   ========================================================= */
-
-.cv-hero-photo-column {
-  min-width: 0;
-}
-
-.cv-photo-frame {
-  position: relative;
-
-  width: 100%;
-  overflow: hidden;
-
-  background: #000;
-}
-
-.cv-photo-frame--hero {
-  height: 82mm;
-
-  border-left: 0.45mm solid var(--turquoise);
-  border-bottom: 0.35mm solid var(--gold);
-
-  box-shadow:
-    0 15px 30px rgba(0, 0, 0, 0.52),
-    0 0 0 0.2mm rgba(255, 255, 255, 0.035);
-}
-
-.cv-hero-photo {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center 47%;
-
-  filter: contrast(1.05) saturate(1.02) brightness(0.92);
-}
-
-.cv-photo-gradient {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.86) 0%,
-      rgba(0, 0, 0, 0.08) 40%,
-      transparent 67%
-    ),
-    linear-gradient(to right, transparent 68%, rgba(0, 0, 0, 0.28));
-
-  pointer-events: none;
-}
-
-.cv-photo-caption {
-  position: absolute;
-  left: 4mm;
-  bottom: 3.2mm;
-
-  color: rgba(255, 250, 240, 0.9);
-
-  font-size: 6.3pt;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.cv-photo-wheel {
-  position: absolute;
-  right: 4mm;
-  bottom: 2.8mm;
-}
-
-/* =========================================================
-   CONTENIDO DEL HERO
-   ========================================================= */
-
-.cv-hero-content {
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 1mm 0 0;
-}
-
-.cv-overline {
-  margin: 0 0 3mm !important;
-
-  color: var(--turquoise);
-
-  font-size: 7.2pt;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 0.19em;
-  text-transform: uppercase;
-}
-
-.cv-main-title {
-  display: flex;
-  flex-direction: column;
-
-  margin: 0;
-
-  color: var(--gold);
-
-  font-size: 39pt;
-  font-weight: 500;
-  line-height: 0.79;
-  letter-spacing: 0.01em;
-
-  text-shadow: 0 0 26px rgba(221, 184, 115, 0.09);
-}
-
-.cv-main-title span {
-  display: block;
-}
-
-.cv-main-title span:last-child {
-  margin-top: 2.5mm;
-}
-
-/* =========================================================
-   DIVISOR ORNAMENTAL
-   ========================================================= */
-
-.cv-ornamental-divider {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 2.5mm;
-
-  width: 100%;
-  margin: 5mm 0 4mm;
-}
-
-.cv-ornamental-divider > span {
-  height: 0.25mm;
-
-  background: linear-gradient(90deg, transparent, var(--turquoise));
-}
-
-.cv-ornamental-divider > span:last-child {
-  background: linear-gradient(90deg, var(--turquoise), transparent);
-}
-
-/* =========================================================
-   NOMBRES Y DISCIPLINAS
-   ========================================================= */
-
-.cv-performer-names {
-  color: var(--gold2);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 18pt;
-  font-weight: 500;
-  line-height: 1.08;
-}
-
-.cv-performer-names span {
-  padding: 0 1mm;
-
-  color: var(--turquoise);
-}
-
-.cv-main-disciplines {
-  margin-top: 2.5mm !important;
-
-  color: var(--text);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 11.8pt;
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-/* =========================================================
-   DATOS DE CONTACTO
-   ========================================================= */
-
-.cv-contact-list {
-  display: grid;
-  gap: 2.1mm;
-
-  margin-top: 5.5mm;
-  padding-top: 3.5mm;
-
-  border-top: 0.25mm solid rgba(18, 214, 208, 0.48);
-}
-
-.cv-contact-item {
-  display: grid;
-  grid-template-columns: 6.5mm minmax(0, 1fr);
-  align-items: center;
-  gap: 2.5mm;
-}
-
-.cv-contact-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 5.8mm;
-  height: 5.8mm;
-
-  color: var(--turquoise);
-}
-
-.cv-contact-icon {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-}
-
-.cv-contact-copy {
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.4mm;
-}
-
-.cv-contact-label {
-  color: var(--gold);
-
-  font-size: 6pt;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.cv-contact-value,
-.cv-contact-copy a {
-  color: var(--text);
-
-  font-size: 8.3pt;
-  font-weight: 400;
-  line-height: 1.3;
-
-  overflow-wrap: anywhere;
-}
-
-.cv-contact-copy a {
-  transition: color 0.2s ease;
-}
-
-.cv-contact-copy a:hover {
-  color: var(--turquoise);
-}
-
-/* =========================================================
-   RUEDAS DECORATIVAS
-   ========================================================= */
-
-.cv-decorative-wheel {
-  position: relative;
-
-  display: inline-block;
-  flex-shrink: 0;
-
-  width: 8mm;
-  height: 8mm;
-}
-
-.cv-decorative-wheel span {
-  position: absolute;
-
-  display: block;
-
-  border-radius: 50%;
-}
-
-.cv-decorative-wheel__outer {
-  inset: 0;
-
-  border: 0.35mm solid var(--turquoise);
-}
-
-.cv-decorative-wheel__middle {
-  inset: 1mm;
-
-  border: 0.25mm solid rgba(221, 184, 115, 0.82);
-}
-
-.cv-decorative-wheel__inner {
-  inset: 2.15mm;
-
-  border: 0.25mm solid rgba(18, 214, 208, 0.62);
-}
-
-/* =========================================================
-   CONFIGURACIÓN GENERAL DE SECCIONES
-   ========================================================= */
-
-.cv-section {
-  position: relative;
-  z-index: 2;
-
-  margin-top: 5mm;
-}
-
-.cv-section-title {
-  display: grid;
-  grid-template-columns: auto auto auto minmax(18mm, 1fr);
-  align-items: center;
-  gap: 2.4mm;
-
-  margin-bottom: 3mm;
-}
-
-.cv-section-number {
-  color: var(--turquoise);
-
-  font-size: 7pt;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.13em;
-}
-
-.cv-section-circle {
-  position: relative;
-
-  width: 5.3mm;
-  height: 5.3mm;
-
-  border: 0.3mm solid var(--turquoise);
-  border-radius: 50%;
-}
-
-.cv-section-circle span {
-  position: absolute;
-  inset: 1mm;
-
-  border: 0.2mm solid rgba(221, 184, 115, 0.85);
-  border-radius: 50%;
-}
-
-.cv-section-title h2 {
-  margin: 0;
-
-  color: var(--gold);
-
-  font-size: 16.5pt;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.015em;
-  white-space: nowrap;
-}
-
-.cv-section-line {
-  height: 0.25mm;
-
-  background: linear-gradient(
-    90deg,
-    var(--turquoise),
-    rgba(18, 214, 208, 0.04)
-  );
-}
-
-/* Títulos centrados de la segunda página. */
-
-.cv-section-title--centered {
-  grid-template-columns:
-    minmax(12mm, 1fr)
-    auto
-    auto
-    auto
-    minmax(12mm, 1fr);
-}
-
-.cv-section-title--centered::before {
-  content: "";
-
-  height: 0.25mm;
-
-  background: linear-gradient(90deg, transparent, var(--turquoise));
-}
-
-/* =========================================================
-   PERFIL PROFESIONAL
-   ========================================================= */
-
-.cv-profile-section {
-  margin-top: 5mm;
-}
-
-.cv-profile-text {
-  max-width: 180mm;
-
-  margin: 0 auto !important;
-  padding: 0 3mm;
-
-  color: var(--text);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 10.7pt;
-  font-weight: 400;
-  line-height: 1.45;
-  text-align: center;
-}
-
-/* =========================================================
-   AJUSTES DE PANTALLA PARA EL HERO
-   No afectan la impresión A4.
-   ========================================================= */
-
-@media screen and (max-width: 900px) {
-  .cv-main-title {
-    font-size: 39pt;
-  }
-
-  .cv-performer-names {
-    font-size: 18pt;
-  }
-}
-
-/* =========================================================
-   PARTE 3
-   ACTOS · LISTAS · TIMELINE · FOOTER · CABECERA PÁGINA 2
-   ========================================================= */
-
-/* =========================================================
-   ACTOS PRINCIPALES
-   ========================================================= */
-
-.cv-main-acts-section {
-  margin-top: 5mm;
-}
-
-.cv-acts-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7mm;
-}
-
-.cv-act-card {
-  min-width: 0;
-
-  padding: 3mm 3.5mm 3.2mm;
-
-  border-top: 0.35mm solid var(--gold);
-  border-bottom: 0.25mm solid rgba(18, 214, 208, 0.35);
-
-  background: linear-gradient(
-    135deg,
-    rgba(221, 184, 115, 0.06),
-    rgba(221, 184, 115, 0.015) 55%,
-    transparent
-  );
-
-  box-shadow: inset 0 0 0 0.2mm rgba(255, 255, 255, 0.018);
-}
-
-.cv-act-card:nth-child(2) {
-  border-top-color: var(--turquoise);
-
-  background: linear-gradient(
-    135deg,
-    rgba(18, 214, 208, 0.055),
-    rgba(18, 214, 208, 0.012) 55%,
-    transparent
-  );
-}
-
-.cv-act-heading {
-  display: grid;
-  grid-template-columns: 9mm minmax(0, 1fr);
-  align-items: flex-start;
-  gap: 2.7mm;
-}
-
-.cv-card-label {
-  display: block;
-
-  margin-bottom: 0.8mm;
-
-  color: var(--turquoise);
-
-  font-size: 6.2pt;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.cv-act-card h3 {
-  margin: 0;
-
-  color: var(--gold);
-
-  font-size: 15pt;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.cv-act-card p {
-  margin-top: 1mm !important;
-
-  color: var(--text);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 9.8pt;
-  font-style: italic;
-  line-height: 1.2;
-}
-
-/* =========================================================
-   LISTAS
-   ========================================================= */
-
-.cv-bullet-list {
-  display: grid;
-  gap: 1.15mm;
-
-  margin-top: 2.5mm !important;
-  padding-left: 4.5mm !important;
-
-  list-style: disc;
-}
-
-.cv-bullet-list li {
-  padding-left: 0.6mm;
-
-  color: var(--text);
-
-  font-size: 8.25pt;
-  line-height: 1.35;
-}
-
-.cv-bullet-list li::marker {
-  color: var(--turquoise);
-}
-
-.cv-bullet-list strong {
-  color: var(--gold);
-  font-weight: 600;
-}
-
-/* =========================================================
-   EXPERIENCIA PRINCIPAL
-   ========================================================= */
-
-.cv-experience-section {
-  margin-top: 5mm;
-  padding-bottom: 18mm;
-}
-
-.cv-timeline {
-  position: relative;
-
-  display: grid;
-  gap: 1.65mm;
-
-  padding-left: 8mm;
-}
-
-.cv-timeline::before {
-  content: "";
-
-  position: absolute;
-  top: 1mm;
-  bottom: 1mm;
-  left: 2.4mm;
-
-  width: 0.3mm;
-
-  background: linear-gradient(
-    to bottom,
-    var(--turquoise),
-    rgba(18, 214, 208, 0.12)
-  );
-}
-
-.cv-timeline-item {
-  position: relative;
-  min-width: 0;
-}
-
-.cv-timeline-dot {
-  position: absolute;
-  top: 1.25mm;
-  left: -6.8mm;
-
-  width: 2.2mm;
-  height: 2.2mm;
-
-  border: 0.3mm solid var(--turquoise);
-  border-radius: 50%;
-
-  background: var(--black);
-
-  box-shadow: 0 0 0 0.55mm rgba(18, 214, 208, 0.08);
-}
-
-.cv-timeline-heading {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 1.1mm;
-
-  line-height: 1.05;
-}
-
-.cv-timeline-heading h3 {
-  margin: 0;
-
-  color: var(--gold);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 10.7pt;
-  font-weight: 600;
-}
-
-.cv-timeline-separator {
-  color: rgba(221, 184, 115, 0.55);
-}
-
-.cv-timeline-location {
-  color: var(--gold2);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 9pt;
-  font-weight: 500;
-}
-
-.cv-timeline-period-separator {
-  margin-left: 0.8mm;
-
-  color: rgba(18, 214, 208, 0.55);
-}
-
-.cv-timeline time {
-  color: var(--text);
-
-  font-size: 7.2pt;
-  font-weight: 500;
-}
-
-.cv-timeline-item p {
-  margin-top: 0.45mm !important;
-
-  color: var(--muted);
-
-  font-size: 7.25pt;
-  line-height: 1.28;
-}
-
-/* =========================================================
-   FOOTER DE PÁGINA
-   ========================================================= */
-
-.cv-page-footer {
-  position: absolute;
-  right: 13mm;
-  bottom: 9mm;
-  left: 13mm;
-
-  z-index: 3;
-}
-
-.cv-footer-line {
-  width: 100%;
-  height: 0.25mm;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--turquoise),
-    var(--gold),
-    transparent
-  );
-}
-
-.cv-footer-content {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 3mm;
-
-  padding-top: 2.2mm;
-
-  color: var(--muted);
-
-  font-size: 6pt;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.13em;
-}
-
-.cv-footer-content span:last-child {
-  text-align: right;
-}
-
-.cv-footer-content .cv-decorative-wheel {
-  width: 5mm;
-  height: 5mm;
-}
-
-/* =========================================================
-   CABECERA DE LA SEGUNDA PÁGINA
-   ========================================================= */
-
-.cv-page-two-header {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: auto minmax(20mm, 1fr) auto;
-  align-items: center;
-  gap: 3mm;
-
-  padding-bottom: 3mm;
-
-  color: var(--gold);
-
-  font-size: 6.2pt;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.15em;
-}
-
-.cv-page-two-header-line {
-  height: 0.25mm;
-
-  background: linear-gradient(90deg, var(--gold), var(--turquoise));
-}
-
-.cv-page-two-header strong {
-  color: var(--turquoise);
-}
-
-/* =========================================================
-   AJUSTES PUNTUALES DE LA PRIMERA PÁGINA
-   ========================================================= */
-
-.cv-page--one .cv-section-title {
-  margin-bottom: 2.7mm;
-}
-
-.cv-page--one .cv-main-acts-section {
-  margin-top: 4.8mm;
-}
-
-.cv-page--one .cv-experience-section {
-  margin-top: 4.6mm;
-}
-
-/* El contenido queda por encima de los adornos. */
-
-.cv-page--one .cv-hero,
-.cv-page--one .cv-section,
-.cv-page--one .cv-page-footer {
-  position: relative;
-  z-index: 2;
-}
-
-/* =========================================================
-   IMPRESIÓN
-   ========================================================= */
-
-@media print {
-  .cv-act-card,
-  .cv-timeline-item,
-  .cv-page-footer,
-  .cv-page-two-header {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-}
-
-/* =========================================================
-   PARTE 4
-   SEGUNDA PÁGINA · FOTO FINAL · RESPONSIVE · IMPRESIÓN
-   ========================================================= */
-
-/* =========================================================
-   CONFIGURACIÓN GENERAL DE LA PÁGINA 2
-   ========================================================= */
-
-.cv-page--two .cv-section {
-  margin-top: 4.2mm;
-}
-
-.cv-page--two .cv-section-title {
-  margin-bottom: 2.6mm;
-}
-
-.cv-skills-section {
-  margin-top: 1.8mm !important;
-}
-
-/* =========================================================
-   HABILIDADES ADICIONALES
-   ========================================================= */
-
-.cv-skills-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 7mm;
-}
-
-.cv-skill-column {
-  min-width: 0;
-
-  padding: 1.8mm 3mm 2mm;
-
-  border-left: 0.35mm solid rgba(18, 214, 208, 0.55);
-
-  background: linear-gradient(
-    90deg,
-    rgba(18, 214, 208, 0.035),
-    transparent 72%
-  );
-}
-
-.cv-skill-column:nth-child(2) {
-  border-left-color: rgba(221, 184, 115, 0.55);
-
-  background: linear-gradient(
-    90deg,
-    rgba(221, 184, 115, 0.035),
-    transparent 72%
-  );
-}
-
-.cv-skill-column .cv-bullet-list {
-  margin-top: 0 !important;
-}
-
-.cv-skill-column .cv-bullet-list li {
-  font-size: 8.3pt;
-  line-height: 1.36;
-}
-
-/* =========================================================
-   EXPERIENCIA ADICIONAL
-   ========================================================= */
-
-.cv-other-experience-section {
-  margin-top: 4.2mm !important;
-}
-
-.cv-other-experience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3.2mm;
-}
-
-.cv-experience-card {
-  min-width: 0;
-
-  display: grid;
-  grid-template-columns: 3mm minmax(0, 1fr);
-  align-items: start;
-  gap: 2mm;
-
-  padding: 2.4mm 2.7mm 2.6mm;
-
-  border-top: 0.3mm solid rgba(221, 184, 115, 0.56);
-  border-bottom: 0.22mm solid rgba(18, 214, 208, 0.3);
-
-  background: linear-gradient(
-    145deg,
-    rgba(221, 184, 115, 0.05),
-    rgba(18, 214, 208, 0.018) 70%
-  );
-}
-
-.cv-experience-card:nth-child(2) {
-  border-top-color: rgba(18, 214, 208, 0.62);
-}
-
-.cv-experience-card-dot {
-  width: 2.3mm;
-  height: 2.3mm;
-
-  margin-top: 1.1mm;
-
-  border: 0.3mm solid var(--turquoise);
-  border-radius: 50%;
-
-  box-shadow: 0 0 0 0.5mm rgba(18, 214, 208, 0.06);
-}
-
-.cv-experience-card-heading {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.9mm;
-
-  margin-bottom: 1.2mm;
-}
-
-.cv-experience-card-heading h3 {
-  margin: 0;
-
-  color: var(--gold);
-
-  font-size: 10.4pt;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.cv-experience-card-heading span {
-  color: var(--gold2);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 8.1pt;
-  font-weight: 500;
-}
-
-.cv-experience-card-heading time {
-  color: var(--turquoise);
-
-  font-size: 6.5pt;
-  font-weight: 600;
-}
-
-.cv-experience-card p {
-  color: var(--muted);
-
-  font-size: 7.15pt;
-  line-height: 1.35;
-}
-
-/* =========================================================
-   FORMACIÓN Y EDUCACIÓN
-   ========================================================= */
-
-.cv-education-section {
-  margin-top: 4.1mm !important;
-}
-
-.cv-education-grid,
-.cv-technical-grid {
-  display: grid;
-  grid-template-columns:
-    minmax(0, 1fr)
-    7mm
-    minmax(0, 1fr);
-  gap: 4mm;
-}
-
-.cv-person-column,
-.cv-technical-column {
-  min-width: 0;
-}
-
-.cv-person-heading,
-.cv-technical-heading {
-  display: flex;
-  align-items: center;
-  gap: 3mm;
-
-  margin-bottom: 2mm;
-}
-
-.cv-person-heading h3,
-.cv-technical-heading h3 {
-  margin: 0;
-
-  color: var(--gold);
-
-  font-size: 13.5pt;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.cv-person-column .cv-bullet-list {
-  margin-top: 1.5mm !important;
-}
-
-.cv-person-column .cv-bullet-list li {
-  font-size: 8pt;
-  line-height: 1.38;
-}
-
-/* =========================================================
-   DIVISOR VERTICAL
-   ========================================================= */
-
-.cv-vertical-divider {
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-
-  min-height: 100%;
-}
-
-.cv-vertical-divider::before {
-  content: "";
-
-  position: absolute;
-  top: 0;
-  bottom: 0;
-
-  width: 0.3mm;
-
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--turquoise) 14%,
-    var(--turquoise) 86%,
-    transparent
-  );
-}
-
-.cv-vertical-divider .cv-decorative-wheel {
-  z-index: 1;
-
-  width: 5.2mm;
-  height: 5.2mm;
-
-  background: var(--black);
-}
-
-/* =========================================================
-   REQUERIMIENTOS TÉCNICOS
-   ========================================================= */
-
-.cv-technical-section {
-  margin-top: 3.8mm !important;
-}
-
-.cv-technical-column .cv-bullet-list {
-  gap: 0.85mm;
-
-  margin-top: 1.4mm !important;
-}
-
-.cv-technical-column .cv-bullet-list li {
-  font-size: 7.65pt;
-  line-height: 1.3;
-}
-
-/* =========================================================
-   FOTO INFERIOR
-   ========================================================= */
-
-.cv-bottom-photo {
-  position: absolute;
-  right: 13mm;
-  bottom: 16mm;
-  left: 13mm;
-
-  height: 52mm;
-
-  overflow: hidden;
-
-  border-top: 0.35mm solid rgba(221, 184, 115, 0.58);
-  border-bottom: 0.4mm solid var(--turquoise);
-
-  background: #000;
-
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.52),
-    0 0 0 0.2mm rgba(255, 255, 255, 0.025);
-}
-
-.cv-bottom-photo img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center 47%;
-
-  filter: contrast(1.06) saturate(0.97) brightness(0.9);
-}
-
-.cv-bottom-photo-gradient {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.12) 42%,
-      transparent 69%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.3),
-      transparent 32%,
-      transparent 72%,
-      rgba(0, 0, 0, 0.18)
-    );
-
-  pointer-events: none;
-}
-
-.cv-bottom-photo-copy {
-  position: absolute;
-  right: 4mm;
-  bottom: 3mm;
-  left: 4mm;
-
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5mm;
-}
-
-.cv-bottom-photo-copy span {
-  color: rgba(255, 250, 240, 0.9);
-
-  font-size: 6.2pt;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.cv-download-control:disabled {
+  opacity: 0.55;
+  cursor: wait;
 }
 
-.cv-bottom-photo-copy a {
-  color: var(--gold);
-
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 10pt;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.cv-bottom-photo-copy a:hover {
-  color: var(--turquoise);
-}
-
-/* =========================================================
-   CÍRCULOS SOBRE LA FOTO INFERIOR
-   ========================================================= */
-
-.cv-bottom-photo-rings {
-  position: absolute;
-  bottom: -46mm;
-  left: -22mm;
-
-  width: 84mm;
-  height: 84mm;
-
-  pointer-events: none;
-}
-
-.cv-bottom-photo-rings span {
-  position: absolute;
-  inset: 0;
-
-  border: 0.35mm solid rgba(221, 184, 115, 0.4);
-  border-radius: 50%;
-}
-
-.cv-bottom-photo-rings span:nth-child(2) {
-  inset: 5mm;
-
-  border-color: rgba(221, 184, 115, 0.24);
+.cv-download-control:disabled:hover {
+  transform: none;
 }
 
-.cv-bottom-photo-rings span:nth-child(3) {
-  inset: 10mm;
-
-  border-color: rgba(18, 214, 208, 0.34);
-}
-
-/* =========================================================
-   FOOTER DE LA PÁGINA 2
-   ========================================================= */
-
-.cv-page-footer--second {
-  bottom: 5.5mm;
-}
-
-/* =========================================================
-   AJUSTES PARA EVITAR SUPERPOSICIONES
-   ========================================================= */
-
-/*
-  Reservamos espacio para que la foto no se monte sobre
-  la sección de requerimientos.
-*/
-
-.cv-page--two .cv-technical-section {
-  padding-bottom: 57mm;
-}
-
-/*
-  Aseguramos que los elementos decorativos queden detrás.
-*/
-
-.cv-page--two .cv-page-corner {
-  z-index: 0;
-}
-
-.cv-page--two .cv-section,
-.cv-page--two .cv-page-two-header,
-.cv-page--two .cv-bottom-photo,
-.cv-page--two .cv-page-footer {
-  z-index: 2;
+.cv-download-control--mobile {
+  display: none;
 }
-
-/* =========================================================
-   VISTA EN PANTALLAS MEDIANAS
-   ========================================================= */
 
 @media screen and (max-width: 1100px) {
   .cv-screen {
     padding-top: 76px;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   .cv-document {
-    align-items: flex-start;
-
-    width: max-content;
-    min-width: 100%;
-
-    padding: 0 20px;
-  }
-
-  .cv-page {
-    flex-shrink: 0;
+    gap: 24px;
   }
 }
-
-/* =========================================================
-   VISTA EN MÓVILES
-   ========================================================= */
 
 @media screen and (max-width: 900px) {
   .cv-screen {
-    padding-right: 0;
-    padding-left: 0;
+    padding: 72px 0 24px;
   }
 
   .cv-document {
-    padding-right: 16px;
-    padding-left: 16px;
+    width: 100%;
+    padding: 0 12px;
   }
 
-  .cv-print-button {
+  .cv-page-preview {
+    --cv-preview-scale: calc((100vw - 24px) / 793.7);
+
+    width: calc(210mm * var(--cv-preview-scale));
+    height: calc(297mm * var(--cv-preview-scale));
+  }
+
+  .cv-page-preview > .cv-page {
+    transform: scale(var(--cv-preview-scale));
+    transform-origin: top left;
+  }
+
+  .cv-download-control {
     top: 14px;
     right: 14px;
 
-    min-height: 40px;
+    width: auto;
+    height: auto;
+    min-height: 44px;
     padding: 9px 14px;
 
+    flex-direction: row;
+    gap: 8px;
+
+    border-radius: 14px;
     font-size: 12px;
   }
 
-  .cv-print-icon {
-    width: 34px;
-    height: 34px;
+  .cv-download-control--desktop {
+    display: none;
+  }
 
-    color: var(--gold);
+  .cv-download-control--mobile {
+    display: flex;
   }
 }
-
-/* =========================================================
-   IMPRESIÓN Y EXPORTACIÓN A PDF
-   ========================================================= */
 
 @media print {
   @page {
@@ -1575,7 +186,6 @@
     padding: 0 !important;
 
     background: #000 !important;
-
     overflow: visible !important;
 
     -webkit-print-color-adjust: exact !important;
@@ -1595,14 +205,13 @@
     padding: 0 !important;
 
     background: #000 !important;
-
     overflow: visible !important;
 
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  .cv-print-button {
+  .cv-download-control {
     display: none !important;
   }
 
@@ -1616,6 +225,17 @@
     padding: 0 !important;
   }
 
+  .cv-page-preview {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cv-page-preview > .cv-page {
+    transform: none !important;
+  }
+
   .cv-page {
     width: 210mm !important;
     height: 297mm !important;
@@ -1623,15 +243,13 @@
     margin: 0 !important;
     padding: 12mm 13mm 11mm !important;
 
+    overflow: hidden !important;
     box-shadow: none !important;
 
     break-after: page;
     page-break-after: always;
-
     break-inside: avoid;
     page-break-inside: avoid;
-
-    overflow: hidden !important;
 
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;

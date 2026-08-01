@@ -1,0 +1,74 @@
+.cv-section-title {
+  display: grid;
+  grid-template-columns: auto auto auto minmax(18mm, 1fr);
+  align-items: center;
+  gap: 2.4mm;
+
+  margin-bottom: 3mm;
+}
+
+.cv-section-number {
+  color: var(--turquoise);
+
+  font-size: 7pt;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.13em;
+}
+
+.cv-section-circle {
+  position: relative;
+
+  width: 5.3mm;
+  height: 5.3mm;
+
+  border: 0.3mm solid var(--turquoise);
+  border-radius: 50%;
+}
+
+.cv-section-circle span {
+  position: absolute;
+  inset: 1mm;
+
+  border: 0.2mm solid rgba(221, 184, 115, 0.85);
+  border-radius: 50%;
+}
+
+.cv-section-title h2 {
+  margin: 0;
+
+  color: var(--gold);
+
+  font-size: 16.5pt;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
+.cv-section-line {
+  height: 0.25mm;
+
+  background: linear-gradient(
+    90deg,
+    var(--turquoise),
+    rgba(18, 214, 208, 0.04)
+  );
+}
+
+.cv-section-title--centered {
+  grid-template-columns:
+    minmax(12mm, 1fr)
+    auto
+    auto
+    auto
+    minmax(12mm, 1fr);
+}
+
+.cv-section-title--centered::before {
+  content: "";
+
+  height: 0.25mm;
+
+  background: linear-gradient(90deg, transparent, var(--turquoise));
+}

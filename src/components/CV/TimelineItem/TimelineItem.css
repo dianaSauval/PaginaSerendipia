@@ -1,0 +1,74 @@
+.cv-timeline-item {
+  position: relative;
+  min-width: 0;
+}
+
+.cv-timeline-dot {
+  position: absolute;
+  top: 1.25mm;
+  left: -6.8mm;
+
+  width: 2.2mm;
+  height: 2.2mm;
+
+  border: 0.3mm solid var(--turquoise);
+  border-radius: 50%;
+
+  background: var(--black);
+
+  box-shadow: 0 0 0 0.55mm rgba(18, 214, 208, 0.08);
+}
+
+.cv-timeline-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1.1mm;
+
+  line-height: 1.05;
+}
+
+.cv-timeline-heading h3 {
+  margin: 0;
+
+  color: var(--gold);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 10.7pt;
+  font-weight: 600;
+}
+
+.cv-timeline-separator {
+  color: rgba(221, 184, 115, 0.55);
+}
+
+.cv-timeline-location {
+  color: var(--gold2);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 9pt;
+  font-weight: 500;
+}
+
+.cv-timeline-period-separator {
+  margin-left: 0.8mm;
+  color: rgba(18, 214, 208, 0.55);
+}
+
+.cv-timeline-heading time {
+  color: var(--text);
+
+  font-size: 7.2pt;
+  font-weight: 500;
+}
+
+.cv-timeline-item p {
+  margin-top: 0.45mm !important;
+
+  color: var(--muted);
+
+  font-size: 7.25pt;
+  line-height: 1.28;
+}

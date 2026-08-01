@@ -1,0 +1,30 @@
+.cv-decorative-wheel {
+  position: relative;
+
+  display: inline-block;
+  flex-shrink: 0;
+
+  width: 8mm;
+  height: 8mm;
+}
+
+.cv-decorative-wheel span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.cv-decorative-wheel__outer {
+  inset: 0;
+  border: 0.35mm solid var(--turquoise);
+}
+
+.cv-decorative-wheel__middle {
+  inset: 1mm;
+  border: 0.25mm solid rgba(221, 184, 115, 0.82);
+}
+
+.cv-decorative-wheel__inner {
+  inset: 2.15mm;
+  border: 0.25mm solid rgba(18, 214, 208, 0.62);
+}

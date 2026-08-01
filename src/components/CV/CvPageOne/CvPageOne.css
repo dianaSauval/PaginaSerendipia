@@ -1,0 +1,507 @@
+.cv-page {
+  position: relative;
+
+  width: 210mm;
+  height: 297mm;
+  padding: 12mm 13mm 11mm;
+
+  overflow: hidden;
+
+  background: linear-gradient(145deg, #090909, #020202 50%, #090909);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+}
+
+.cv-page::before {
+  content: "";
+  position: absolute;
+  inset: 6mm;
+
+  border: 0.22mm solid rgba(221, 184, 115, 0.15);
+}
+
+.cv-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.018),
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+.cv-paper-texture {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.17;
+
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.cv-page-corner {
+  position: absolute;
+
+  width: 105mm;
+  height: 105mm;
+
+  pointer-events: none;
+}
+
+.cv-page-corner span {
+  position: absolute;
+  inset: 0;
+
+  border: 0.22mm solid rgba(221, 184, 115, 0.1);
+  border-radius: 50%;
+}
+
+.cv-page-corner span:nth-child(2) {
+  inset: 5mm;
+  border-color: rgba(221, 184, 115, 0.06);
+}
+
+.cv-page-corner span:nth-child(3) {
+  inset: 10mm;
+  border-color: rgba(18, 214, 208, 0.1);
+}
+
+.cv-page-corner--top-right {
+  top: -62mm;
+  right: -45mm;
+}
+
+.cv-page-corner--bottom-left {
+  left: -50mm;
+  bottom: -62mm;
+}
+
+.cv-page h1,
+.cv-page h2,
+.cv-page h3 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.cv-page p {
+  margin: 0;
+  color: var(--text);
+}
+
+.cv-page ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.cv-page li {
+  line-height: 1.45;
+}
+
+.cv-section {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 5mm;
+}
+
+.cv-hero {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  align-items: stretch;
+  gap: 8mm;
+
+  min-height: 82mm;
+}
+
+.cv-hero-photo-column {
+  min-width: 0;
+}
+
+.cv-photo-frame {
+  position: relative;
+
+  width: 100%;
+  overflow: hidden;
+
+  background: #000;
+}
+
+.cv-photo-frame--hero {
+  height: 82mm;
+
+  border-left: 0.45mm solid var(--turquoise);
+  border-bottom: 0.35mm solid var(--gold);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.52),
+    0 0 0 0.2mm rgba(255, 255, 255, 0.035);
+}
+
+.cv-hero-photo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 47%;
+
+  filter: contrast(1.05) saturate(1.02) brightness(0.92);
+}
+
+.cv-photo-gradient {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.86) 0%,
+      rgba(0, 0, 0, 0.08) 40%,
+      transparent 67%
+    ),
+    linear-gradient(to right, transparent 68%, rgba(0, 0, 0, 0.28));
+
+  pointer-events: none;
+}
+
+.cv-photo-caption {
+  position: absolute;
+  left: 4mm;
+  bottom: 3.2mm;
+
+  color: rgba(255, 250, 240, 0.9);
+
+  font-size: 6.3pt;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cv-photo-wheel {
+  position: absolute;
+  right: 4mm;
+  bottom: 2.8mm;
+}
+
+.cv-hero-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 1mm 0 0;
+}
+
+.cv-overline {
+  margin: 0 0 3mm !important;
+
+  color: var(--turquoise);
+
+  font-size: 7.2pt;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.cv-main-title {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+
+  color: var(--gold);
+
+  font-size: 39pt;
+  font-weight: 500;
+  line-height: 0.79;
+  letter-spacing: 0.01em;
+
+  text-shadow: 0 0 26px rgba(221, 184, 115, 0.09);
+}
+
+.cv-main-title span {
+  display: block;
+}
+
+.cv-main-title span:last-child {
+  margin-top: 2.5mm;
+}
+
+.cv-ornamental-divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2.5mm;
+
+  width: 100%;
+  margin: 5mm 0 4mm;
+}
+
+.cv-ornamental-divider > span {
+  height: 0.25mm;
+  background: linear-gradient(90deg, transparent, var(--turquoise));
+}
+
+.cv-ornamental-divider > span:last-child {
+  background: linear-gradient(90deg, var(--turquoise), transparent);
+}
+
+.cv-performer-names {
+  color: var(--gold2);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18pt;
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.cv-performer-names span {
+  padding: 0 1mm;
+  color: var(--turquoise);
+}
+
+.cv-main-disciplines {
+  margin-top: 2.5mm !important;
+
+  color: var(--text);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 11.8pt;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.cv-contact-list {
+  display: grid;
+  gap: 2.1mm;
+
+  margin-top: 5.5mm;
+  padding-top: 3.5mm;
+
+  border-top: 0.25mm solid rgba(18, 214, 208, 0.48);
+}
+
+.cv-profile-section {
+  margin-top: 5mm;
+}
+
+.cv-profile-text {
+  max-width: 180mm;
+
+  margin: 0 auto !important;
+  padding: 0 3mm;
+
+  color: var(--text);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 10.7pt;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.cv-main-acts-section {
+  margin-top: 4.8mm;
+}
+
+.cv-acts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7mm;
+}
+
+.cv-act-card {
+  min-width: 0;
+
+  padding: 3mm 3.5mm 3.2mm;
+
+  border-top: 0.35mm solid var(--gold);
+  border-bottom: 0.25mm solid rgba(18, 214, 208, 0.35);
+
+  background: linear-gradient(
+    135deg,
+    rgba(221, 184, 115, 0.06),
+    rgba(221, 184, 115, 0.015) 55%,
+    transparent
+  );
+
+  box-shadow: inset 0 0 0 0.2mm rgba(255, 255, 255, 0.018);
+}
+
+.cv-act-card:nth-child(2) {
+  border-top-color: var(--turquoise);
+
+  background: linear-gradient(
+    135deg,
+    rgba(18, 214, 208, 0.055),
+    rgba(18, 214, 208, 0.012) 55%,
+    transparent
+  );
+}
+
+.cv-act-heading {
+  display: grid;
+  grid-template-columns: 9mm minmax(0, 1fr);
+  align-items: flex-start;
+  gap: 2.7mm;
+}
+
+.cv-card-label {
+  display: block;
+
+  margin-bottom: 0.8mm;
+
+  color: var(--turquoise);
+
+  font-size: 6.2pt;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.cv-act-card h3 {
+  margin: 0;
+
+  color: var(--gold);
+
+  font-size: 15pt;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.cv-act-card p {
+  margin-top: 1mm !important;
+
+  color: var(--text);
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 9.8pt;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.cv-bullet-list {
+  display: grid;
+  gap: 1.15mm;
+
+  margin-top: 2.5mm !important;
+  padding-left: 4.5mm !important;
+
+  list-style: disc;
+}
+
+.cv-bullet-list li {
+  padding-left: 0.6mm;
+
+  color: var(--text);
+
+  font-size: 8.25pt;
+  line-height: 1.35;
+}
+
+.cv-bullet-list li::marker {
+  color: var(--turquoise);
+}
+
+.cv-bullet-list strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cv-experience-section {
+  margin-top: 4.6mm;
+  padding-bottom: 18mm;
+}
+
+.cv-timeline {
+  position: relative;
+
+  display: grid;
+  gap: 1.65mm;
+
+  padding-left: 8mm;
+}
+
+.cv-timeline::before {
+  content: "";
+  position: absolute;
+  top: 1mm;
+  bottom: 1mm;
+  left: 2.4mm;
+
+  width: 0.3mm;
+
+  background: linear-gradient(
+    to bottom,
+    var(--turquoise),
+    rgba(18, 214, 208, 0.12)
+  );
+}
+
+.cv-page-footer {
+  position: absolute;
+  right: 13mm;
+  bottom: 9mm;
+  left: 13mm;
+
+  z-index: 3;
+}
+
+.cv-footer-line {
+  width: 100%;
+  height: 0.25mm;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--turquoise),
+    var(--gold),
+    transparent
+  );
+}
+
+.cv-footer-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 3mm;
+
+  padding-top: 2.2mm;
+
+  color: var(--muted);
+
+  font-size: 6pt;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.13em;
+}
+
+.cv-footer-content span:last-child {
+  text-align: right;
+}
+
+.cv-footer-content .cv-decorative-wheel {
+  width: 5mm;
+  height: 5mm;
+}
+
+.cv-page--one .cv-section-title {
+  margin-bottom: 2.7mm;
+}
