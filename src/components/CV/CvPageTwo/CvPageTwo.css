@@ -146,11 +146,15 @@
 
 .cv-experience-card-heading {
   display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.9mm;
+  flex-direction: column;
+  gap: 1mm;
 
-  margin-bottom: 1.2mm;
+  margin-bottom: 1.8mm;
+}
+.cv-experience-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.6mm;
 }
 
 .cv-experience-card-heading h3 {
@@ -162,19 +166,22 @@
   font-weight: 600;
   line-height: 1;
 }
+.cv-dot {
+  color: rgba(221, 184, 115, 0.45);
+}
 
 .cv-experience-card-heading span {
   color: var(--gold2);
 
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 8.1pt;
+  font-size: 8.3pt;
   font-weight: 500;
 }
 
 .cv-experience-card-heading time {
   color: var(--turquoise);
 
-  font-size: 6.5pt;
+  font-size: 6.7pt;
   font-weight: 600;
 }
 

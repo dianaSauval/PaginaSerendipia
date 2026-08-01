@@ -69,8 +69,12 @@ const CvPageTwo = ({ onImageLoad }: CvPageTwoProps) => (
           <div>
             <div className="cv-experience-card-heading">
               <h3>Phaway Company</h3>
-              <span>Argentina</span>
-              <time>2022–2023</time>
+
+              <div className="cv-experience-meta">
+                <span>Argentina</span>
+                <span className="cv-dot">•</span>
+                <time>2022–2023</time>
+              </div>
             </div>
 
             <p>
@@ -87,8 +91,12 @@ const CvPageTwo = ({ onImageLoad }: CvPageTwoProps) => (
           <div>
             <div className="cv-experience-card-heading">
               <h3>Runa Civil Association</h3>
-              <span>Argentina</span>
-              <time>2019–2023</time>
+
+              <div className="cv-experience-meta">
+                <span>Argentina</span>
+                <span className="cv-dot">•</span>
+                <time>2019–2023</time>
+              </div>
             </div>
 
             <p>
@@ -104,8 +112,12 @@ const CvPageTwo = ({ onImageLoad }: CvPageTwoProps) => (
           <div>
             <div className="cv-experience-card-heading">
               <h3>Compañía Scazziota</h3>
-              <span>Argentina</span>
-              <time>2023</time>
+
+              <div className="cv-experience-meta">
+                <span>Argentina</span>
+                <span className="cv-dot">•</span>
+                <time>2023</time>
+              </div>
             </div>
 
             <p>
